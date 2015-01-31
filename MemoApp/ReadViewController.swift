@@ -39,7 +39,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
     }
     
     @IBAction func back(){
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)   //画面遷移
     }
 
 }
