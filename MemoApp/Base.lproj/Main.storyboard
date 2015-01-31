@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Eb6-dh-PBk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="IEr-Gh-oMh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Read View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ReadViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -32,7 +32,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BsK-hT-0RV"/>
+                    <navigationItem key="navigationItem" id="TV4-ph-1Ws">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pVI-bH-Olw">
+                            <connections>
+                                <action selector="back" destination="vXZ-lx-hvc" id="q7W-nP-Vgx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableview" destination="eTa-ez-IHo" id="n0H-1t-zpu"/>
                     </connections>
@@ -41,11 +47,68 @@
             </objects>
             <point key="canvasLocation" x="662" y="302"/>
         </scene>
+        <!--First View Controller-->
+        <scene sceneID="UR9-jD-UOo">
+            <objects>
+                <viewController storyboardIdentifier="first" id="IEr-Gh-oMh" customClass="FirstViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1yx-2Q-6zr"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pnj-Ft-h4T"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fQr-fF-1ci">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdR-IV-Hm5">
+                                <rect key="frame" x="0.0" y="326" width="320" height="74"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Read">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Eb6-dh-PBk" kind="modal" id="Nhg-LY-sYa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5C3-lJ-zRV">
+                                <rect key="frame" x="0.0" y="408" width="320" height="74"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Write">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="geO-OR-WCF" kind="modal" id="FSj-gQ-Rsw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GnX-hc-5J3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-267" y="302"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rND-Wk-NA7">
+            <objects>
+                <navigationController id="geO-OR-WCF" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qcf-cb-zW2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="P18-zw-cdF" kind="relationship" relationship="rootViewController" id="sdl-Ig-1qs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="smi-H8-XoS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-267" y="986"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="hY9-NU-sch">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Eb6-dh-PBk" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="RzR-Ev-guF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e8E-11-S9O">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -58,6 +121,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qER-WA-e8X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="186" y="302"/>
+        </scene>
+        <!--Write View Controller-->
+        <scene sceneID="ziY-Hc-fsX">
+            <objects>
+                <viewController storyboardIdentifier="write" id="P18-zw-cdF" customClass="WriteViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZIy-DW-iQl"/>
+                        <viewControllerLayoutGuide type="bottom" id="rmZ-X0-XwC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tq1-sy-Q35">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDl-eY-9zI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items/>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KK-au-W7b">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem id="1mh-e8-m3l">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FrZ-iO-JA5"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="2gB-84-tGJ"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="aaaaaaa" translatesAutoresizingMaskIntoConstraints="NO" id="Hsn-Zx-Ifn">
+                                <rect key="frame" x="0.0" y="64" width="311" height="243"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5fA-f7-hll">
+                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="p8W-fc-7h7">
+                            <connections>
+                                <action selector="back" destination="P18-zw-cdF" id="fuD-gT-XSO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6IS-D7-PpG">
+                            <connections>
+                                <action selector="save" destination="P18-zw-cdF" id="NwU-eT-eNQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qcf-hS-crB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="186" y="986"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
