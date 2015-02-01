@@ -28,18 +28,42 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return texts.count   //cellの数を決定
+        
+        //cellの数を決定
+        return texts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        //
-        cell.textLabel?.text = texts[indexPath.row]   //cellのテキストを決定
+        //cellのテキストを決定
+        
+        cell.textLabel?.text = texts[indexPath.row]
         return cell
     }
     
+    func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath:NSIndexPath!) {
+        //cellがタップされた時の挙動
+        
+        var text: String = texts[indexPath.row]
+        println(text)
+        
+        //遷移
+//        let editView = EditViewController()
+//        editView.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+//        self.presentViewController(editView, animated: true, completion: nil)
+        
+        //storyboardで設定したsegueを呼び出している?
+        performSegueWithIdentifier("toEditViewController",sender: nil)
+        
+        //cellの選択を解除
+        tableview.deselectRowAtIndexPath(indexPath, animated: true)
+        
+    }
+    
     @IBAction func back(){
-        dismissViewControllerAnimated(true, completion: nil)   //画面遷移
+        
+        //遷移
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
