@@ -8,6 +8,9 @@
 
 import UIKit
 
+var array:[String]=["hoge"]   //配列生成
+
+
 class FirstViewController :UIViewController {
     
     var image : UIImage! = UIImage(named: "back.jpg")
@@ -18,6 +21,9 @@ class FirstViewController :UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         imageView.image=image
+        
+        array.removeAll()   //配列初期化
+
         
         
         /*----背景のぼかし----*/
@@ -31,7 +37,15 @@ class FirstViewController :UIViewController {
         // 画像にエフェクトビューを貼り付ける
         imageView.addSubview(visualEffectView)
         
+        
+        let result : AnyObject! = UD.objectForKey("array")
+        if(result != nil){
+            array = NSUserDefaults.standardUserDefaults().objectForKey("array") as [String] //UserDefaultsから読み込み
+        }
+        
     }
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -11,11 +11,12 @@ import UIKit
 
 class EditViewController: UIViewController {
     
+    @IBOutlet var editView : UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+       editView.text=text   //内容をセット
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +29,19 @@ class EditViewController: UIViewController {
     }
     
     @IBAction func edit(){
+        
         //メモ内容の変更を保存
+        
+        println(array)
+        
+        array[cellNum] = editView.text  //arrayにwriteViewの内容を追加
+        println(array)
+        UD.setObject(array, forKey: "array")   //メモ内容保存
+        println(array)
+        UD.synchronize()   //あったほうが良い?
+        
+        dismissViewControllerAnimated(true, completion: nil)   //トップページに戻る
+        
     }
 
 

@@ -71,7 +71,11 @@
                                                 <action selector="cancel" destination="Eax-Ik-PoE" id="s2Y-RH-7k9"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="hSi-H1-8lK"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="hSi-H1-8lK">
+                                            <connections>
+                                                <action selector="edit" destination="Eax-Ik-PoE" id="Udg-ze-07r"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -88,6 +92,9 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LYP-cZ-LPk"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="edit" id="L9x-y5-TfI"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editView" destination="ajD-C5-zCj" id="bwm-tN-4OC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dk0-Lt-7r9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -201,7 +208,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="aaaaaaa" translatesAutoresizingMaskIntoConstraints="NO" id="Hsn-Zx-Ifn">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hsn-Zx-Ifn">
                                 <rect key="frame" x="0.0" y="64" width="311" height="243"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -222,6 +229,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="writeView" destination="Hsn-Zx-Ifn" id="yAh-iL-1Zv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcf-hS-crB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
