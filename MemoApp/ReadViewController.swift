@@ -42,8 +42,8 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath:NSIndexPath!) {
-        //cellがタップされた時の挙動
         
+        //cellがタップされた時の挙動
         var text: String = texts[indexPath.row]
         println(text)
         
