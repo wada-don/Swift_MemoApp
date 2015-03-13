@@ -11,7 +11,7 @@ import UIKit
 var text : String!
 var cellNum : Int!
 
-class ReadViewController: UIViewController , UITableViewDataSource, UITableViewDelegate{
+class ReadViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var tableview : UITableView!
   
@@ -21,14 +21,22 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         
         tableview.delegate = self
         tableview.dataSource = self
+
+        //NavigationControllerの文字色の変更
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
+        // NavigationControllerのNavigationItemの色
+        self.navigationController?.navigationBar.tintColor = UIColor.orangeColor()
+
     }
+    
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
         let result : AnyObject! = UD.objectForKey("array")
         if(result != nil){
-                array = NSUserDefaults.standardUserDefaults().objectForKey("array") as [String] //UserDefaultsから読み込み
+                memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as [String] //UserDefaultsから読み込み
         }
         
         tableview.reloadData()   //tableViewの更新
@@ -44,14 +52,14 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         
         
         //cellの数を決定
-        return array.count
+        return memo.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
        
         //cellのテキストを決定
-        cell.textLabel?.text = array[indexPath.row]
+        cell.textLabel?.text = memo[indexPath.row]
         return cell
     }
     
@@ -60,7 +68,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         //cellがタップされた時の挙動
         cellNum = indexPath.row   //何番目のcellがタップされたか
         
-        text = array[indexPath.row]   //タップされたcellの内容を取得
+        text = memo[indexPath.row]   //タップされたcellの内容を取得
         println(text)
         
         performSegueWithIdentifier("toEditViewController",sender: nil)   //storyboardで設定したsegueを呼び出している?
@@ -78,11 +86,11 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         let del = UITableViewRowAction(style: .Default, title: "Delete") {
             (action, indexPath) in
             
-            array.removeAtIndex(indexPath.row)   //配列の要素を削除
+            memo.removeAtIndex(indexPath.row)   //配列の要素を削除
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
-            UD.setObject(array, forKey: "array")   //メモ内容保存
-            println(array)
+            UD.setObject(memo, forKey: "array")   //メモ内容保存
+            println(memo)
             UD.synchronize()   //あったほうが良い?
         }
         
@@ -100,7 +108,6 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
     }
     
     
-    // 編集操作に対応
     // ※スワイプで処理する場合、ここでは何もしないが関数は必要
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
