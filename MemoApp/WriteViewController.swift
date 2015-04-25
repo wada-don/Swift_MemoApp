@@ -18,7 +18,8 @@ var key:String = ""
 
 class WriteViewController :UIViewController {
     
-     @IBOutlet var writeView : UITextView!
+    @IBOutlet var writeView : UITextView!
+    @IBOutlet var imageView : UIImageView!
     var aleart = UIAlertView()
     
     override func viewDidLoad() {
@@ -29,6 +30,24 @@ class WriteViewController :UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
         // NavigationControllerのNavigationItemの色
         self.navigationController?.navigationBar.tintColor = UIColor.orangeColor()
+        
+        writeView.backgroundColor = nil  //背景透過
+        writeView.textColor = UIColor.whiteColor()
+        
+        // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
+        let blurEffect = UIBlurEffect(style: .Light)
+        
+        // ブラーエフェクトからエフェクトビューを生成
+        var visualEffectView = UIVisualEffectView(effect: blurEffect)
+        
+        // エフェクトビューのサイズを指定（オリジナル画像と同じサイズにする）
+        visualEffectView.frame = imageView.bounds
+        
+        // 画像にエフェクトビューを貼り付ける
+        imageView.addSubview(visualEffectView)
+        
+        // スワイプ検知用
+        addSwipeRecognizer()
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,7 +59,7 @@ class WriteViewController :UIViewController {
         writeView.resignFirstResponder()   //キーボード閉じる
         writeView.text = ""   //writeViewのテキストをnullに
     }
-
+    
     @IBAction func save(){
         
         println(memo)
@@ -61,9 +80,67 @@ class WriteViewController :UIViewController {
         
         
         //dismissViewControllerAnimated(true, completion: nil)   //トップページに戻る
-
+        
     }
     
+    
+    
+    
+    /*------------------------*/
+    
+    /**
+    * スワイプ検知用に登録
+    */
+    func addSwipeRecognizer() {
+        var swipeLeft = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        
+        var swipeRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        
+        var swipeUp = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipeUp.direction = UISwipeGestureRecognizerDirection.Up
+        
+        var swipeDown = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipeDown.direction = UISwipeGestureRecognizerDirection.Down
+        
+        self.view.addGestureRecognizer(swipeLeft)
+        self.view.addGestureRecognizer(swipeRight)
+        self.view.addGestureRecognizer(swipeUp)
+        self.view.addGestureRecognizer(swipeDown)
+    }
+    
+    /**
+    * スワイプ
+    */
+    func swiped(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.Left:
+                // 左
+                println("left")
+            case UISwipeGestureRecognizerDirection.Right:
+                // 右
+                println("right")
+            case UISwipeGestureRecognizerDirection.Up:
+                // 上
+                println("up")
+            case UISwipeGestureRecognizerDirection.Down:
+                // 下
+                println("down")
+            default:
+                // その他
+                println("other")
+                break
+            }
+            
+        }
+    }
+    
+    
+    /*------------------------------*/
     
 }
 

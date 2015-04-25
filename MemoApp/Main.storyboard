@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hua-SU-u8G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hua-SU-u8G">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Read-->
@@ -16,8 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="109" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eTa-ez-IHo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Axr-pb-dlU">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="109" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eTa-ez-IHo">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="109" id="lKu-za-o4F">
@@ -35,14 +38,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Read" id="TV4-ph-1Ws"/>
+                    <navigationItem key="navigationItem" title="Read" id="bNN-xI-oJy">
+                        <barButtonItem key="rightBarButtonItem" id="YNQ-Ys-UeL">
+                            <connections>
+                                <action selector="edit" destination="vXZ-lx-hvc" id="I6D-7f-ERG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="eButton" destination="YNQ-Ys-UeL" id="SS9-fT-I1j"/>
+                        <outlet property="imageView" destination="Axr-pb-dlU" id="FSq-78-Cqd"/>
                         <outlet property="tableview" destination="eTa-ez-IHo" id="n0H-1t-zpu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="678" y="302"/>
+            <point key="canvasLocation" x="678" y="301"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="tgb-YT-PId">
@@ -56,8 +67,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="8Ia-eq-BXL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajD-C5-zCj">
+                                <rect key="frame" x="0.0" y="44" width="320" height="244"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lnf-m7-nyN">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Edit" id="kIn-lR-ZfO">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8ec-9f-WeB">
@@ -73,12 +93,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajD-C5-zCj">
-                                <rect key="frame" x="0.0" y="64" width="320" height="243"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -88,6 +102,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="editView" destination="ajD-C5-zCj" id="bwm-tN-4OC"/>
+                        <outlet property="imageView" destination="8Ia-eq-BXL" id="3jg-xi-iGP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dk0-Lt-7r9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,6 +186,7 @@
         <!--First View Controller-->
         <scene sceneID="9xt-K7-tdO">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ue-EW-271" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="hua-SU-u8G" customClass="FirstViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="acB-fx-bvA">
@@ -184,9 +200,8 @@
                         <segue destination="eQD-hT-Rl5" kind="relationship" relationship="viewControllers" id="baW-dc-OwS"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1ue-EW-271" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-404" y="638"/>
+            <point key="canvasLocation" x="-392" y="638"/>
         </scene>
         <!--Read-->
         <scene sceneID="hY9-NU-sch">
@@ -320,21 +335,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDl-eY-9zI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items/>
-                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zNf-Wh-VbU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hsn-Zx-Ifn">
-                                <rect key="frame" x="0.0" y="64" width="311" height="243"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="244"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDl-eY-9zI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Write" id="5fA-f7-hll">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="q5l-VR-adn">
+                        <barButtonItem key="leftBarButtonItem" title="Delete" style="done" id="q5l-VR-adn">
                             <connections>
                                 <action selector="back" destination="P18-zw-cdF" id="q4h-NB-Im7"/>
                             </connections>
@@ -346,6 +364,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="zNf-Wh-VbU" id="eEK-nV-zNp"/>
                         <outlet property="writeView" destination="Hsn-Zx-Ifn" id="yAh-iL-1Zv"/>
                     </connections>
                 </viewController>
@@ -355,6 +374,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="2696791733_c323a983df.jpg" width="320" height="480"/>
         <image name="arrow-left.png" width="32" height="32"/>
         <image name="arrow-right.png" width="32" height="32"/>
         <image name="compass.png" width="32" height="32"/>

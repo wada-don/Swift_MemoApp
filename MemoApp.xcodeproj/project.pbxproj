@@ -19,6 +19,7 @@
 		75795DAB1A7CE859004425FA /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75795DAA1A7CE859004425FA /* WriteViewController.swift */; };
 		75795DAD1A7CF09F004425FA /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75795DAC1A7CF09F004425FA /* ReadViewController.swift */; };
 		759C8CC11AB01D67000418C7 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 759C8CC01AB01D67000418C7 /* icon.png */; };
+		75D889851AEB6A8700A441D7 /* 2696791733_c323a983df.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75D889841AEB6A8700A441D7 /* 2696791733_c323a983df.jpg */; };
 		75EB12E71AAABB1600907C11 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 75EB12E61AAABB1600907C11 /* pencil.png */; };
 		75EB12E91AAABB2B00907C11 /* eye-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 75EB12E81AAABB2B00907C11 /* eye-2.png */; };
 		75EB12EF1AAAC73B00907C11 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 75EB12EE1AAAC73B00907C11 /* refresh.png */; };
@@ -57,6 +58,7 @@
 		75795DAA1A7CE859004425FA /* WriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		75795DAC1A7CF09F004425FA /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 		759C8CC01AB01D67000418C7 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		75D889841AEB6A8700A441D7 /* 2696791733_c323a983df.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2696791733_c323a983df.jpg; sourceTree = "<group>"; };
 		75EB12E61AAABB1600907C11 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pencil.png; path = ../pencil.png; sourceTree = "<group>"; };
 		75EB12E81AAABB2B00907C11 /* eye-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eye-2.png"; path = "../eye-2.png"; sourceTree = "<group>"; };
 		75EB12EE1AAAC73B00907C11 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = refresh.png; path = ../refresh.png; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				7508C5131AA1CDE700BE28DB /* GroupViewController.swift */,
 				7508C5151AA1D49300BE28DB /* GroupEditViewController.swift */,
 				7508C5191AA1DF6C00BE28DB /* Main.storyboard */,
+				75D889841AEB6A8700A441D7 /* 2696791733_c323a983df.jpg */,
 				75EB12FA1AAAD89300907C11 /* arrow-right.png */,
 				75EB12F81AAACC3F00907C11 /* compass.png */,
 				75EB12E81AAABB2B00907C11 /* eye-2.png */,
@@ -241,6 +244,7 @@
 				75EB12E71AAABB1600907C11 /* pencil.png in Resources */,
 				7538A6531A7E0651009B2D9C /* back.jpg in Resources */,
 				751CEB2B1A7CC51900E63ED6 /* LaunchScreen.xib in Resources */,
+				75D889851AEB6A8700A441D7 /* 2696791733_c323a983df.jpg in Resources */,
 				75EB12EF1AAAC73B00907C11 /* refresh.png in Resources */,
 				75EB12F91AAACC3F00907C11 /* compass.png in Resources */,
 				75EB12F31AAAC81600907C11 /* arrow-left.png in Resources */,

@@ -14,7 +14,7 @@ class WebViewController: UIViewController,UIWebViewDelegate {
     @IBOutlet var tool : UIToolbar!
     var myIndiator: UIActivityIndicatorView!   //読み込み時に表示するインジケーター
     var url = "https://www.google.co.jp"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.delegate = self
@@ -29,8 +29,11 @@ class WebViewController: UIViewController,UIWebViewDelegate {
         loadAddressURL()   //ブラウザページが開かれたらgoogleに接続
         
         tool.tintColor=UIColor.orangeColor()   //toolBarの色変更
+        
+        // スワイプ検知用
+        addSwipeRecognizer()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -42,7 +45,7 @@ class WebViewController: UIViewController,UIWebViewDelegate {
         println(requestURL)
         println(req)
         webView.loadRequest(req)
-    
+        
     }
     
     
@@ -74,7 +77,7 @@ class WebViewController: UIViewController,UIWebViewDelegate {
     }
     
     //インジケータのアニメーション終了.
-
+    
     func stopAnimation() {
         // NetworkActivityIndicatorを非表示.
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -89,16 +92,72 @@ class WebViewController: UIViewController,UIWebViewDelegate {
     @IBAction func home(){
         loadAddressURL()   //ホームに戻る
     }
-
-
+    
+    /*------------------------*/
+    
+    /**
+    * スワイプ検知用に登録
+    */
+    func addSwipeRecognizer() {
+        var swipeLeft = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        
+        var swipeRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        
+        var swipeUp = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipeUp.direction = UISwipeGestureRecognizerDirection.Up
+        
+        var swipeDown = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        swipeDown.direction = UISwipeGestureRecognizerDirection.Down
+        
+        self.view.addGestureRecognizer(swipeLeft)
+        self.view.addGestureRecognizer(swipeRight)
+        self.view.addGestureRecognizer(swipeUp)
+        self.view.addGestureRecognizer(swipeDown)
+    }
+    
+    /**
+    * スワイプ
+    */
+    func swiped(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.Left:
+                // 左
+                println("left")
+            case UISwipeGestureRecognizerDirection.Right:
+                // 右
+                println("right")
+            case UISwipeGestureRecognizerDirection.Up:
+                // 上
+                println("up")
+            case UISwipeGestureRecognizerDirection.Down:
+                // 下
+                println("down")
+            default:
+                // その他
+                println("other")
+                break
+            }
+            
+        }
+    }
+    
+    
+    /*------------------------------*/
+    
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

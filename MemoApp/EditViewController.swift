@@ -12,18 +12,32 @@ import UIKit
 class EditViewController: UIViewController {
     
     @IBOutlet var editView : UITextView!
+    @IBOutlet var imageView : UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        editView.textColor = UIColor.whiteColor()
        editView.text=text   //内容をセット
+        editView.backgroundColor = nil  //背景透過
         
         //NavigationControllerの文字色の変更
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
         // NavigationControllerのNavigationItemの色
         self.navigationController?.navigationBar.tintColor = UIColor.orangeColor()
         
-
+        // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
+        let blurEffect = UIBlurEffect(style: .Light)
+        
+        // ブラーエフェクトからエフェクトビューを生成
+        var visualEffectView = UIVisualEffectView(effect: blurEffect)
+        
+        // エフェクトビューのサイズを指定（オリジナル画像と同じサイズにする）
+        visualEffectView.frame = imageView.bounds
+        
+        // 画像にエフェクトビューを貼り付ける
+        imageView.addSubview(visualEffectView)
+        
     }
 
     override func didReceiveMemoryWarning() {
