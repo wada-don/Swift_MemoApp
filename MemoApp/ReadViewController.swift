@@ -188,7 +188,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
     }
     
     /**
-    * スワイプ
+    * スワイプのところ
     */
     func swiped(gesture: UIGestureRecognizer) {
         
