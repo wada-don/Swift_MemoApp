@@ -13,6 +13,8 @@ class EditViewController: UIViewController {
     
     @IBOutlet var editView : UITextView!
     @IBOutlet var imageView : UIImageView!
+    
+    var aleart = UIAlertView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,12 @@ class EditViewController: UIViewController {
         // 画像にエフェクトビューを貼り付ける
         imageView.addSubview(visualEffectView)
         
+        
+    }
+    
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent  //ステータスバー
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +71,10 @@ class EditViewController: UIViewController {
         UD.synchronize()   //あったほうが良い?
         
         self.view.endEditing(true)   //キーボードを閉じる
+        
+        aleart.title = "Save"
+        aleart.addButtonWithTitle("OK")
+        aleart.show()
         
         dismissViewControllerAnimated(true, completion: nil)   //トップページに戻る
         

@@ -11,19 +11,27 @@ import UIKit
 
 var text : String!
 var cellNum : Int!
+var url : NSString = "https://www.google.co.jp"
+var nowUrl : String!
+
 
 class ReadViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
+
     
     @IBOutlet var tableview : UITableView!
     @IBOutlet var eButton : UIBarButtonItem!
     @IBOutlet var imageView : UIImageView!
  
     
-    var e : Int!
+    var e : Int!  //EditをONにするかOFFにするかの変数
   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        url =  "https://www.google.co.jp"
+        nowUrl = url
+        
         
         e = 0
         
@@ -41,7 +49,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         addSwipeRecognizer()
         
         //ボタンタイトル設定
-        eButton.title = "Edit"
+        eButton.title = "Delete"
         eButton.tintColor = UIColor.orangeColor()
         
         // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
@@ -103,7 +111,9 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         
         //Editモードの時は画面遷移しない
         if(e==0){
-            performSegueWithIdentifier("toEditViewController",sender: nil)   //storyboardで設定したsegueを呼び出している?
+            
+            //storyboardで設定したsegueを呼び出している
+            performSegueWithIdentifier("toEditViewController",sender: nil)
         }
         
         tableview.deselectRowAtIndexPath(indexPath, animated: true)   //cellの選択を解除
@@ -123,7 +133,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         }
         else if( e==1 ){
             e=0
-            eButton.title = "Edit"
+            eButton.title = "Delete"
             eButton.tintColor = UIColor.orangeColor()
         }
     }
@@ -149,6 +159,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        //スワイプでDeleteが出るようにするかしないか
         if(e==0){return false}
         else {return true}
     }
@@ -198,13 +209,16 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
             case UISwipeGestureRecognizerDirection.Left:
                 // 左
                 println("left")
+                //performSegueWithIdentifier("fromReadtoWebSegue", sender: nil) //画面遷移
+                 
+                                
             case UISwipeGestureRecognizerDirection.Right:
+                
                 // 右
                 println("right")
                 
                 //画面遷移
-                var next = WriteViewController()
-                self.presentViewController(next, animated: false, completion: nil)
+                performSegueWithIdentifier("WriteViewSegue", sender: nil)
                 
             case UISwipeGestureRecognizerDirection.Up:
                 // 上

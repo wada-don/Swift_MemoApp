@@ -79,7 +79,7 @@ class WriteViewController :UIViewController {
         aleart.show()
         
         
-        //dismissViewControllerAnimated(true, completion: nil)   //トップページに戻る
+        dismissViewControllerAnimated(true, completion: nil)   //トップページに戻る←左右画面移動時はいらない
         
     }
     
@@ -121,9 +121,12 @@ class WriteViewController :UIViewController {
             case UISwipeGestureRecognizerDirection.Left:
                 // 左
                 println("left")
+                dismissViewControllerAnimated(true, completion: nil)   //画面遷移
+                
             case UISwipeGestureRecognizerDirection.Right:
                 // 右
                 println("right")
+                performSegueWithIdentifier("BrowserSegue", sender: nil)  //画面遷移
             case UISwipeGestureRecognizerDirection.Up:
                 // 上
                 println("up")

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7508C5141AA1CDE700BE28DB /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7508C5131AA1CDE700BE28DB /* GroupViewController.swift */; };
 		7508C5161AA1D49300BE28DB /* GroupEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7508C5151AA1D49300BE28DB /* GroupEditViewController.swift */; };
-		7508C51A1AA1DF6C00BE28DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7508C5191AA1DF6C00BE28DB /* Main.storyboard */; };
 		751CEB211A7CC51900E63ED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CEB201A7CC51900E63ED6 /* AppDelegate.swift */; };
 		751CEB281A7CC51900E63ED6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 751CEB271A7CC51900E63ED6 /* Images.xcassets */; };
 		751CEB2B1A7CC51900E63ED6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751CEB291A7CC51900E63ED6 /* LaunchScreen.xib */; };
@@ -19,6 +18,8 @@
 		75795DAB1A7CE859004425FA /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75795DAA1A7CE859004425FA /* WriteViewController.swift */; };
 		75795DAD1A7CF09F004425FA /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75795DAC1A7CF09F004425FA /* ReadViewController.swift */; };
 		759C8CC11AB01D67000418C7 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 759C8CC01AB01D67000418C7 /* icon.png */; };
+		75B608931AF881B5000CC4C3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B608921AF881B5000CC4C3 /* WebKit.framework */; };
+		75D0ED3F1AF761E400583344 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D0ED3E1AF761E400583344 /* Main.storyboard */; };
 		75D889851AEB6A8700A441D7 /* 2696791733_c323a983df.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75D889841AEB6A8700A441D7 /* 2696791733_c323a983df.jpg */; };
 		75EB12E71AAABB1600907C11 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 75EB12E61AAABB1600907C11 /* pencil.png */; };
 		75EB12E91AAABB2B00907C11 /* eye-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 75EB12E81AAABB2B00907C11 /* eye-2.png */; };
@@ -28,7 +29,6 @@
 		75EB12F71AAAC99800907C11 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EB12F61AAAC99800907C11 /* WebViewController.swift */; };
 		75EB12F91AAACC3F00907C11 /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 75EB12F81AAACC3F00907C11 /* compass.png */; };
 		75EB12FB1AAAD89300907C11 /* arrow-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 75EB12FA1AAAD89300907C11 /* arrow-right.png */; };
-		75EB12FD1AAAE51600907C11 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EB12FC1AAAE51600907C11 /* FirstViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,6 @@
 /* Begin PBXFileReference section */
 		7508C5131AA1CDE700BE28DB /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		7508C5151AA1D49300BE28DB /* GroupEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupEditViewController.swift; sourceTree = "<group>"; };
-		7508C5191AA1DF6C00BE28DB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		751CEB1B1A7CC51900E63ED6 /* MemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		751CEB1F1A7CC51900E63ED6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		751CEB201A7CC51900E63ED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,20 +53,21 @@
 		751CEB351A7CC51900E63ED6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		751CEB361A7CC51900E63ED6 /* MemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoAppTests.swift; sourceTree = "<group>"; };
 		752F94261A7DF4D5004C3F3F /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		7538A6521A7E0651009B2D9C /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back.jpg; sourceTree = "<group>"; };
+		7538A6521A7E0651009B2D9C /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = back.jpg; path = MemoApp/back.jpg; sourceTree = "<group>"; };
 		75795DAA1A7CE859004425FA /* WriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		75795DAC1A7CF09F004425FA /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
-		759C8CC01AB01D67000418C7 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
-		75D889841AEB6A8700A441D7 /* 2696791733_c323a983df.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2696791733_c323a983df.jpg; sourceTree = "<group>"; };
-		75EB12E61AAABB1600907C11 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pencil.png; path = ../pencil.png; sourceTree = "<group>"; };
-		75EB12E81AAABB2B00907C11 /* eye-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eye-2.png"; path = "../eye-2.png"; sourceTree = "<group>"; };
-		75EB12EE1AAAC73B00907C11 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = refresh.png; path = ../refresh.png; sourceTree = "<group>"; };
-		75EB12F01AAAC75B00907C11 /* home-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-2.png"; path = "../home-2.png"; sourceTree = "<group>"; };
-		75EB12F21AAAC81600907C11 /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-left.png"; path = "../arrow-left.png"; sourceTree = "<group>"; };
+		759C8CC01AB01D67000418C7 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		75B608921AF881B5000CC4C3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		75D0ED3E1AF761E400583344 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		75D889841AEB6A8700A441D7 /* 2696791733_c323a983df.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2696791733_c323a983df.jpg; path = MemoApp/2696791733_c323a983df.jpg; sourceTree = "<group>"; };
+		75EB12E61AAABB1600907C11 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
+		75EB12E81AAABB2B00907C11 /* eye-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye-2.png"; sourceTree = "<group>"; };
+		75EB12EE1AAAC73B00907C11 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
+		75EB12F01AAAC75B00907C11 /* home-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-2.png"; sourceTree = "<group>"; };
+		75EB12F21AAAC81600907C11 /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
 		75EB12F61AAAC99800907C11 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		75EB12F81AAACC3F00907C11 /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
-		75EB12FA1AAAD89300907C11 /* arrow-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-right.png"; sourceTree = "<group>"; };
-		75EB12FC1AAAE51600907C11 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		75EB12F81AAACC3F00907C11 /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compass.png; path = MemoApp/compass.png; sourceTree = "<group>"; };
+		75EB12FA1AAAD89300907C11 /* arrow-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-right.png"; path = "MemoApp/arrow-right.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75B608931AF881B5000CC4C3 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +92,16 @@
 		751CEB121A7CC51900E63ED6 = {
 			isa = PBXGroup;
 			children = (
+				75D889841AEB6A8700A441D7 /* 2696791733_c323a983df.jpg */,
+				75EB12FA1AAAD89300907C11 /* arrow-right.png */,
+				75EB12F81AAACC3F00907C11 /* compass.png */,
+				75EB12E81AAABB2B00907C11 /* eye-2.png */,
+				75EB12E61AAABB1600907C11 /* pencil.png */,
+				7538A6521A7E0651009B2D9C /* back.jpg */,
+				759C8CC01AB01D67000418C7 /* icon.png */,
+				75EB12F21AAAC81600907C11 /* arrow-left.png */,
+				75EB12F01AAAC75B00907C11 /* home-2.png */,
+				75EB12EE1AAAC73B00907C11 /* refresh.png */,
 				751CEB1D1A7CC51900E63ED6 /* MemoApp */,
 				751CEB331A7CC51900E63ED6 /* MemoAppTests */,
 				751CEB1C1A7CC51900E63ED6 /* Products */,
@@ -109,25 +120,15 @@
 		751CEB1D1A7CC51900E63ED6 /* MemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				75B608921AF881B5000CC4C3 /* WebKit.framework */,
 				751CEB201A7CC51900E63ED6 /* AppDelegate.swift */,
-				75EB12FC1AAAE51600907C11 /* FirstViewController.swift */,
-				75795DAA1A7CE859004425FA /* WriteViewController.swift */,
 				75795DAC1A7CF09F004425FA /* ReadViewController.swift */,
+				75795DAA1A7CE859004425FA /* WriteViewController.swift */,
 				752F94261A7DF4D5004C3F3F /* EditViewController.swift */,
 				75EB12F61AAAC99800907C11 /* WebViewController.swift */,
 				7508C5131AA1CDE700BE28DB /* GroupViewController.swift */,
 				7508C5151AA1D49300BE28DB /* GroupEditViewController.swift */,
-				7508C5191AA1DF6C00BE28DB /* Main.storyboard */,
-				75D889841AEB6A8700A441D7 /* 2696791733_c323a983df.jpg */,
-				75EB12FA1AAAD89300907C11 /* arrow-right.png */,
-				75EB12F81AAACC3F00907C11 /* compass.png */,
-				75EB12E81AAABB2B00907C11 /* eye-2.png */,
-				75EB12E61AAABB1600907C11 /* pencil.png */,
-				7538A6521A7E0651009B2D9C /* back.jpg */,
-				759C8CC01AB01D67000418C7 /* icon.png */,
-				75EB12F21AAAC81600907C11 /* arrow-left.png */,
-				75EB12F01AAAC75B00907C11 /* home-2.png */,
-				75EB12EE1AAAC73B00907C11 /* refresh.png */,
+				75D0ED3E1AF761E400583344 /* Main.storyboard */,
 				751CEB271A7CC51900E63ED6 /* Images.xcassets */,
 				751CEB291A7CC51900E63ED6 /* LaunchScreen.xib */,
 				751CEB1E1A7CC51900E63ED6 /* Supporting Files */,
@@ -247,12 +248,12 @@
 				75D889851AEB6A8700A441D7 /* 2696791733_c323a983df.jpg in Resources */,
 				75EB12EF1AAAC73B00907C11 /* refresh.png in Resources */,
 				75EB12F91AAACC3F00907C11 /* compass.png in Resources */,
+				75D0ED3F1AF761E400583344 /* Main.storyboard in Resources */,
 				75EB12F31AAAC81600907C11 /* arrow-left.png in Resources */,
 				751CEB281A7CC51900E63ED6 /* Images.xcassets in Resources */,
 				759C8CC11AB01D67000418C7 /* icon.png in Resources */,
 				75EB12F11AAAC75B00907C11 /* home-2.png in Resources */,
 				75EB12E91AAABB2B00907C11 /* eye-2.png in Resources */,
-				7508C51A1AA1DF6C00BE28DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +274,6 @@
 				7508C5141AA1CDE700BE28DB /* GroupViewController.swift in Sources */,
 				7508C5161AA1D49300BE28DB /* GroupEditViewController.swift in Sources */,
 				752F94271A7DF4D5004C3F3F /* EditViewController.swift in Sources */,
-				75EB12FD1AAAE51600907C11 /* FirstViewController.swift in Sources */,
 				75795DAB1A7CE859004425FA /* WriteViewController.swift in Sources */,
 				75EB12F71AAAC99800907C11 /* WebViewController.swift in Sources */,
 				751CEB211A7CC51900E63ED6 /* AppDelegate.swift in Sources */,

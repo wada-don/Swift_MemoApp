@@ -7,17 +7,40 @@
 //
 
 import UIKit
+import WebKit
 
 class WebViewController: UIViewController,UIWebViewDelegate {
     
-    @IBOutlet var webView : UIWebView!
+    let webView : WKWebView!
     @IBOutlet var tool : UIToolbar!
     var myIndiator: UIActivityIndicatorView!   //読み込み時に表示するインジケーター
-    var url = "https://www.google.co.jp"
+    //var url = "https://www.google.co.jp"
+    var aleart = UIAlertView()
+    
+    required init(coder aDecoder: NSCoder) {
+        
+        var width = UIScreen.mainScreen().bounds.size.width
+        var height = UIScreen.mainScreen().bounds.size.height
+        var statusH = UIApplication.sharedApplication().statusBarFrame.height
+        
+        webView = WKWebView(frame: CGRectMake(0 , statusH , width , height - statusH - 35))
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.delegate = self
+        
+        view.addSubview(webView)  //WebViewをadd
+        self.view.bringSubviewToFront(self.tool)  //toolBarを前面に移動
+        webView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        //↓autoLayout云々(今回は使わない)
+        
+//        view.addConstraint(NSLayoutConstraint(item: webView, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1.0, constant: 0.0))
+//        view.addConstraint(NSLayoutConstraint(item: webView, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1.0, constant: 0.0))
+        
+        
+        //webView.delegate = self
         // Do any additional setup after loading the view.
         
         // ページ読み込み中に表示させるインジケータを生成.
@@ -26,7 +49,9 @@ class WebViewController: UIViewController,UIWebViewDelegate {
         myIndiator.hidesWhenStopped = true
         myIndiator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         
-        loadAddressURL()   //ブラウザページが開かれたらgoogleに接続
+        loadAddressURL()   //サイトに接続
+        
+         webView.addObserver(self, forKeyPath: "loading", options: .New, context: nil)  //プロパティ監視
         
         tool.tintColor=UIColor.orangeColor()   //toolBarの色変更
         
@@ -34,12 +59,16 @@ class WebViewController: UIViewController,UIWebViewDelegate {
         addSwipeRecognizer()
     }
     
+    deinit{
+        webView.removeObserver(self, forKeyPath: "loading", context: nil)  //Observerの後片付け
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func loadAddressURL(){
+    func loadAddressURL(){  //url読み込み作業
         let requestURL = NSURL(string: url)!
         let req = NSURLRequest(URL: requestURL)
         println(requestURL)
@@ -48,18 +77,36 @@ class WebViewController: UIViewController,UIWebViewDelegate {
         
     }
     
+
     
-    //WebViewのloadが開始された時に呼ばれるメソッド.
-    func webViewDidStartLoad(webView: UIWebView) {
-        println("load started")
-        startAnimation()
+    // プロパティ変更時
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+        
+        if keyPath == "loading"{
+            if webView.loading == false{
+              
+                if(webView.URL?.absoluteString != nil){  //通常の動作
+                    
+                    url = webView.URL!.absoluteString!  // 読込完了時のURLを取得するのでリダイレクト後のURLもとれる
+                }else{  //webViewのurlがnilになった時(ネットに繋がってない時など)
+
+                    url = "https://www.google.co.jp"  //nilになるといけないので適当にgoogleのurlを入れる
+                    aleart.title = "通信環境を確認してください"  //アラート表示
+                    aleart.addButtonWithTitle("OK")
+                    aleart.show()
+                }
+                if (webView.estimatedProgress == 0.0){
+                    startAnimation()  //読み込み開始でインジケーター表示
+                }
+                if (webView.estimatedProgress == 1.0){
+                    stopAnimation()  //読み込み終了でインジケーター非表示
+                }
+            }
+        }
     }
+
     
-    //WebViewのloadが終了した時に呼ばれるメソッド.
-    func webViewDidFinishLoad(webView: UIWebView) {
-        println("load finished")
-        stopAnimation()
-    }
+
     
     //インジケータのアニメーション開始.
     func startAnimation() {
@@ -90,7 +137,20 @@ class WebViewController: UIViewController,UIWebViewDelegate {
     
     
     @IBAction func home(){
+        url = "https://www.google.co.jp"
         loadAddressURL()   //ホームに戻る
+    }
+    
+    @IBAction func reroad(){
+        webView.reload()  //リロード
+    }
+    
+    @IBAction func back(){
+        self.webView.goBack()  //戻る
+    }
+    
+    @IBAction func go(){
+        self.webView.goForward()  //進む
     }
     
     /*------------------------*/
@@ -128,9 +188,12 @@ class WebViewController: UIViewController,UIWebViewDelegate {
             case UISwipeGestureRecognizerDirection.Left:
                 // 左
                 println("left")
+                dismissViewControllerAnimated(true, completion: nil)   //画面遷移
             case UISwipeGestureRecognizerDirection.Right:
                 // 右
                 println("right")
+                //dismissViewControllerAnimated(true, completion: nil)   //画面遷移
+
             case UISwipeGestureRecognizerDirection.Up:
                 // 上
                 println("up")
@@ -159,5 +222,6 @@ class WebViewController: UIViewController,UIWebViewDelegate {
     // Pass the selected object to the new view controller.
     }
     */
+    
     
 }
