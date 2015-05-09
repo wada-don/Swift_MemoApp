@@ -13,29 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
         
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            
-            var pageController:UIPageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
-            
-            var navigationController:SwipeBetweenViewControllers = SwipeBetweenViewControllers(rootViewController: pageController)
-        
         // Override point for customization after application launch.
-        var demo:UIViewController = ReadViewController()
-        var demo2:UIViewController = WriteViewController()
-        var demo3:UIViewController = UIViewController()
-        var demo4:UIViewController = UIViewController()
-        var demo5:UIViewController = UIViewController()
-        demo.view.backgroundColor = UIColor.redColor()
-        demo2.view.backgroundColor = UIColor.whiteColor()
-        demo3.view.backgroundColor = UIColor.grayColor()
-        demo4.view.backgroundColor = UIColor.orangeColor()
-        demo5.view.backgroundColor = UIColor.brownColor()
-        
-            navigationController.viewControllerArray =  [demo,demo2]
-        
-        self.window?.rootViewController = navigationController
-        self.window?.makeKeyAndVisible()
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Override point for customization after application launch.
         return true
     }
 

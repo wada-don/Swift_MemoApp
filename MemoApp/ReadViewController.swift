@@ -19,7 +19,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
 
     
     @IBOutlet var tableview : UITableView!
-    @IBOutlet var eButton : UIBarButtonItem!
+    //@IBOutlet var eButton : UIBarButtonItem!
     @IBOutlet var imageView : UIImageView!
  
     
@@ -48,8 +48,8 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         addSwipeRecognizer()
         
         //ボタンタイトル設定
-        eButton.title = "Delete"
-        eButton.tintColor = UIColor.orangeColor()
+       // eButton.title = "Delete"
+        //eButton.tintColor = UIColor.orangeColor()
         
         // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
         let blurEffect = UIBlurEffect(style: .Light)
@@ -127,13 +127,13 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
             e=1
             
             //ボタンタイトル設定
-            eButton.title = "Done"
-            eButton.tintColor = UIColor.orangeColor()
+           //eButton.title = "Done"
+            //eButton.tintColor = UIColor.orangeColor()
         }
         else if( e==1 ){
             e=0
-            eButton.title = "Delete"
-            eButton.tintColor = UIColor.orangeColor()
+            //eButton.title = "Delete"
+            //eButton.tintColor = UIColor.orangeColor()
         }
     }
     
