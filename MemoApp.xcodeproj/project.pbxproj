@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75016FA21AFDD50400057AD3 /* SwipeBetweenViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75016FA11AFDD50400057AD3 /* SwipeBetweenViewControllers.swift */; };
 		7508C5141AA1CDE700BE28DB /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7508C5131AA1CDE700BE28DB /* GroupViewController.swift */; };
 		7508C5161AA1D49300BE28DB /* GroupEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7508C5151AA1D49300BE28DB /* GroupEditViewController.swift */; };
 		751CEB211A7CC51900E63ED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CEB201A7CC51900E63ED6 /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		75016FA11AFDD50400057AD3 /* SwipeBetweenViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeBetweenViewControllers.swift; path = "../../../SwipeBetweenViewControllers-master/SwipeBetweenViewControllers/SwipeBetweenViewControllers.swift"; sourceTree = "<group>"; };
 		7508C5131AA1CDE700BE28DB /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		7508C5151AA1D49300BE28DB /* GroupEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupEditViewController.swift; sourceTree = "<group>"; };
 		751CEB1B1A7CC51900E63ED6 /* MemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +124,7 @@
 			children = (
 				75B608921AF881B5000CC4C3 /* WebKit.framework */,
 				751CEB201A7CC51900E63ED6 /* AppDelegate.swift */,
+				75016FA11AFDD50400057AD3 /* SwipeBetweenViewControllers.swift */,
 				75795DAC1A7CF09F004425FA /* ReadViewController.swift */,
 				75795DAA1A7CE859004425FA /* WriteViewController.swift */,
 				752F94261A7DF4D5004C3F3F /* EditViewController.swift */,
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75016FA21AFDD50400057AD3 /* SwipeBetweenViewControllers.swift in Sources */,
 				7508C5141AA1CDE700BE28DB /* GroupViewController.swift in Sources */,
 				7508C5161AA1D49300BE28DB /* GroupEditViewController.swift in Sources */,
 				752F94271A7DF4D5004C3F3F /* EditViewController.swift in Sources */,

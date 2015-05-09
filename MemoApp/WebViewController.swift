@@ -23,7 +23,7 @@ class WebViewController: UIViewController,UIWebViewDelegate {
         var height = UIScreen.mainScreen().bounds.size.height
         var statusH = UIApplication.sharedApplication().statusBarFrame.height
         
-        webView = WKWebView(frame: CGRectMake(0 , statusH , width , height - statusH - 35))
+        webView = WKWebView(frame: CGRectMake(0 , statusH , width , height - statusH ))
         super.init(coder: aDecoder)
     }
     
@@ -95,7 +95,9 @@ class WebViewController: UIViewController,UIWebViewDelegate {
                     aleart.addButtonWithTitle("OK")
                     aleart.show()
                 }
-                if (webView.estimatedProgress == 0.0){
+                if (webView.estimatedProgress < 0.5){
+                    
+                    //開始が読まれない
                     startAnimation()  //読み込み開始でインジケーター表示
                 }
                 if (webView.estimatedProgress == 1.0){
@@ -103,6 +105,13 @@ class WebViewController: UIViewController,UIWebViewDelegate {
                 }
             }
         }
+    }
+    
+    
+    //呼ばれない
+    func webView(webView: WKWebView, didCommitNavigation navigation: WKNavigation!){
+        //読み込み開始時によばれる
+         startAnimation()  //読み込み開始でインジケーター表示
     }
 
     
