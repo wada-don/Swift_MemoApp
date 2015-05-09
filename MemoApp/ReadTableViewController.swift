@@ -1,36 +1,33 @@
 //
-//  ReadViewController.swift
+//  ReadTableViewController.swift
 //  MemoApp
 //
-//  Created by wadadon on 2015/01/31.
+//  Created by wadadon on 2015/05/09.
 //  Copyright (c) 2015年 DAWA. All rights reserved.
 //
 
 import UIKit
 
+var text : String!
+var cellNum : Int!
+var url : NSString = "https://www.google.co.jp"
+var nowUrl : String!
 
-//var text : String!
-//var cellNum : Int!
-//var url : NSString = "https://www.google.co.jp"
-//var nowUrl : String!
-
-
-class ReadViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
-
+class ReadTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-     @IBOutlet var tableview : UITableView!
+    @IBOutlet var tableview : UITableView!
     //@IBOutlet var eButton : UIBarButtonItem!
     @IBOutlet var imageView : UIImageView!
-
+    
     
     var e : Int!  //EditをONにするかOFFにするかの変数
-  
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
         
     
+
         
         url =  "https://www.google.co.jp"
         nowUrl = url
@@ -39,7 +36,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         
         tableview.delegate = self
         tableview.dataSource = self
-
+        
         //NavigationControllerの文字色の変更
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
         // NavigationControllerのNavigationItemの色
@@ -51,7 +48,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         addSwipeRecognizer()
         
         //ボタンタイトル設定
-       // eButton.title = "Delete"
+        // eButton.title = "Delete"
         //eButton.tintColor = UIColor.orangeColor()
         
         // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
@@ -65,26 +62,39 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         
         // 画像にエフェクトビューを貼り付ける
         imageView.addSubview(visualEffectView)
-    }
-    
 
+
+        // Do any additional setup after loading the view.
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
         let result : AnyObject! = UD.objectForKey("array")
         if(result != nil){
-                memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as [String] //UserDefaultsから読み込み
+            memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as [String] //UserDefaultsから読み込み
         }
         
         tableview.reloadData()   //tableViewの更新
         
     }
 
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -95,7 +105,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-       
+        
         cell.textLabel?.text = memo[indexPath.row]  //cellのテキストを設定
         cell.textLabel?.textColor = UIColor.whiteColor()  //cellのテキストカラーを設定
         
@@ -123,14 +133,14 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
     }
     
     
-/*------------------*/
+    /*------------------*/
     
     @IBAction func edit(){
         if(e==0){
             e=1
             
             //ボタンタイトル設定
-           //eButton.title = "Done"
+            //eButton.title = "Done"
             //eButton.tintColor = UIColor.orangeColor()
         }
         else if( e==1 ){
@@ -143,21 +153,21 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         
-            // 削除
-            let del = UITableViewRowAction(style: .Default, title: "Delete") {
-                (action, indexPath) in
+        // 削除
+        let del = UITableViewRowAction(style: .Default, title: "Delete") {
+            (action, indexPath) in
             
-                memo.removeAtIndex(indexPath.row)   //配列の要素を削除
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            memo.removeAtIndex(indexPath.row)   //配列の要素を削除
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
-                UD.setObject(memo, forKey: "array")   //メモ内容保存
-                println(memo)
-                UD.synchronize()   //あったほうが良い?
-            }
+            UD.setObject(memo, forKey: "array")   //メモ内容保存
+            println(memo)
+            UD.synchronize()   //あったほうが良い?
+        }
         
-            del.backgroundColor = UIColor.redColor()
+        del.backgroundColor = UIColor.redColor()
         
-            return [del]
+        return [del]
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -165,7 +175,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         if(e==0){return false}
         else {return true}
     }
-
+    
     
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
@@ -176,7 +186,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
     
- /*------------------------*/
+    /*------------------------*/
     
     /**
     * スワイプ検知用に登録
@@ -212,8 +222,8 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
                 // 左
                 println("left")
                 //performSegueWithIdentifier("fromReadtoWebSegue", sender: nil) //画面遷移
-                 
-                                
+                
+                
             case UISwipeGestureRecognizerDirection.Right:
                 
                 // 右
@@ -238,14 +248,11 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
     }
     
     
-/*------------------------------*/
+    /*------------------------------*/
     
     @IBAction func back(){
         
         dismissViewControllerAnimated(true, completion: nil)   //遷移
     }
-
+    
 }
-
-   
-

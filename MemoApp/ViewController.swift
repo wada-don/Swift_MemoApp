@@ -15,55 +15,45 @@ class ViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // MARK: - UI Setup
-        
-        self.title = "PAGE MENU"
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 20.0/255.0, green: 20.0/255.0, blue: 20.0/255.0, alpha: 1.0)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
-        
-        // MARK: - Scroll menu setup
-        
-        // Initialize view controllers to display and place in array
+        // Array to keep track of controllers in page menu
         var controllerArray : [UIViewController] = []
         
-        var controller1 : ReadViewController = ReadViewController(nibName: "ReadViewController", bundle: nil)
-        controller1.title = "Read"
-        controllerArray.append(controller1)
-        var controller2 : WriteViewController = WriteViewController(nibName: "WriteViewController", bundle: nil)
-        controller2.title = "mood"
-        controllerArray.append(controller2)
-        var controller3 : WebViewController = WebViewController(nibName: "WebViewController", bundle: nil)
-        controller3.title = "favorites"
-        controllerArray.append(controller3)
+        // Create variables for all view controllers you want to put in the
+        // page menu, initialize them, and add each to the controller array.
+        // (Can be any UIViewController subclass)
+        // Make sure the title property of all view controllers is set
+        // Example:
+        var controller : UIViewController = ReadTableViewController(nibName: "ReadTableViewController", bundle: nil)
+        controller.title = "ReadTable"
+        controllerArray.append(controller)
         
-        // Customize menu (Optional)
-        var parameters: [String: AnyObject] = ["scrollMenuBackgroundColor": UIColor(red: 20.0/255.0, green: 20.0/255.0, blue: 20.0/255.0, alpha: 1.0),
-            "viewBackgroundColor": UIColor(red: 20.0/255.0, green: 20.0/255.0, blue: 20.0/255.0, alpha: 1.0),
-            "selectionIndicatorColor": UIColor.orangeColor(),
-            "addBottomMenuHairline": false,
-            "menuItemFont": UIFont(name: "HelveticaNeue", size: 35.0)!,
-            "menuHeight": 50.0,
-            "selectionIndicatorHeight": 0.0,
-            "menuItemWidthBasedOnTitleTextWidth": true,
-            "selectedMenuItemLabelColor": UIColor.orangeColor()]
+        // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
+        // Example:
+        var parameters: [String: AnyObject] = ["menuItemSeparatorWidth": 4.3,
+            "useMenuLikeSegmentedControl": true,
+            "menuItemSeparatorPercentageHeight": 0.1]
         
-        // Initialize scroll menu
+        // Initialize page menu with controller array, frame, and optional parameters
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height), options: parameters)
         
+        // Lastly add page menu as subview of base view controller view
+        // or use pageMenu controller in you view hierachy as desired
         self.view.addSubview(pageMenu!.view)
+        
         
         // Do any additional setup after loading the view.
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func willMoveToPage(controller: ReadTableViewController, index: Int){}
+    
+    func didMoveToPage(controller:ReadTableViewController, index: Int){}
 
     /*
     // MARK: - Navigation
