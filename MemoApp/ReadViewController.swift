@@ -32,7 +32,6 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         url =  "https://www.google.co.jp"
         nowUrl = url
         
-        
         e = 0
         
         tableview.delegate = self
