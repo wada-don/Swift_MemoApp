@@ -48,7 +48,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         tableview.backgroundColor = nil;  //背景透過
         
         // スワイプ検知用
-        addSwipeRecognizer()
+        //addSwipeRecognizer()
         
         //ボタンタイトル設定
        // eButton.title = "Delete"

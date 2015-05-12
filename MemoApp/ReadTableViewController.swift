@@ -27,7 +27,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         
     
-
+        imageView.backgroundColor = UIColor.redColor() 
         
         url =  "https://www.google.co.jp"
         nowUrl = url
@@ -67,16 +67,16 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
         
         let result : AnyObject! = UD.objectForKey("array")
         if(result != nil){
-            memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as [String] //UserDefaultsから読み込み
+            memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as [String] //UserDefaultsから読み込み  
+            
         }
-        
+      
         tableview.reloadData()   //tableViewの更新
-        
     }
 
 
