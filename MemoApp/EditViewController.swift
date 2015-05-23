@@ -19,6 +19,9 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        editView = UITextView()
+        imageView = UIImageView()
+        
         editView.textColor = UIColor.whiteColor()
        editView.text=text   //内容をセット
         editView.backgroundColor = nil  //背景透過

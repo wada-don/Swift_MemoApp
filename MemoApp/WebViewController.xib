@@ -24,19 +24,19 @@
                                 <action selector="back" destination="-1" id="dxV-9A-pRc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="g6D-4I-SQf"/>
+                        <barButtonItem width="33" style="plain" systemItem="fixedSpace" id="g6D-4I-SQf"/>
                         <barButtonItem image="arrow-right.png" id="pxP-jW-wfU">
                             <connections>
                                 <action selector="go" destination="-1" id="jIs-HM-k77"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="IBa-es-5me"/>
+                        <barButtonItem width="33" style="plain" systemItem="fixedSpace" id="IBa-es-5me"/>
                         <barButtonItem image="refresh.png" id="9Me-Cj-DIE">
                             <connections>
                                 <action selector="reroad" destination="-1" id="P7q-lP-wcT"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="i2o-Di-18o"/>
+                        <barButtonItem width="36" style="plain" systemItem="fixedSpace" id="i2o-Di-18o"/>
                         <barButtonItem image="home-2.png" id="mhg-6a-oNr">
                             <connections>
                                 <action selector="home" destination="-1" id="CRA-ZJ-XBc"/>

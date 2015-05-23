@@ -130,9 +130,9 @@
 			children = (
 				75B608921AF881B5000CC4C3 /* WebKit.framework */,
 				751CEB201A7CC51900E63ED6 /* AppDelegate.swift */,
+				75D0ED3E1AF761E400583344 /* Main.storyboard */,
 				757724A81AFDF05A005D15D2 /* ViewController.swift */,
 				757724A61AFDEFDC005D15D2 /* CAPSPageMenu.swift */,
-				75795DAC1A7CF09F004425FA /* ReadViewController.swift */,
 				757724AE1AFE1811005D15D2 /* ReadTableViewController.swift */,
 				757724AF1AFE1811005D15D2 /* ReadTableViewController.xib */,
 				75795DAA1A7CE859004425FA /* WriteViewController.swift */,
@@ -140,9 +140,9 @@
 				752F94261A7DF4D5004C3F3F /* EditViewController.swift */,
 				75EB12F61AAAC99800907C11 /* WebViewController.swift */,
 				75A9C5B01B10488A00353A9A /* WebViewController.xib */,
-				75D0ED3E1AF761E400583344 /* Main.storyboard */,
 				751CEB271A7CC51900E63ED6 /* Images.xcassets */,
 				751CEB291A7CC51900E63ED6 /* LaunchScreen.xib */,
+				75795DAC1A7CF09F004425FA /* ReadViewController.swift */,
 				751CEB1E1A7CC51900E63ED6 /* Supporting Files */,
 			);
 			path = MemoApp;

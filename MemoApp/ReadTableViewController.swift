@@ -124,8 +124,9 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         //Editモードの時は画面遷移しない
         if(e==0){
             
-            //storyboardで設定したsegueを呼び出している
-            performSegueWithIdentifier("toEditViewController",sender: nil)
+            //画面遷移
+            self.view.window?.rootViewController!.presentViewController(EditViewController(), animated: true, completion: nil)
+        
         }
         
         tableview.deselectRowAtIndexPath(indexPath, animated: true)   //cellの選択を解除

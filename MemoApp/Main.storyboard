@@ -41,8 +41,6 @@
                     <connections>
                         <outlet property="imageView" destination="Axr-pb-dlU" id="FSq-78-Cqd"/>
                         <outlet property="tableview" destination="eTa-ez-IHo" id="n0H-1t-zpu"/>
-                        <segue destination="P18-zw-cdF" kind="modal" identifier="WriteViewSegue" modalTransitionStyle="crossDissolve" id="241-0S-877"/>
-                        <segue destination="Eax-Ik-PoE" kind="modal" identifier="toEditViewController" id="Ges-hg-wF3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -52,7 +50,7 @@
         <!--Edit-->
         <scene sceneID="tgb-YT-PId">
             <objects>
-                <viewController id="Eax-Ik-PoE" customClass="EditViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Edit" id="Eax-Ik-PoE" customClass="EditViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1F9-mD-EgZ"/>
                         <viewControllerLayoutGuide type="bottom" id="mNz-MA-0a2"/>
@@ -95,7 +93,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="L9x-y5-TfI"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="editView" destination="ajD-C5-zCj" id="bwm-tN-4OC"/>
+                        <outlet property="editView" destination="ajD-C5-zCj" id="RMD-yj-Bhz"/>
                         <outlet property="imageView" destination="8Ia-eq-BXL" id="3jg-xi-iGP"/>
                     </connections>
                 </viewController>
