@@ -126,7 +126,7 @@ class WriteViewController :UIViewController {
             case UISwipeGestureRecognizerDirection.Right:
                 // 右
                 println("right")
-                performSegueWithIdentifier("BrowserSegue", sender: nil)  //画面遷移
+                //performSegueWithIdentifier("BrowserSegue", sender: nil)  //画面遷移
             case UISwipeGestureRecognizerDirection.Up:
                 // 上
                 println("up")

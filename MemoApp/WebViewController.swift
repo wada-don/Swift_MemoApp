@@ -197,7 +197,7 @@ class WebViewController: UIViewController,UIWebViewDelegate {
             case UISwipeGestureRecognizerDirection.Left:
                 // 左
                 println("left")
-                dismissViewControllerAnimated(true, completion: nil)   //画面遷移
+                //dismissViewControllerAnimated(true, completion: nil)   //画面遷移
             case UISwipeGestureRecognizerDirection.Right:
                 // 右
                 println("right")

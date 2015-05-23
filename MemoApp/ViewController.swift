@@ -73,6 +73,12 @@ class ViewController: UIViewController, CAPSPageMenuDelegate {
         controller2.title = "WriteTable"
         println("hoge")
         controllerArray.append(controller2)
+        var controller3 : WebViewController = WebViewController(nibName: "WebViewController", bundle: nil)
+        controller3.title = "Web"
+//        var controller3 :  WebViewController = WebViewController(nibName: "WebViewController", bundle : nil)
+//        controller3.title = "WebView"
+//        println("hoge")
+//        controllerArray.append(controller3)
         
         // Customize menu (Optional)
         var parameters: [String: AnyObject] = ["scrollMenuBackgroundColor": UIColor(red: 30.0/255.0, green: 30.0/255.0, blue: 30.0/255.0, alpha: 1.0),
