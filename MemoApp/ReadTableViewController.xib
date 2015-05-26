@@ -6,9 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReadTableViewController" customModule="MemoApp" customModuleProvider="target">
             <connections>
-                <outlet property="imageView" destination="TWT-gF-9qh" id="a6s-RD-swI"/>
-                <outlet property="tableview" destination="i0X-Kg-hCe" id="UAh-sF-ZND"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="imageView" destination="gkj-Y8-Xv1" id="51P-pH-BtN"/>
+                <outlet property="tableview" destination="Cxq-uL-2cc" id="6PJ-zw-7Gt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="GWv-qp-IhS"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,11 +16,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="TWT-gF-9qh">
-                    <rect key="frame" x="-3" y="0.0" width="606" height="592"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="gkj-Y8-Xv1">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleAspectFit" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="i0X-Kg-hCe">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="476"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Cxq-uL-2cc">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>

@@ -45,12 +45,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="605" y="291"/>
+            <point key="canvasLocation" x="240" y="319"/>
         </scene>
         <!--Edit-->
         <scene sceneID="tgb-YT-PId">
             <objects>
-                <viewController storyboardIdentifier="Edit" id="Eax-Ik-PoE" customClass="EditViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Edit" storyboardIdentifier="Edit" title="Edit" id="Eax-Ik-PoE" customClass="EditViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1F9-mD-EgZ"/>
                         <viewControllerLayoutGuide type="bottom" id="mNz-MA-0a2"/>
@@ -99,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dk0-Lt-7r9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1166" y="291"/>
+            <point key="canvasLocation" x="1015" y="291"/>
         </scene>
         <!--Browser-->
         <scene sceneID="lsG-47-32B">

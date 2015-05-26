@@ -18,7 +18,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet var tableview : UITableView!
     //@IBOutlet var eButton : UIBarButtonItem!
     @IBOutlet var imageView : UIImageView!
-    
+    var aleart = UIAlertController()
     
     var e : Int!  //EditをONにするかOFFにするかの変数
 
@@ -62,6 +62,14 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         
         // 画像にエフェクトビューを貼り付ける
         imageView.addSubview(visualEffectView)
+        
+        
+        /*-----cellの長押し処理用の云々-----*/
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "rowButtonAction:")
+        longPressRecognizer.allowableMovement = 15
+        longPressRecognizer.minimumPressDuration = 0.6
+        self.tableview .addGestureRecognizer(longPressRecognizer)
+        
 
 
         // Do any additional setup after loading the view.
@@ -124,9 +132,12 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         //Editモードの時は画面遷移しない
         if(e==0){
             
-            //画面遷移
-            self.view.window?.rootViewController!.presentViewController(EditViewController(), animated: true, completion: nil)
-        
+            
+            
+            //画面遷移←アニメーションをpushにしたい
+            NSLog("presentViewController == %@", EditViewController())
+            let hoge =  UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Edit") as EditViewController
+            presentViewController(hoge, animated: true, completion: nil)
         }
         
         tableview.deselectRowAtIndexPath(indexPath, animated: true)   //cellの選択を解除
@@ -136,46 +147,94 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     /*------------------*/
     
-    @IBAction func edit(){
-        if(e==0){
-            e=1
-            
-            //ボタンタイトル設定
-            //eButton.title = "Done"
-            //eButton.tintColor = UIColor.orangeColor()
-        }
-        else if( e==1 ){
-            e=0
-            //eButton.title = "Delete"
-            //eButton.tintColor = UIColor.orangeColor()
+//    @IBAction func edit(){
+//        if(e==0){
+//            e=1
+//            
+//            //ボタンタイトル設定
+//            //eButton.title = "Done"
+//            //eButton.tintColor = UIColor.orangeColor()
+//        }
+//        else if( e==1 ){
+//            e=0
+//            //eButton.title = "Delete"
+//            //eButton.tintColor = UIColor.orangeColor()
+//        }
+//    }
+    
+    
+//    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+//        
+//        // 削除
+//        let del = UITableViewRowAction(style: .Default, title: "Delete") {
+//            (action, indexPath) in
+//            
+//            memo.removeAtIndex(indexPath.row)   //配列の要素を削除
+//            self.tableview.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//            
+//            UD.setObject(memo, forKey: "array")   //メモ内容保存
+//            println(memo)
+//            UD.synchronize()   //あったほうが良い?
+//        }
+//        
+//        del.backgroundColor = UIColor.redColor()
+//        
+//        return [del]
+//    }
+    
+    
+/*-------長押しされた時の処理------*/
+    func rowButtonAction(sender : UILongPressGestureRecognizer) {
+        
+        let point: CGPoint = sender.locationInView(tableview)
+        let indexPath = tableview.indexPathForRowAtPoint(point)
+        
+        if let indexPath = indexPath {
+            if sender.state == UIGestureRecognizerState.Began {
+                
+                // セルが長押しされたときの処理
+                println("long pressed \(indexPath.row)")
+                
+                //キャンセル用ボタン
+                let cancelAction:UIAlertAction = UIAlertAction(title: "Cancel",
+                    style: UIAlertActionStyle.Cancel,
+                    handler:{
+                        (action:UIAlertAction!) -> Void in
+                        println("キャンセル")
+                })
+                
+                //削除
+                let destructiveAction:UIAlertAction = UIAlertAction(title: "Delete",
+                    style: UIAlertActionStyle.Destructive,
+                    handler:{
+                        (action:UIAlertAction!) -> Void in
+                        println("削除や変動的な処理")
+                        memo.removeAtIndex(indexPath.row)   //配列の要素を削除
+                        self.tableview.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                        
+                        UD.setObject(memo, forKey: "array")   //メモ内容保存
+                        println(memo)
+                        UD.synchronize()   //あったほうが良い?
+                })
+                
+                //定義したアクションを追加
+                aleart.addAction(cancelAction)
+                aleart.addAction(destructiveAction)
+                
+                 presentViewController(aleart, animated: true, completion: nil)
+            }
+        }else{
+            println("long press on table view")
         }
     }
     
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-        
-        // 削除
-        let del = UITableViewRowAction(style: .Default, title: "Delete") {
-            (action, indexPath) in
-            
-            memo.removeAtIndex(indexPath.row)   //配列の要素を削除
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            
-            UD.setObject(memo, forKey: "array")   //メモ内容保存
-            println(memo)
-            UD.synchronize()   //あったほうが良い?
-        }
-        
-        del.backgroundColor = UIColor.redColor()
-        
-        return [del]
-    }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        //スワイプでDeleteが出るようにするかしないか
-        if(e==0){return false}
-        else {return true}
-    }
+//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        //スワイプでDeleteが出るようにするかしないか
+//        if(e==0){return false}
+//        else {return true}
+//    }
     
     
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -183,9 +242,9 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
-    // ※スワイプで処理する場合、ここでは何もしないが関数は必要
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    }
+//    // ※スワイプで処理する場合、ここでは何もしないが関数は必要
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//    }
     
     /*------------------------*/
     
@@ -231,7 +290,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
                 println("right")
                 
                 //画面遷移
-                performSegueWithIdentifier("WriteViewSegue", sender: nil)
+                //performSegueWithIdentifier("WriteViewSegue", sender: nil)
                 
             case UISwipeGestureRecognizerDirection.Up:
                 // 上

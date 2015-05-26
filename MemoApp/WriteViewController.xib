@@ -19,8 +19,18 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3Sp-mN-iOU">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Sf-5Y-eet">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <items>
+                        <barButtonItem systemItem="save" id="jH9-vM-r5W">
+                            <connections>
+                                <action selector="save" destination="-1" id="FJH-qV-F4e"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zc9-Z7-DU7">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="259"/>
+                    <rect key="frame" x="0.0" y="44" width="320" height="259"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

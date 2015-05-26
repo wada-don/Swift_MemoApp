@@ -15,15 +15,13 @@ class EditViewController: UIViewController {
     @IBOutlet var imageView : UIImageView!
     
     var aleart = UIAlertView()
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        editView = UITextView()
-        imageView = UIImageView()
-        
         editView.textColor = UIColor.whiteColor()
-       editView.text=text   //内容をセット
+        editView.text=text   //内容をセット
         editView.backgroundColor = nil  //背景透過
         
         //NavigationControllerの文字色の変更
@@ -50,7 +48,7 @@ class EditViewController: UIViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent  //ステータスバー
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -58,7 +56,7 @@ class EditViewController: UIViewController {
     
     @IBAction func cancel(){
         dismissViewControllerAnimated(true, completion: nil)   //画面遷移
-        editView.resignFirstResponder()   //キーボード閉じる
+        editView!.resignFirstResponder()   //キーボード閉じる
     }
     
     @IBAction func edit(){
@@ -82,6 +80,6 @@ class EditViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)   //トップページに戻る
         
     }
-
-
+    
+    
 }
