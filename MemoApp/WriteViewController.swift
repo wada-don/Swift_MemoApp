@@ -46,18 +46,11 @@ class WriteViewController :UIViewController {
         // 画像にエフェクトビューを貼り付ける
         imageView.addSubview(visualEffectView)
         
-        // スワイプ検知用
-        addSwipeRecognizer()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func back(){
-        writeView.resignFirstResponder()   //キーボード閉じる
-        writeView.text = ""   //writeViewのテキストをnullに
     }
     
     @IBAction func save(){
@@ -78,73 +71,8 @@ class WriteViewController :UIViewController {
         aleart.addButtonWithTitle("OK")
         aleart.show()
         
-        
-        dismissViewControllerAnimated(true, completion: nil)   //トップページに戻る←左右画面移動時はいらない
-        
     }
-    
-    
-    
-    
-    /*------------------------*/
-    
-    /**
-    * スワイプ検知用に登録
-    */
-    func addSwipeRecognizer() {
-        var swipeLeft = UISwipeGestureRecognizer(target: self, action: "swiped:")
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
-        
-        var swipeRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
-        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
-        
-        var swipeUp = UISwipeGestureRecognizer(target: self, action: "swiped:")
-        swipeUp.direction = UISwipeGestureRecognizerDirection.Up
-        
-        var swipeDown = UISwipeGestureRecognizer(target: self, action: "swiped:")
-        swipeDown.direction = UISwipeGestureRecognizerDirection.Down
-        
-        self.view.addGestureRecognizer(swipeLeft)
-        self.view.addGestureRecognizer(swipeRight)
-        self.view.addGestureRecognizer(swipeUp)
-        self.view.addGestureRecognizer(swipeDown)
-    }
-    
-    /**
-    * スワイプ
-    */
-    func swiped(gesture: UIGestureRecognizer) {
-        
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Left:
-                // 左
-                println("left")
-                dismissViewControllerAnimated(true, completion: nil)   //画面遷移
-                
-            case UISwipeGestureRecognizerDirection.Right:
-                // 右
-                println("right")
-                //performSegueWithIdentifier("BrowserSegue", sender: nil)  //画面遷移
-            case UISwipeGestureRecognizerDirection.Up:
-                // 上
-                println("up")
-            case UISwipeGestureRecognizerDirection.Down:
-                // 下
-                println("down")
-            default:
-                // その他
-                println("other")
-                break
-            }
-            
-        }
-    }
-    
-    
-    /*------------------------------*/
-    
+
 }
 
 

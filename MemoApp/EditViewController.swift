@@ -36,12 +36,11 @@ class EditViewController: UIViewController {
         var visualEffectView = UIVisualEffectView(effect: blurEffect)
         
         // エフェクトビューのサイズを指定（オリジナル画像と同じサイズにする）
-        visualEffectView.frame = imageView.bounds
+        visualEffectView.frame = self.view.frame
+        //visualEffectView.frame=self.imageView.bounds
         
         // 画像にエフェクトビューを貼り付ける
         imageView.addSubview(visualEffectView)
-        
-        
     }
     
     

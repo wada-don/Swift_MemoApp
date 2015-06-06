@@ -13,14 +13,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3Sp-mN-iOU">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3Sp-mN-iOU">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Sf-5Y-eet">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Sf-5Y-eet">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                     <items>
                         <barButtonItem systemItem="save" id="jH9-vM-r5W">
                             <connections>
@@ -29,21 +29,29 @@
                         </barButtonItem>
                     </items>
                 </toolbar>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zc9-Z7-DU7">
-                    <rect key="frame" x="0.0" y="44" width="320" height="259"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zc9-Z7-DU7">
+                    <rect key="frame" x="0.0" y="44" width="600" height="259"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="3Sp-mN-iOU" secondAttribute="centerX" id="52Q-K2-OfO"/>
+                <constraint firstItem="0Sf-5Y-eet" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6mP-BA-NgZ"/>
+                <constraint firstAttribute="trailing" secondItem="zc9-Z7-DU7" secondAttribute="trailing" id="Afn-6F-woy"/>
+                <constraint firstAttribute="centerX" secondItem="0Sf-5Y-eet" secondAttribute="centerX" id="D00-vW-tpF"/>
+                <constraint firstItem="zc9-Z7-DU7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DEq-um-W91"/>
+                <constraint firstItem="3Sp-mN-iOU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="I8c-XR-E2j"/>
+                <constraint firstAttribute="bottom" secondItem="3Sp-mN-iOU" secondAttribute="bottom" id="JPD-zP-9VZ"/>
+                <constraint firstItem="0Sf-5Y-eet" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Mgf-U2-xUv"/>
+                <constraint firstItem="3Sp-mN-iOU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QDa-JX-Dx6"/>
+                <constraint firstAttribute="centerX" secondItem="zc9-Z7-DU7" secondAttribute="centerX" id="c6o-qH-mRt"/>
+                <constraint firstAttribute="trailing" secondItem="0Sf-5Y-eet" secondAttribute="trailing" id="fjw-YC-TQ4"/>
+                <constraint firstAttribute="trailing" secondItem="3Sp-mN-iOU" secondAttribute="trailing" id="woU-lD-lSx"/>
+            </constraints>
         </view>
-        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sxF-F9-4tB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="577"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <point key="canvasLocation" x="546" y="327.5"/>
-        </imageView>
     </objects>
     <resources>
         <image name="2696791733_c323a983df.jpg" width="320" height="480"/>

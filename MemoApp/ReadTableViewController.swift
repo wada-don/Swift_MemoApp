@@ -16,23 +16,12 @@ var nowUrl : String!
 class ReadTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var tableview : UITableView!
-    //@IBOutlet var eButton : UIBarButtonItem!
     @IBOutlet var imageView : UIImageView!
-    var aleart = UIAlertController()
-    
-    var e : Int!  //EditをONにするかOFFにするかの変数
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
-        imageView.backgroundColor = UIColor.redColor() 
-        
-        url =  "https://www.google.co.jp"
-        nowUrl = url
-        
-        e = 0
+        NSLog("ViewDidLoad")
         
         tableview.delegate = self
         tableview.dataSource = self
@@ -42,14 +31,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         // NavigationControllerのNavigationItemの色
         self.navigationController?.navigationBar.tintColor = UIColor.orangeColor()
         
-        tableview.backgroundColor = nil;  //背景透過
-        
-        // スワイプ検知用
-        addSwipeRecognizer()
-        
-        //ボタンタイトル設定
-        // eButton.title = "Delete"
-        //eButton.tintColor = UIColor.orangeColor()
+        tableview.backgroundColor = nil;  //TableViewの背景透過
         
         // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
         let blurEffect = UIBlurEffect(style: .Light)
@@ -63,28 +45,32 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         // 画像にエフェクトビューを貼り付ける
         imageView.addSubview(visualEffectView)
         
-        
         /*-----cellの長押し処理用の云々-----*/
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "rowButtonAction:")
         longPressRecognizer.allowableMovement = 15
         longPressRecognizer.minimumPressDuration = 0.6
         self.tableview .addGestureRecognizer(longPressRecognizer)
-        
-
 
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
+        
+        NSLog("ViewDidAppear")
         
         let result : AnyObject! = UD.objectForKey("array")
         if(result != nil){
-            memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as [String] //UserDefaultsから読み込み  
             
+            //UserDefaultsから読み込み
+            memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as [String]
         }
-      
         tableview.reloadData()   //tableViewの更新
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSLog("ViewWillAppear")
     }
 
 
@@ -104,9 +90,12 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     */
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        NSLog("DataSource")
         //cellの数を決定
         return memo.count
     }
@@ -129,59 +118,14 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         text = memo[indexPath.row]   //タップされたcellの内容を取得
         println(text)
         
-        //Editモードの時は画面遷移しない
-        if(e==0){
-            
-            
-            
-            //画面遷移←アニメーションをpushにしたい
-            NSLog("presentViewController == %@", EditViewController())
-            let hoge =  UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Edit") as EditViewController
-            presentViewController(hoge, animated: true, completion: nil)
-        }
-        
-        tableview.deselectRowAtIndexPath(indexPath, animated: true)   //cellの選択を解除
+        //画面遷移←アニメーションをpushにしたい
+        let hoge =  UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Edit") as EditViewController
+        var hogeNavigationVC = UINavigationController(rootViewController: hoge)
+        hogeNavigationVC.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+        //親のViewControllerから画面遷移を行わないとエラーが出る
+        self.parentViewController?.view.window?.rootViewController?.presentViewController(hogeNavigationVC, animated: true, completion: nil)
         
     }
-    
-    
-    /*------------------*/
-    
-//    @IBAction func edit(){
-//        if(e==0){
-//            e=1
-//            
-//            //ボタンタイトル設定
-//            //eButton.title = "Done"
-//            //eButton.tintColor = UIColor.orangeColor()
-//        }
-//        else if( e==1 ){
-//            e=0
-//            //eButton.title = "Delete"
-//            //eButton.tintColor = UIColor.orangeColor()
-//        }
-//    }
-    
-    
-//    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-//        
-//        // 削除
-//        let del = UITableViewRowAction(style: .Default, title: "Delete") {
-//            (action, indexPath) in
-//            
-//            memo.removeAtIndex(indexPath.row)   //配列の要素を削除
-//            self.tableview.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//            
-//            UD.setObject(memo, forKey: "array")   //メモ内容保存
-//            println(memo)
-//            UD.synchronize()   //あったほうが良い?
-//        }
-//        
-//        del.backgroundColor = UIColor.redColor()
-//        
-//        return [del]
-//    }
-    
     
 /*-------長押しされた時の処理------*/
     func rowButtonAction(sender : UILongPressGestureRecognizer) {
@@ -195,12 +139,14 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
                 // セルが長押しされたときの処理
                 println("long pressed \(indexPath.row)")
                 
+                //アラートコントローラーを作成
+                var aleart = UIAlertController()
+                
                 //キャンセル用ボタン
                 let cancelAction:UIAlertAction = UIAlertAction(title: "Cancel",
                     style: UIAlertActionStyle.Cancel,
                     handler:{
                         (action:UIAlertAction!) -> Void in
-                        println("キャンセル")
                 })
                 
                 //削除
@@ -228,91 +174,10 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    
-    
-//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//        //スワイプでDeleteが出るようにするかしないか
-//        if(e==0){return false}
-//        else {return true}
-//    }
-    
+/*------------------------------------*/
     
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
-    }
-    
-    
-//    // ※スワイプで処理する場合、ここでは何もしないが関数は必要
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//    }
-    
-    /*------------------------*/
-    
-    /**
-    * スワイプ検知用に登録
-    */
-    func addSwipeRecognizer() {
-        var swipeLeft = UISwipeGestureRecognizer(target: self, action: "swiped:")
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
-        
-        var swipeRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
-        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
-        
-        var swipeUp = UISwipeGestureRecognizer(target: self, action: "swiped:")
-        swipeUp.direction = UISwipeGestureRecognizerDirection.Up
-        
-        var swipeDown = UISwipeGestureRecognizer(target: self, action: "swiped:")
-        swipeDown.direction = UISwipeGestureRecognizerDirection.Down
-        
-        self.view.addGestureRecognizer(swipeLeft)
-        self.view.addGestureRecognizer(swipeRight)
-        self.view.addGestureRecognizer(swipeUp)
-        self.view.addGestureRecognizer(swipeDown)
-    }
-    
-    /**
-    * スワイプのところ
-    */
-    func swiped(gesture: UIGestureRecognizer) {
-        
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Left:
-                // 左
-                println("left")
-                //performSegueWithIdentifier("fromReadtoWebSegue", sender: nil) //画面遷移
-                
-                
-            case UISwipeGestureRecognizerDirection.Right:
-                
-                // 右
-                println("right")
-                
-                //画面遷移
-                //performSegueWithIdentifier("WriteViewSegue", sender: nil)
-                
-            case UISwipeGestureRecognizerDirection.Up:
-                // 上
-                println("up")
-            case UISwipeGestureRecognizerDirection.Down:
-                // 下
-                println("down")
-            default:
-                // その他
-                println("other")
-                break
-            }
-            
-        }
-    }
-    
-    
-    /*------------------------------*/
-    
-    @IBAction func back(){
-        
-        dismissViewControllerAnimated(true, completion: nil)   //遷移
     }
     
 }

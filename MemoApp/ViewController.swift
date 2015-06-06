@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController, CAPSPageMenuDelegate {
     
     var pageMenu : CAPSPageMenu?
@@ -84,12 +85,14 @@ class ViewController: UIViewController, CAPSPageMenuDelegate {
             "selectionIndicatorColor": UIColor.orangeColor(),
             "bottomMenuHairlineColor": UIColor(red: 70.0/255.0, green: 70.0/255.0, blue: 80.0/255.0, alpha: 1.0),
             "menuItemFont": UIFont(name: "HelveticaNeue", size: 13.0)!,
-            "menuHeight": 80.0,
+            "menuHeight": 80.0,  //メニューの縦幅
             "menuItemWidth": 90.0,
             "centerMenuItems": true]
         
         // Initialize scroll menu
+        
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height), options: parameters)
+        
         
         self.view.addSubview(pageMenu!.view)
     }

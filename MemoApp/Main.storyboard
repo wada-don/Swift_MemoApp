@@ -1,52 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="j81-t9-biO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="j81-t9-biO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--Read-->
-        <scene sceneID="ufC-wZ-h7g">
-            <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="vXZ-lx-hvc" customClass="ReadViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Axr-pb-dlU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="109" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eTa-ez-IHo">
-                                <rect key="frame" x="0.0" y="20" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="toEditViewController" rowHeight="109" id="lKu-za-o4F">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lKu-za-o4F" id="5Cw-Ef-T4Q">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Read" id="bNN-xI-oJy">
-                        <barButtonItem key="rightBarButtonItem" id="YNQ-Ys-UeL"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="imageView" destination="Axr-pb-dlU" id="FSq-78-Cqd"/>
-                        <outlet property="tableview" destination="eTa-ez-IHo" id="n0H-1t-zpu"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="240" y="319"/>
-        </scene>
         <!--Edit-->
         <scene sceneID="tgb-YT-PId">
             <objects>
@@ -56,102 +13,52 @@
                         <viewControllerLayoutGuide type="bottom" id="mNz-MA-0a2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3dh-Hg-tfg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="8Ia-eq-BXL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="8Ia-eq-BXL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lnf-m7-nyN">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Edit" id="kIn-lR-ZfO">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8ec-9f-WeB">
-                                            <connections>
-                                                <action selector="cancel" destination="Eax-Ik-PoE" id="Eb0-V6-Gid"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="hSi-H1-8lK">
-                                            <connections>
-                                                <action selector="edit" destination="Eax-Ik-PoE" id="J1P-ek-yIn"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajD-C5-zCj">
-                                <rect key="frame" x="0.0" y="64" width="320" height="244"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlX-xf-Qbq">
+                                <rect key="frame" x="0.0" y="64" width="600" height="257"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mNz-MA-0a2" firstAttribute="top" secondItem="8Ia-eq-BXL" secondAttribute="bottom" id="0la-A8-Isj"/>
+                            <constraint firstAttribute="trailing" secondItem="jlX-xf-Qbq" secondAttribute="trailing" id="G0R-DM-iQZ"/>
+                            <constraint firstAttribute="trailing" secondItem="8Ia-eq-BXL" secondAttribute="trailing" id="Hj0-gj-ISg"/>
+                            <constraint firstItem="8Ia-eq-BXL" firstAttribute="leading" secondItem="3dh-Hg-tfg" secondAttribute="leading" id="LYp-nx-25r"/>
+                            <constraint firstItem="jlX-xf-Qbq" firstAttribute="top" secondItem="1F9-mD-EgZ" secondAttribute="bottom" id="MYh-HT-Jv5"/>
+                            <constraint firstItem="jlX-xf-Qbq" firstAttribute="leading" secondItem="3dh-Hg-tfg" secondAttribute="leading" id="aCP-7w-Zya"/>
+                            <constraint firstItem="8Ia-eq-BXL" firstAttribute="top" secondItem="3dh-Hg-tfg" secondAttribute="top" id="tdU-6d-V76"/>
+                            <constraint firstItem="mNz-MA-0a2" firstAttribute="top" secondItem="jlX-xf-Qbq" secondAttribute="bottom" constant="279" id="xvO-4O-Tgv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit" id="HjX-pC-wRk">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LYP-cZ-LPk"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="L9x-y5-TfI"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LYP-cZ-LPk">
+                            <connections>
+                                <action selector="cancel" destination="Eax-Ik-PoE" id="UmZ-Sh-3ja"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="L9x-y5-TfI">
+                            <connections>
+                                <action selector="edit" destination="Eax-Ik-PoE" id="7b6-PT-iQ5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="editView" destination="ajD-C5-zCj" id="RMD-yj-Bhz"/>
+                        <outlet property="editView" destination="jlX-xf-Qbq" id="aXU-Vp-XDD"/>
                         <outlet property="imageView" destination="8Ia-eq-BXL" id="3jg-xi-iGP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dk0-Lt-7r9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="291"/>
-        </scene>
-        <!--Browser-->
-        <scene sceneID="lsG-47-32B">
-            <objects>
-                <viewController id="eQD-hT-Rl5" customClass="WebViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="p7X-YZ-1iM"/>
-                        <viewControllerLayoutGuide type="bottom" id="jkU-Uy-YsV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="egF-hY-sjd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifd-OK-XvD">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem image="arrow-left.png" id="q5V-Kg-RUW">
-                                        <connections>
-                                            <action selector="back" destination="eQD-hT-Rl5" id="Ntg-uz-lG4"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="46" style="plain" systemItem="fixedSpace" id="gVI-bC-qD9"/>
-                                    <barButtonItem image="arrow-right.png" id="Z1e-RZ-fZc">
-                                        <connections>
-                                            <action selector="go" destination="eQD-hT-Rl5" id="HE0-WY-8Cr"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="43" style="plain" systemItem="fixedSpace" id="E8m-kc-y4c"/>
-                                    <barButtonItem image="home-2.png" id="U6p-2d-SbG">
-                                        <connections>
-                                            <action selector="home" destination="eQD-hT-Rl5" id="IWY-D7-l2e"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="41" style="plain" systemItem="fixedSpace" id="pph-h3-2zY"/>
-                                    <barButtonItem image="refresh.png" id="Vo5-ce-KfR">
-                                        <connections>
-                                            <action selector="reroad" destination="eQD-hT-Rl5" id="S9A-z7-KbA"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Browser" image="compass.png" id="A5x-AQ-sfB"/>
-                    <connections>
-                        <outlet property="tool" destination="Ifd-OK-XvD" id="XQh-U3-HIN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="icx-li-hFL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1110" y="1842"/>
+            <point key="canvasLocation" x="3367" y="-389"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Doc-at-nal">
@@ -162,7 +69,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hgo-qT-xDZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vXo-Xh-uCz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -170,53 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6l-3m-Ie4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1289" y="-419"/>
-        </scene>
-        <!--Write-->
-        <scene sceneID="ziY-Hc-fsX">
-            <objects>
-                <viewController storyboardIdentifier="write" id="P18-zw-cdF" customClass="WriteViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZIy-DW-iQl"/>
-                        <viewControllerLayoutGuide type="bottom" id="rmZ-X0-XwC"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Tq1-sy-Q35">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zNf-Wh-VbU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hsn-Zx-Ifn">
-                                <rect key="frame" x="0.0" y="20" width="320" height="332"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Write" id="5fA-f7-hll">
-                        <barButtonItem key="leftBarButtonItem" title="Delete" style="done" id="q5l-VR-adn">
-                            <connections>
-                                <action selector="back" destination="P18-zw-cdF" id="we9-Wd-o42"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6IS-D7-PpG">
-                            <connections>
-                                <action selector="save" destination="P18-zw-cdF" id="nNp-Q6-Gi2"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="imageView" destination="zNf-Wh-VbU" id="eEK-nV-zNp"/>
-                        <outlet property="writeView" destination="Hsn-Zx-Ifn" id="yAh-iL-1Zv"/>
-                        <segue destination="eQD-hT-Rl5" kind="modal" identifier="BrowserSegue" modalTransitionStyle="crossDissolve" id="uZm-nz-iSj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qcf-hS-crB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="678" y="1033"/>
+            <point key="canvasLocation" x="2416.875" y="-442.6056338028169"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G6a-Ug-gsx">
@@ -234,20 +95,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvt-0E-hmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757" y="-419"/>
+            <point key="canvasLocation" x="1419.375" y="-442.6056338028169"/>
         </scene>
     </scenes>
     <resources>
         <image name="2696791733_c323a983df.jpg" width="320" height="480"/>
-        <image name="arrow-left.png" width="32" height="32"/>
-        <image name="arrow-right.png" width="32" height="32"/>
-        <image name="compass.png" width="32" height="32"/>
-        <image name="home-2.png" width="32" height="32"/>
-        <image name="refresh.png" width="32" height="32"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>
