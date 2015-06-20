@@ -33,7 +33,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
     
         
         url =  "https://www.google.co.jp"
-        nowUrl = url
+        nowUrl = url as String
         
         e = 0
         
@@ -74,7 +74,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         
         let result : AnyObject! = UD.objectForKey("array")
         if(result != nil){
-                memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as [String] //UserDefaultsから読み込み
+                memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as! [String] //UserDefaultsから読み込み
         }
         
         tableview.reloadData()   //tableViewの更新

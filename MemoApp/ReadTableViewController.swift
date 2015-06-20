@@ -56,7 +56,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         if(result != nil){
             
             //UserDefaultsから読み込み
-            memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as [String]
+            memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as! [String]
         }
         tableview.reloadData()   //tableViewの更新
         
@@ -136,7 +136,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         println(text)
         
         //画面遷移←アニメーションをpushにしたい
-        let hoge =  UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Edit") as EditViewController
+        let hoge =  UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Edit") as! EditViewController
         var hogeNavigationVC = UINavigationController(rootViewController: hoge)
         hogeNavigationVC.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
         //親のViewControllerから画面遷移を行わないとエラーが出る
