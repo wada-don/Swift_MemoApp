@@ -14,6 +14,7 @@ var tag:[String] = ["hogehoge"]   //配列生成
 var memo:[String]=["hoge"]
 
 var key:String = ""
+var viewNum = 1
 
 
 class WriteViewController :UIViewController {
@@ -73,11 +74,13 @@ class WriteViewController :UIViewController {
         if IJReachability.isConnectedToNetwork() {
             println("正常な電波状況です")
         } else {
-            let alert = UIAlertView()
-            alert.title = "通信エラー"
-            alert.message = "通信状況がよくありません。電波環境を確認後、再度お試しください。"
-            alert.addButtonWithTitle("OK")
-            alert.show()
+            if (viewNum == 2){  //webViewに遷移した場合のみ表示
+                let alert = UIAlertView()
+                alert.title = "通信エラー"
+                alert.message = "通信状況がよくありません。電波環境を確認後、再度お試しください。"
+                alert.addButtonWithTitle("OK")
+                alert.show()
+            }
         }
     }
     

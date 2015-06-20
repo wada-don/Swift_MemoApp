@@ -57,6 +57,8 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
             
             //UserDefaultsから読み込み
             memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as! [String]
+            
+            viewNum = 0
         }
         tableview.reloadData()   //tableViewの更新
         
