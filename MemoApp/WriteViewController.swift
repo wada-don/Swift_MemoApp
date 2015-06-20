@@ -21,6 +21,9 @@ class WriteViewController :UIViewController {
     @IBOutlet var writeView : UITextView!
     @IBOutlet var imageView : UIImageView!
     var aleart = UIAlertView()
+    var blur = 0  //ブラー判定用
+    
+   var visualEffectView :UIVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,17 +37,30 @@ class WriteViewController :UIViewController {
         writeView.backgroundColor = nil  //背景透過
         writeView.textColor = UIColor.whiteColor()
         
-        // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
-        let blurEffect = UIBlurEffect(style: .Light)
-        
-        // ブラーエフェクトからエフェクトビューを生成
-        var visualEffectView = UIVisualEffectView(effect: blurEffect)
-        
-        // エフェクトビューのサイズを指定（オリジナル画像と同じサイズにする）
-        visualEffectView.frame = imageView.bounds
-        
-        // 画像にエフェクトビューを貼り付ける
-        imageView.addSubview(visualEffectView)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+  //      if(blur == 0){  //ブラーがかかっていない時の処理
+     //       blur = 1;
+            
+            // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
+            let blurEffect = UIBlurEffect(style: .Light)
+            
+            // ブラーエフェクトからエフェクトビューを生成
+           visualEffectView = UIVisualEffectView(effect: blurEffect)
+            
+            // エフェクトビューのサイズを指定（オリジナル画像と同じサイズにする）
+            visualEffectView.frame = imageView.bounds
+            
+            // 画像にエフェクトビューを貼り付ける
+            imageView.addSubview(visualEffectView)
+            
+        //}
+    }
+   override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        visualEffectView.removeFromSuperview()
         
     }
     

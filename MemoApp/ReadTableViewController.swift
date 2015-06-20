@@ -17,14 +17,19 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet var tableview : UITableView!
     @IBOutlet var imageView : UIImageView!
+    
+    var visualEffectView:UIVisualEffectView!
+    
+    var blur  = 0  //ブラーエフェクトがかかっているか判定
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NSLog("ViewDidLoad")
         
-        tableview.delegate = self
+        
         tableview.dataSource = self
+        tableview.delegate = self
         
         //NavigationControllerの文字色の変更
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
@@ -32,18 +37,6 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         self.navigationController?.navigationBar.tintColor = UIColor.orangeColor()
         
         tableview.backgroundColor = nil;  //TableViewの背景透過
-        
-        // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
-        let blurEffect = UIBlurEffect(style: .Light)
-        
-        // ブラーエフェクトからエフェクトビューを生成
-        var visualEffectView = UIVisualEffectView(effect: blurEffect)
-        
-        // エフェクトビューのサイズを指定（オリジナル画像と同じサイズにする）
-        visualEffectView.frame = imageView.bounds
-        
-        // 画像にエフェクトビューを貼り付ける
-        imageView.addSubview(visualEffectView)
         
         /*-----cellの長押し処理用の云々-----*/
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "rowButtonAction:")
@@ -66,11 +59,35 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
             memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as [String]
         }
         tableview.reloadData()   //tableViewの更新
+        
+        if(blur == 0){  //ブラーがかかっていない時の処理
+            blur = 1;
+            
+            // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
+            let blurEffect = UIBlurEffect(style: .Light)
+            
+            // ブラーエフェクトからエフェクトビューを生成
+           visualEffectView = UIVisualEffectView(effect: blurEffect)
+            
+            // エフェクトビューのサイズを指定（オリジナル画像と同じサイズにする）
+            visualEffectView.frame = imageView.bounds
+            
+            // 画像にエフェクトビューを貼り付ける
+            imageView.addSubview(visualEffectView)
+            
+        }
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         NSLog("ViewWillAppear")
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        visualEffectView.removeFromSuperview()
+        blur = 0
     }
 
 
@@ -90,7 +107,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     */
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
         return 1
     }
     
