@@ -20,6 +20,8 @@ class WriteViewController :UIViewController {
     
     @IBOutlet var writeView : UITextView!
     @IBOutlet var imageView : UIImageView!
+     @IBOutlet var tool : UIToolbar!
+    @IBOutlet var toolButton : UIBarButtonItem!
     var aleart = UIAlertView()
     var blur = 0  //ブラー判定用
     
@@ -37,6 +39,8 @@ class WriteViewController :UIViewController {
         writeView.backgroundColor = nil  //背景透過
         writeView.textColor = UIColor.whiteColor()
         
+        tool.barStyle=UIBarStyle.Black
+        toolButton.tintColor=UIColor.orangeColor()   //toolBarの色変更
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -62,6 +66,19 @@ class WriteViewController :UIViewController {
         super.viewWillDisappear(animated)
         visualEffectView.removeFromSuperview()
         
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        if IJReachability.isConnectedToNetwork() {
+            println("正常な電波状況です")
+        } else {
+            let alert = UIAlertView()
+            alert.title = "通信エラー"
+            alert.message = "通信状況がよくありません。電波環境を確認後、再度お試しください。"
+            alert.addButtonWithTitle("OK")
+            alert.show()
+        }
     }
     
     override func didReceiveMemoryWarning() {

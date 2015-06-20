@@ -13,6 +13,7 @@ class EditViewController: UIViewController {
     
     @IBOutlet var editView : UITextView!
     @IBOutlet var imageView : UIImageView!
+    @IBOutlet var tool : UINavigationBar!
     
     var aleart = UIAlertView()
     
@@ -41,6 +42,10 @@ class EditViewController: UIViewController {
         
         // 画像にエフェクトビューを貼り付ける
         imageView.addSubview(visualEffectView)
+        
+        //toobarの設定
+        tool.barStyle=UIBarStyle.Black
+        tool.tintColor=UIColor.orangeColor()
     }
     
     

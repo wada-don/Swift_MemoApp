@@ -16,6 +16,8 @@ class WebViewController: UIViewController,UIWebViewDelegate{
     var myIndiator: UIActivityIndicatorView!   //読み込み時に表示するインジケーター
     var aleart = UIAlertView()
     
+    var net = 0  //接続状態確認用
+    
     override func viewDidLoad() {
         
         // ページ読み込み中に表示させるインジケータを生成.
@@ -24,11 +26,16 @@ class WebViewController: UIViewController,UIWebViewDelegate{
         myIndiator.hidesWhenStopped = true
         myIndiator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
 
-        loadAddressURL()   //サイトに接続
         
          //webView.addObserver(self, forKeyPath: "loading", options: .New, context: nil)  //プロパティ監視
         
+        tool.barStyle=UIBarStyle.Black
         tool.tintColor=UIColor.orangeColor()   //toolBarの色変更
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        reachabilityCheck ()  //ネットワークチェック
     }
     
 //    deinit{
@@ -98,6 +105,26 @@ class WebViewController: UIViewController,UIWebViewDelegate{
     
     @IBAction func go(){
         self.webView.goForward()  //進む
+    }
+    
+    func reachabilityCheck () {
+        if IJReachability.isConnectedToNetwork() {
+            println("正常な電波状況です")
+            if(net == 0){  //ネットに接続できていなかったら
+                 loadAddressURL()   //googleに接続
+            }
+            net = 1  //接続状態更新
+        } else {
+            /*
+            let alert = UIAlertView()
+            alert.title = "通信エラー"
+            alert.message = "通信状況がよくありません。電波環境を確認後、再度お試しください。"
+            alert.addButtonWithTitle("OK")
+            alert.show()
+            */
+            
+            net = 0  //接続状態更新
+        }
     }
     
     

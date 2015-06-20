@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WriteViewController" customModule="MemoApp" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="3Sp-mN-iOU" id="z3u-Rg-ekA"/>
+                <outlet property="tool" destination="0Sf-5Y-eet" id="797-Mh-BFQ"/>
+                <outlet property="toolButton" destination="jH9-vM-r5W" id="2jN-gP-lvW"/>
                 <outlet property="view" destination="iN0-l3-epB" id="uyg-4k-tqR"/>
                 <outlet property="writeView" destination="zc9-Z7-DU7" id="iz8-GX-BNz"/>
             </connections>
@@ -22,16 +24,21 @@
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Sf-5Y-eet">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                     <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="65a-xx-dGA"/>
                         <barButtonItem systemItem="save" id="jH9-vM-r5W">
                             <connections>
                                 <action selector="save" destination="-1" id="FJH-qV-F4e"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem width="14" style="plain" systemItem="fixedSpace" id="YKs-mX-SK4"/>
                     </items>
                 </toolbar>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zc9-Z7-DU7">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zc9-Z7-DU7">
                     <rect key="frame" x="0.0" y="44" width="600" height="259"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="259" id="ABK-ru-6xG"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
@@ -43,6 +50,7 @@
                 <constraint firstAttribute="trailing" secondItem="zc9-Z7-DU7" secondAttribute="trailing" id="Afn-6F-woy"/>
                 <constraint firstAttribute="centerX" secondItem="0Sf-5Y-eet" secondAttribute="centerX" id="D00-vW-tpF"/>
                 <constraint firstItem="zc9-Z7-DU7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DEq-um-W91"/>
+                <constraint firstItem="zc9-Z7-DU7" firstAttribute="top" secondItem="0Sf-5Y-eet" secondAttribute="bottom" id="Exm-Bc-Rdd"/>
                 <constraint firstItem="3Sp-mN-iOU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="I8c-XR-E2j"/>
                 <constraint firstAttribute="bottom" secondItem="3Sp-mN-iOU" secondAttribute="bottom" id="JPD-zP-9VZ"/>
                 <constraint firstItem="0Sf-5Y-eet" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Mgf-U2-xUv"/>

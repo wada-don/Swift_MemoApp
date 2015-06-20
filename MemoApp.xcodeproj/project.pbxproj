@@ -13,6 +13,7 @@
 		751CEB371A7CC51900E63ED6 /* MemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CEB361A7CC51900E63ED6 /* MemoAppTests.swift */; };
 		752F94271A7DF4D5004C3F3F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752F94261A7DF4D5004C3F3F /* EditViewController.swift */; };
 		7538A6531A7E0651009B2D9C /* back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7538A6521A7E0651009B2D9C /* back.jpg */; };
+		7572BEBE1B35587000913D35 /* IJReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7572BEBD1B35587000913D35 /* IJReachability.swift */; };
 		757724A71AFDEFDC005D15D2 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757724A61AFDEFDC005D15D2 /* CAPSPageMenu.swift */; };
 		757724A91AFDF05A005D15D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757724A81AFDF05A005D15D2 /* ViewController.swift */; };
 		757724B01AFE1811005D15D2 /* ReadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757724AE1AFE1811005D15D2 /* ReadTableViewController.swift */; };
@@ -22,7 +23,6 @@
 		75795DAD1A7CF09F004425FA /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75795DAC1A7CF09F004425FA /* ReadViewController.swift */; };
 		759C8CC11AB01D67000418C7 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 759C8CC01AB01D67000418C7 /* icon.png */; };
 		75A9C5B11B10488A00353A9A /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A9C5B01B10488A00353A9A /* WebViewController.xib */; };
-		75B608931AF881B5000CC4C3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B608921AF881B5000CC4C3 /* WebKit.framework */; };
 		75D0ED3F1AF761E400583344 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D0ED3E1AF761E400583344 /* Main.storyboard */; };
 		75D889851AEB6A8700A441D7 /* 2696791733_c323a983df.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75D889841AEB6A8700A441D7 /* 2696791733_c323a983df.jpg */; };
 		75EA3D5A1B2311C900FAE054 /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = 75EA3D591B2311C800FAE054 /* black.png */; };
@@ -57,6 +57,7 @@
 		751CEB361A7CC51900E63ED6 /* MemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoAppTests.swift; sourceTree = "<group>"; };
 		752F94261A7DF4D5004C3F3F /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		7538A6521A7E0651009B2D9C /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = back.jpg; path = MemoApp/back.jpg; sourceTree = "<group>"; };
+		7572BEBD1B35587000913D35 /* IJReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJReachability.swift; sourceTree = "<group>"; };
 		757724A61AFDEFDC005D15D2 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 		757724A81AFDF05A005D15D2 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		757724AE1AFE1811005D15D2 /* ReadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadTableViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		75795DAC1A7CF09F004425FA /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 		759C8CC01AB01D67000418C7 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		75A9C5B01B10488A00353A9A /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
-		75B608921AF881B5000CC4C3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		75D0ED3E1AF761E400583344 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		75D889841AEB6A8700A441D7 /* 2696791733_c323a983df.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2696791733_c323a983df.jpg; path = MemoApp/2696791733_c323a983df.jpg; sourceTree = "<group>"; };
 		75EA3D591B2311C800FAE054 /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = black.png; path = MemoApp/black.png; sourceTree = "<group>"; };
@@ -85,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75B608931AF881B5000CC4C3 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +130,6 @@
 		751CEB1D1A7CC51900E63ED6 /* MemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				75B608921AF881B5000CC4C3 /* WebKit.framework */,
 				751CEB201A7CC51900E63ED6 /* AppDelegate.swift */,
 				75D0ED3E1AF761E400583344 /* Main.storyboard */,
 				757724A81AFDF05A005D15D2 /* ViewController.swift */,
@@ -141,6 +139,7 @@
 				75795DAA1A7CE859004425FA /* WriteViewController.swift */,
 				757724B21AFE29A9005D15D2 /* WriteViewController.xib */,
 				752F94261A7DF4D5004C3F3F /* EditViewController.swift */,
+				7572BEBD1B35587000913D35 /* IJReachability.swift */,
 				75EB12F61AAAC99800907C11 /* WebViewController.swift */,
 				75A9C5B01B10488A00353A9A /* WebViewController.xib */,
 				751CEB271A7CC51900E63ED6 /* Images.xcassets */,
@@ -290,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7572BEBE1B35587000913D35 /* IJReachability.swift in Sources */,
 				752F94271A7DF4D5004C3F3F /* EditViewController.swift in Sources */,
 				757724A91AFDF05A005D15D2 /* ViewController.swift in Sources */,
 				75795DAB1A7CE859004425FA /* WriteViewController.swift in Sources */,

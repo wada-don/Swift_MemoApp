@@ -107,7 +107,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     */
     
-    func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
@@ -127,7 +127,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
-    func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath:NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         
         //cellがタップされた時の挙動
         cellNum = indexPath.row   //何番目のcellがタップされたか
