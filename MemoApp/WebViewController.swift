@@ -41,7 +41,7 @@ class WebViewController: UIViewController,UIWebViewDelegate{
     }
     
     func loadAddressURL(){  //url読み込み作業
-        let requestURL = NSURL(string: url)!
+        let requestURL = NSURL(string: url as String)!
         let req = NSURLRequest(URL: requestURL)
         println(requestURL)
         println(req)
