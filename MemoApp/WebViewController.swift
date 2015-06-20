@@ -36,7 +36,6 @@ class WebViewController: UIViewController,UIWebViewDelegate{
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         reachabilityCheck ()  //ネットワークチェック
-        
         viewNum = 2
     }
     
