@@ -220,6 +220,7 @@
 		751CEB131A7CC51900E63ED6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = DAWA;
 				TargetAttributes = {

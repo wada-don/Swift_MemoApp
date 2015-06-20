@@ -112,7 +112,6 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        NSLog("DataSource")
         //cellの数を決定
         return memo.count
     }
