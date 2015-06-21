@@ -408,10 +408,13 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
     // MARK: - Scroll view delegate
     
     public func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        let app = UIApplication.sharedApplication()
+        
         if !didLayoutSubviewsAfterRotation {
             if scrollView.isEqual(controllerScrollView) {
                 if scrollView.contentOffset.x >= 0.0 && scrollView.contentOffset.x <= (CGFloat(controllerArray.count - 1) * self.view.frame.width) {
-                    if (currentOrientationIsPortrait && self.interfaceOrientation.isPortrait) || (!currentOrientationIsPortrait && self.interfaceOrientation.isLandscape) {
+                    if (currentOrientationIsPortrait && app.statusBarOrientation.isPortrait) || (!currentOrientationIsPortrait && app.statusBarOrientation.isLandscape) {
                         // Check if scroll direction changed
                         if !didTapMenuItemToScroll {
                             if didScrollAlready {
@@ -744,9 +747,19 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
     override public func viewDidLayoutSubviews() {
         // Configure controller scroll view content size
         controllerScrollView.contentSize = CGSizeMake(self.view.frame.width * CGFloat(controllerArray.count), self.view.frame.height - menuHeight)
-
+        
         var oldCurrentOrientationIsPortrait : Bool = currentOrientationIsPortrait
-        currentOrientationIsPortrait = self.interfaceOrientation.isPortrait
+        
+        let app = UIApplication.sharedApplication()
+        
+        if (app.statusBarOrientation.isLandscape) {
+            NSLog("App Landscape");
+        }
+        else {
+            NSLog("App Portrait");
+        }
+        
+        currentOrientationIsPortrait = app.statusBarOrientation.isPortrait
         
         if (oldCurrentOrientationIsPortrait && UIDevice.currentDevice().orientation.isLandscape) || (!oldCurrentOrientationIsPortrait && UIDevice.currentDevice().orientation.isPortrait) {
             didLayoutSubviewsAfterRotation = true
@@ -810,8 +823,8 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
             }
         }
         
-        // Hsoi 2015-02-05 - Running on iOS 7.1 complained: "'NSInternalInconsistencyException', reason: 'Auto Layout 
-        // still required after sending -viewDidLayoutSubviews to the view controller. ViewController's implementation 
+        // Hsoi 2015-02-05 - Running on iOS 7.1 complained: "'NSInternalInconsistencyException', reason: 'Auto Layout
+        // still required after sending -viewDidLayoutSubviews to the view controller. ViewController's implementation
         // needs to send -layoutSubviews to the view to invoke auto layout.'"
         //
         // http://stackoverflow.com/questions/15490140/auto-layout-error
