@@ -39,7 +39,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit" id="HjX-pC-wRk">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="LYP-cZ-LPk">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LYP-cZ-LPk">
                             <color key="tintColor" red="1" green="0.63976409940000001" blue="0.082670691769999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancel" destination="Eax-Ik-PoE" id="UmZ-Sh-3ja"/>

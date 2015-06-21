@@ -29,6 +29,8 @@ class EditViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
         // NavigationControllerのNavigationItemの色
         self.navigationController?.navigationBar.tintColor = UIColor.orangeColor()
+        //NabigationBarの色
+        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         
         // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
         let blurEffect = UIBlurEffect(style: .Light)
@@ -43,9 +45,6 @@ class EditViewController: UIViewController {
         // 画像にエフェクトビューを貼り付ける
         imageView.addSubview(visualEffectView)
         
-        //toobarの設定
-        tool.barStyle=UIBarStyle.Black
-        tool.tintColor=UIColor.orangeColor()
     }
     
     
