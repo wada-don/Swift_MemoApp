@@ -26,9 +26,9 @@ class EditViewController: UIViewController {
         editView.backgroundColor = nil  //背景透過
         
         //NavigationControllerの文字色の変更
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         // NavigationControllerのNavigationItemの色
-        self.navigationController?.navigationBar.tintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         //NabigationBarの色
         self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         

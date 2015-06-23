@@ -25,7 +25,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="65a-xx-dGA"/>
-                        <barButtonItem systemItem="save" id="jH9-vM-r5W">
+                        <barButtonItem image="done.png" id="jH9-vM-r5W">
                             <connections>
                                 <action selector="save" destination="-1" id="FJH-qV-F4e"/>
                             </connections>
@@ -63,5 +63,6 @@
     </objects>
     <resources>
         <image name="2696791733_c323a983df.jpg" width="320" height="480"/>
+        <image name="done.png" width="40" height="40"/>
     </resources>
 </document>

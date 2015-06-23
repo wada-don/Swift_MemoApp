@@ -33,15 +33,15 @@ class WriteViewController :UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         //NavigationControllerの文字色の変更
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         // NavigationControllerのNavigationItemの色
-        self.navigationController?.navigationBar.tintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         writeView.backgroundColor = nil  //背景透過
         writeView.textColor = UIColor.whiteColor()
         
         tool.barStyle=UIBarStyle.Black
-        toolButton.tintColor=UIColor.orangeColor()   //toolBarの色変更
+        toolButton.tintColor=UIColor.whiteColor()  //toolBarの色変更
     }
     
     override func viewDidAppear(animated: Bool) {

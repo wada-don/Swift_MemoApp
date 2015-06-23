@@ -30,7 +30,7 @@ class WebViewController: UIViewController,UIWebViewDelegate{
          //webView.addObserver(self, forKeyPath: "loading", options: .New, context: nil)  //プロパティ監視
         
         tool.barStyle=UIBarStyle.Black
-        tool.tintColor=UIColor.orangeColor()   //toolBarの色変更
+        tool.tintColor=UIColor.whiteColor()   //toolBarの色変更
     }
     
     override func viewDidAppear(animated: Bool) {

@@ -25,25 +25,25 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="LMc-9C-kkp"/>
-                        <barButtonItem image="arrow-left.png" id="V9O-A4-RGa">
+                        <barButtonItem image="left.png" id="V9O-A4-RGa">
                             <connections>
                                 <action selector="back" destination="-1" id="dxV-9A-pRc"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="2Nq-VM-5q0"/>
-                        <barButtonItem image="arrow-right.png" id="pxP-jW-wfU">
+                        <barButtonItem image="right.png" id="pxP-jW-wfU">
                             <connections>
                                 <action selector="go" destination="-1" id="jIs-HM-k77"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="qCf-GR-XXg"/>
-                        <barButtonItem image="refresh.png" id="9Me-Cj-DIE">
+                        <barButtonItem image="re.png" style="plain" id="9Me-Cj-DIE">
                             <connections>
                                 <action selector="reroad" destination="-1" id="P7q-lP-wcT"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="GY6-7H-hpR"/>
-                        <barButtonItem image="home-2.png" id="mhg-6a-oNr">
+                        <barButtonItem image="home.png" id="mhg-6a-oNr">
                             <connections>
                                 <action selector="home" destination="-1" id="CRA-ZJ-XBc"/>
                             </connections>
@@ -68,9 +68,9 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow-left.png" width="32" height="32"/>
-        <image name="arrow-right.png" width="32" height="32"/>
-        <image name="home-2.png" width="32" height="32"/>
-        <image name="refresh.png" width="32" height="32"/>
+        <image name="home.png" width="50" height="50"/>
+        <image name="left.png" width="40" height="40"/>
+        <image name="re.png" width="40" height="40"/>
+        <image name="right.png" width="40" height="40"/>
     </resources>
 </document>

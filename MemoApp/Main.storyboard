@@ -38,15 +38,15 @@
                             <constraint firstItem="mNz-MA-0a2" firstAttribute="top" secondItem="jlX-xf-Qbq" secondAttribute="bottom" constant="279" id="xvO-4O-Tgv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit" id="HjX-pC-wRk">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LYP-cZ-LPk">
-                            <color key="tintColor" red="1" green="0.63976409940000001" blue="0.082670691769999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <navigationItem key="navigationItem" id="HjX-pC-wRk">
+                        <barButtonItem key="leftBarButtonItem" image="cancel.png" width="10" id="LYP-cZ-LPk">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="cancel" destination="Eax-Ik-PoE" id="UmZ-Sh-3ja"/>
+                                <action selector="cancel" destination="Eax-Ik-PoE" id="Vax-VT-9LW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="L9x-y5-TfI">
-                            <color key="tintColor" red="1" green="0.63976409940000001" blue="0.082670691769999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="rightBarButtonItem" image="done.png" id="L9x-y5-TfI">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="edit" destination="Eax-Ik-PoE" id="7b6-PT-iQ5"/>
                             </connections>
@@ -102,5 +102,7 @@
     </scenes>
     <resources>
         <image name="2696791733_c323a983df.jpg" width="320" height="480"/>
+        <image name="cancel.png" width="40" height="40"/>
+        <image name="done.png" width="40" height="40"/>
     </resources>
 </document>
