@@ -17,6 +17,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet var tableview : UITableView!
     @IBOutlet var imageView : UIImageView!
+    @IBOutlet var label : UILabel!
     
     var visualEffectView:UIVisualEffectView!
     
@@ -31,11 +32,6 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         tableview.dataSource = self
         tableview.delegate = self
         
-        //NavigationControllerの文字色の変更
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
-        // NavigationControllerのNavigationItemの色
-        self.navigationController?.navigationBar.tintColor = UIColor.orangeColor()
-        
         tableview.backgroundColor = nil;  //TableViewの背景透過
         
         /*-----cellの長押し処理用の云々-----*/
@@ -45,6 +41,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableview .addGestureRecognizer(longPressRecognizer)
         
         tableview.separatorColor = UIColor(red: 237/255, green:28/255 , blue: 158/255, alpha: 1.0)
+        
 
         // Do any additional setup after loading the view.
     }
@@ -56,13 +53,22 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         
         let result : AnyObject! = UD.objectForKey("array")
         if(result != nil){
-            
             //UserDefaultsから読み込み
             memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as! [String]
-            
             viewNum = 0
         }
+        
+        if(memo.count==0){
+            label.hidden=false
+        }else{
+            label.hidden=true
+        }
+        
         tableview.reloadData()   //tableViewの更新
+        var v:UIView = UIView(frame: CGRectZero)
+        v.backgroundColor = UIColor.clearColor()
+        tableview.tableFooterView = v
+        tableview.tableHeaderView = v
         
         if(blur == 0){  //ブラーがかかっていない時の処理
             blur = 1;
@@ -182,6 +188,12 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
                         UD.setObject(memo, forKey: "array")   //メモ内容保存
                         println(memo)
                         UD.synchronize()   //あったほうが良い?
+                        
+                        if(memo.count==0){
+                            self.label.hidden=false
+                        }else{
+                       self.label.hidden=true
+                        }
                 })
                 
                 //定義したアクションを追加

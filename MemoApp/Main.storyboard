@@ -12,7 +12,7 @@
         <!--Edit-->
         <scene sceneID="tgb-YT-PId">
             <objects>
-                <viewController restorationIdentifier="Edit" storyboardIdentifier="Edit" title="Edit" id="Eax-Ik-PoE" customClass="EditViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Edit" storyboardIdentifier="Edit" title="Edit" id="Eax-Ik-PoE" customClass="EditViewController" customModule="WebMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1F9-mD-EgZ"/>
                         <viewControllerLayoutGuide type="bottom" id="mNz-MA-0a2"/>
@@ -78,7 +78,7 @@
         <!--View Controller-->
         <scene sceneID="Doc-at-nal">
             <objects>
-                <viewController id="xvt-hM-EGt" customClass="ViewController" customModule="MemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xvt-hM-EGt" customClass="ViewController" customModule="WebMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D3T-eD-aah"/>
                         <viewControllerLayoutGuide type="bottom" id="hgo-qT-xDZ"/>

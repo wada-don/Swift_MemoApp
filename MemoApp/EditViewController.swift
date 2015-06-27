@@ -28,7 +28,7 @@ class EditViewController: UIViewController , UITextViewDelegate{
         //NavigationControllerの文字色の変更
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         // NavigationControllerのNavigationItemの色
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 237/255, green:28/255 , blue: 158/255, alpha: 1.0)
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 204/255, green:255/255 , blue: 51/255, alpha: 1.0)
         //NabigationBarの色
         self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         

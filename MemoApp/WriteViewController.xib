@@ -9,7 +9,7 @@
         </mutableArray>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WriteViewController" customModule="MemoApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WriteViewController" customModule="WebMemo" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="3Sp-mN-iOU" id="z3u-Rg-ekA"/>
                 <outlet property="label" destination="3kk-tR-aV6" id="eTC-kz-8ua"/>

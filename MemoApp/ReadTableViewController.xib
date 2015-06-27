@@ -3,10 +3,16 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </mutableArray>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReadTableViewController" customModule="MemoApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReadTableViewController" customModule="WebMemo" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="gkj-Y8-Xv1" id="51P-pH-BtN"/>
+                <outlet property="label" destination="X5t-yM-JK2" id="mLg-FO-13c"/>
                 <outlet property="tableview" destination="NGQ-wv-BuS" id="8Zf-s7-ICb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="GWv-qp-IhS"/>
             </connections>
@@ -24,6 +30,12 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No memo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5t-yM-JK2">
+                    <rect key="frame" x="243" y="286" width="115" height="29"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="23"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -34,12 +46,14 @@
                 <constraint firstAttribute="bottom" secondItem="NGQ-wv-BuS" secondAttribute="bottom" id="CMN-n1-2yb"/>
                 <constraint firstItem="gkj-Y8-Xv1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EFN-Nc-coZ"/>
                 <constraint firstAttribute="trailing" secondItem="gkj-Y8-Xv1" secondAttribute="trailing" id="K3c-iK-Z0n"/>
+                <constraint firstAttribute="centerY" secondItem="X5t-yM-JK2" secondAttribute="centerY" id="MaG-SX-fBw"/>
                 <constraint firstAttribute="bottom" secondItem="gkj-Y8-Xv1" secondAttribute="bottom" id="ORf-fr-ksd"/>
                 <constraint firstAttribute="trailing" secondItem="NGQ-wv-BuS" secondAttribute="trailing" id="PyL-iF-Uf4"/>
                 <constraint firstAttribute="bottom" secondItem="gkj-Y8-Xv1" secondAttribute="bottom" id="SJO-qV-Vyk"/>
                 <constraint firstItem="NGQ-wv-BuS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XQG-eJ-BAq"/>
                 <constraint firstAttribute="trailing" secondItem="gkj-Y8-Xv1" secondAttribute="trailing" id="idq-f9-V3P"/>
                 <constraint firstItem="NGQ-wv-BuS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jf9-S2-H2Q"/>
+                <constraint firstAttribute="centerX" secondItem="X5t-yM-JK2" secondAttribute="centerX" id="k5V-Ds-BFP"/>
                 <constraint firstAttribute="bottom" secondItem="gkj-Y8-Xv1" secondAttribute="bottom" id="r8Z-f3-kRt"/>
                 <constraint firstAttribute="centerY" secondItem="NGQ-wv-BuS" secondAttribute="centerY" id="wOO-Cc-0XI"/>
             </constraints>
