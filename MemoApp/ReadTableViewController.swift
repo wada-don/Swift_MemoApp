@@ -43,6 +43,8 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         longPressRecognizer.allowableMovement = 15
         longPressRecognizer.minimumPressDuration = 0.6
         self.tableview .addGestureRecognizer(longPressRecognizer)
+        
+        tableview.separatorColor = UIColor(red: 237/255, green:28/255 , blue: 158/255, alpha: 1.0)
 
         // Do any additional setup after loading the view.
     }
@@ -75,7 +77,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
             visualEffectView.frame = imageView.bounds
             
             // 画像にエフェクトビューを貼り付ける
-            imageView.addSubview(visualEffectView)
+            //imageView.addSubview(visualEffectView)
             
         }
         

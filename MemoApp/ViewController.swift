@@ -23,7 +23,7 @@ class ViewController: UIViewController, CAPSPageMenuDelegate {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 254/255, green:78/255 , blue: 30/255, alpha: 1.0)  //
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 143, green: 233, blue: 234, alpha: 1.0)]
         
         //        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<-", style: UIBarButtonItemStyle.Done, target: self, action: "didTapGoToLeft")
@@ -47,7 +47,7 @@ class ViewController: UIViewController, CAPSPageMenuDelegate {
         // Customize menu (Optional)
         var parameters: [String: AnyObject] = ["scrollMenuBackgroundColor": UIColor(red: 30.0/255.0, green: 30.0/255.0, blue: 30.0/255.0, alpha: 1.0),
             "viewBackgroundColor": UIColor(red: 20.0/255.0, green: 20.0/255.0, blue: 20.0/255.0, alpha: 1.0),
-            "selectionIndicatorColor": UIColor.whiteColor(),
+            "selectionIndicatorColor": UIColor(red: 183/255, green:253/255 , blue: 53/255, alpha: 1.0),  //
             "bottomMenuHairlineColor": UIColor(red: 70.0/255.0, green: 70.0/255.0, blue: 80.0/255.0, alpha: 1.0),
             "menuItemFont": UIFont(name: "Montserrat-Bold", size: 18.0)!,
             "menuHeight": 80.0,  //メニューの縦幅

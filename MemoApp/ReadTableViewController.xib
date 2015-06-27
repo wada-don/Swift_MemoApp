@@ -16,8 +16,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="gkj-Y8-Xv1">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gkj-Y8-Xv1">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NGQ-wv-BuS">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -54,7 +55,4 @@
             <point key="canvasLocation" x="374" y="401"/>
         </view>
     </objects>
-    <resources>
-        <image name="2696791733_c323a983df.jpg" width="320" height="480"/>
-    </resources>
 </document>

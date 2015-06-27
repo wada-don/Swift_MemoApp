@@ -3,10 +3,16 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WriteViewController" customModule="MemoApp" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="3Sp-mN-iOU" id="z3u-Rg-ekA"/>
+                <outlet property="label" destination="3kk-tR-aV6" id="eTC-kz-8ua"/>
                 <outlet property="tool" destination="0Sf-5Y-eet" id="797-Mh-BFQ"/>
                 <outlet property="toolButton" destination="jH9-vM-r5W" id="2jN-gP-lvW"/>
                 <outlet property="view" destination="iN0-l3-epB" id="uyg-4k-tqR"/>
@@ -18,11 +24,13 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3Sp-mN-iOU">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Sp-mN-iOU">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </imageView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Sf-5Y-eet">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="65a-xx-dGA"/>
                         <barButtonItem image="done.png" id="jH9-vM-r5W">
@@ -42,27 +50,40 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kk-tR-aV6">
+                    <rect key="frame" x="238" y="74" width="125" height="29"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="23"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="3Sp-mN-iOU" secondAttribute="centerX" id="52Q-K2-OfO"/>
                 <constraint firstItem="0Sf-5Y-eet" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6mP-BA-NgZ"/>
                 <constraint firstAttribute="trailing" secondItem="zc9-Z7-DU7" secondAttribute="trailing" id="Afn-6F-woy"/>
+                <constraint firstItem="3kk-tR-aV6" firstAttribute="top" secondItem="0Sf-5Y-eet" secondAttribute="bottom" constant="30" id="BcK-Rq-Dsb"/>
                 <constraint firstAttribute="centerX" secondItem="0Sf-5Y-eet" secondAttribute="centerX" id="D00-vW-tpF"/>
                 <constraint firstItem="zc9-Z7-DU7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DEq-um-W91"/>
                 <constraint firstItem="zc9-Z7-DU7" firstAttribute="top" secondItem="0Sf-5Y-eet" secondAttribute="bottom" id="Exm-Bc-Rdd"/>
                 <constraint firstItem="3Sp-mN-iOU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="I8c-XR-E2j"/>
                 <constraint firstAttribute="bottom" secondItem="3Sp-mN-iOU" secondAttribute="bottom" id="JPD-zP-9VZ"/>
                 <constraint firstItem="0Sf-5Y-eet" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Mgf-U2-xUv"/>
+                <constraint firstAttribute="centerY" secondItem="3kk-tR-aV6" secondAttribute="centerY" constant="200" id="Phe-0v-EXW"/>
                 <constraint firstItem="3Sp-mN-iOU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QDa-JX-Dx6"/>
                 <constraint firstAttribute="centerX" secondItem="zc9-Z7-DU7" secondAttribute="centerX" id="c6o-qH-mRt"/>
                 <constraint firstAttribute="trailing" secondItem="0Sf-5Y-eet" secondAttribute="trailing" id="fjw-YC-TQ4"/>
+                <constraint firstAttribute="centerX" secondItem="3kk-tR-aV6" secondAttribute="centerX" id="tKl-lR-njr"/>
                 <constraint firstAttribute="trailing" secondItem="3Sp-mN-iOU" secondAttribute="trailing" id="woU-lD-lSx"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Phe-0v-EXW"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>
-        <image name="2696791733_c323a983df.jpg" width="320" height="480"/>
         <image name="done.png" width="40" height="40"/>
     </resources>
 </document>

@@ -9,11 +9,11 @@
 import UIKit
 
 
-class EditViewController: UIViewController {
+class EditViewController: UIViewController , UITextViewDelegate{
     
     @IBOutlet var editView : UITextView!
     @IBOutlet var imageView : UIImageView!
-    @IBOutlet var tool : UINavigationBar!
+    @IBOutlet var label : UILabel!
     
     var aleart = UIAlertView()
     
@@ -28,7 +28,7 @@ class EditViewController: UIViewController {
         //NavigationControllerの文字色の変更
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         // NavigationControllerのNavigationItemの色
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 237/255, green:28/255 , blue: 158/255, alpha: 1.0)
         //NabigationBarの色
         self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         
@@ -43,7 +43,9 @@ class EditViewController: UIViewController {
         //visualEffectView.frame=self.imageView.bounds
         
         // 画像にエフェクトビューを貼り付ける
-        imageView.addSubview(visualEffectView)
+        //imageView.addSubview(visualEffectView)
+        
+        self.editView.delegate = self  //delegate
         
     }
     
@@ -82,6 +84,19 @@ class EditViewController: UIViewController {
         
         dismissViewControllerAnimated(true, completion: nil)   //トップページに戻る
         
+    }
+    
+    //textviewがフォーカスされたら、Labelを非表示
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        label.hidden = true
+        return true
+    }
+    
+    //textviewからフォーカスが外れて、TextViewが空だったらLabelを再び表示
+    func textViewDidEndEditing(textView: UITextView) {
+        if(textView.text.isEmpty){
+            label.hidden = false
+        }
     }
     
     

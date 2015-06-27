@@ -24,6 +24,8 @@
 		75795DAB1A7CE859004425FA /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75795DAA1A7CE859004425FA /* WriteViewController.swift */; };
 		75795DAD1A7CF09F004425FA /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75795DAC1A7CF09F004425FA /* ReadViewController.swift */; };
 		75A9C5B11B10488A00353A9A /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A9C5B01B10488A00353A9A /* WebViewController.xib */; };
+		75B1B7A01B3E528D00CE1FA5 /* d3fc343557c0d5e17f7b8e5bab5998b7_raw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75B1B79F1B3E528D00CE1FA5 /* d3fc343557c0d5e17f7b8e5bab5998b7_raw.jpg */; };
+		75B1B7A21B3E76A800CE1FA5 /* and02-e4d4a-168x300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75B1B7A11B3E76A800CE1FA5 /* and02-e4d4a-168x300.jpg */; };
 		75D0ED3F1AF761E400583344 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D0ED3E1AF761E400583344 /* Main.storyboard */; };
 		75D889851AEB6A8700A441D7 /* 2696791733_c323a983df.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75D889841AEB6A8700A441D7 /* 2696791733_c323a983df.jpg */; };
 		75E5A5F61B396C0B0044016A /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E5A5F41B396C0B0044016A /* left.png */; };
@@ -65,6 +67,8 @@
 		75795DAA1A7CE859004425FA /* WriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		75795DAC1A7CF09F004425FA /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 		75A9C5B01B10488A00353A9A /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		75B1B79F1B3E528D00CE1FA5 /* d3fc343557c0d5e17f7b8e5bab5998b7_raw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d3fc343557c0d5e17f7b8e5bab5998b7_raw.jpg; sourceTree = "<group>"; };
+		75B1B7A11B3E76A800CE1FA5 /* and02-e4d4a-168x300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "and02-e4d4a-168x300.jpg"; sourceTree = "<group>"; };
 		75D0ED3E1AF761E400583344 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		75D889841AEB6A8700A441D7 /* 2696791733_c323a983df.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2696791733_c323a983df.jpg; path = MemoApp/2696791733_c323a983df.jpg; sourceTree = "<group>"; };
 		75E5A5F41B396C0B0044016A /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
@@ -99,7 +103,9 @@
 				75E5A5F51B396C0B0044016A /* re.png */,
 				756705D91B36C51200D7AE12 /* Montserrat-Bold.ttf */,
 				756705D21B36B65800D7AE12 /* right.png */,
+				75B1B7A11B3E76A800CE1FA5 /* and02-e4d4a-168x300.jpg */,
 				756705CA1B36B59900D7AE12 /* home.png */,
+				75B1B79F1B3E528D00CE1FA5 /* d3fc343557c0d5e17f7b8e5bab5998b7_raw.jpg */,
 				75D889841AEB6A8700A441D7 /* 2696791733_c323a983df.jpg */,
 				75E5A6061B39B5EC0044016A /* cancel.png */,
 				751CEB1D1A7CC51900E63ED6 /* MemoApp */,
@@ -247,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75E5A5F61B396C0B0044016A /* left.png in Resources */,
+				75B1B7A21B3E76A800CE1FA5 /* and02-e4d4a-168x300.jpg in Resources */,
 				756705DB1B36C62900D7AE12 /* Montserrat-Bold.ttf in Resources */,
 				751CEB2B1A7CC51900E63ED6 /* LaunchScreen.xib in Resources */,
 				75E5A6091B39B6460044016A /* done.png in Resources */,
@@ -257,6 +264,7 @@
 				75D0ED3F1AF761E400583344 /* Main.storyboard in Resources */,
 				756705CE1B36B59900D7AE12 /* home.png in Resources */,
 				75E5A5F71B396C0B0044016A /* re.png in Resources */,
+				75B1B7A01B3E528D00CE1FA5 /* d3fc343557c0d5e17f7b8e5bab5998b7_raw.jpg in Resources */,
 				751CEB281A7CC51900E63ED6 /* Images.xcassets in Resources */,
 				757724B11AFE1811005D15D2 /* ReadTableViewController.xib in Resources */,
 				757724B31AFE29A9005D15D2 /* WriteViewController.xib in Resources */,

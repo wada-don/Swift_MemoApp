@@ -17,12 +17,14 @@ var key:String = ""
 var viewNum = 1
 
 
-class WriteViewController :UIViewController {
+class WriteViewController :UIViewController,UITextViewDelegate {
     
     @IBOutlet var writeView : UITextView!
     @IBOutlet var imageView : UIImageView!
      @IBOutlet var tool : UIToolbar!
     @IBOutlet var toolButton : UIBarButtonItem!
+    @IBOutlet var label : UILabel!
+    
     var aleart = UIAlertView()
     var blur = 0  //ブラー判定用
     
@@ -32,16 +34,14 @@ class WriteViewController :UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //NavigationControllerの文字色の変更
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        // NavigationControllerのNavigationItemの色
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
         writeView.backgroundColor = nil  //背景透過
         writeView.textColor = UIColor.whiteColor()
         
-        tool.barStyle=UIBarStyle.Black
-        toolButton.tintColor=UIColor.whiteColor()  //toolBarの色変更
+        //toolbarの設定
+        tool.barStyle=UIBarStyle.BlackTranslucent
+        toolButton.tintColor=UIColor(red: 237/255, green:28/255 , blue: 158/255, alpha: 1.0)
+        
+        self.writeView.delegate = self  //textViewをデリゲートする
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -59,7 +59,7 @@ class WriteViewController :UIViewController {
             visualEffectView.frame = imageView.bounds
             
             // 画像にエフェクトビューを貼り付ける
-            imageView.addSubview(visualEffectView)
+            //imageView.addSubview(visualEffectView)
             
         //}
     }
@@ -107,6 +107,19 @@ class WriteViewController :UIViewController {
         aleart.addButtonWithTitle("OK")
         aleart.show()
         
+    }
+    
+    //textviewがフォーカスされたら、Labelを非表示
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        label.hidden = true
+        return true
+    }
+    
+    //textviewからフォーカスが外れて、TextViewが空だったらLabelを再び表示
+    func textViewDidEndEditing(textView: UITextView) {
+        if(textView.text.isEmpty){
+            label.hidden = false
+        }
     }
 
 }

@@ -3,6 +3,11 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Edit-->
         <scene sceneID="tgb-YT-PId">
@@ -16,8 +21,9 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2696791733_c323a983df.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="8Ia-eq-BXL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Ia-eq-BXL">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlX-xf-Qbq">
                                 <rect key="frame" x="0.0" y="64" width="600" height="257"/>
@@ -25,6 +31,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkS-Pm-O8l">
+                                <rect key="frame" x="238" y="176" width="125" height="29"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="23"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -34,19 +46,19 @@
                             <constraint firstItem="8Ia-eq-BXL" firstAttribute="leading" secondItem="3dh-Hg-tfg" secondAttribute="leading" id="LYp-nx-25r"/>
                             <constraint firstItem="jlX-xf-Qbq" firstAttribute="top" secondItem="1F9-mD-EgZ" secondAttribute="bottom" id="MYh-HT-Jv5"/>
                             <constraint firstItem="jlX-xf-Qbq" firstAttribute="leading" secondItem="3dh-Hg-tfg" secondAttribute="leading" id="aCP-7w-Zya"/>
+                            <constraint firstAttribute="centerX" secondItem="UkS-Pm-O8l" secondAttribute="centerX" id="jGs-sO-TFZ"/>
                             <constraint firstItem="8Ia-eq-BXL" firstAttribute="top" secondItem="3dh-Hg-tfg" secondAttribute="top" id="tdU-6d-V76"/>
+                            <constraint firstItem="UkS-Pm-O8l" firstAttribute="top" secondItem="1F9-mD-EgZ" secondAttribute="bottom" constant="112" id="uz6-cM-hLd"/>
                             <constraint firstItem="mNz-MA-0a2" firstAttribute="top" secondItem="jlX-xf-Qbq" secondAttribute="bottom" constant="279" id="xvO-4O-Tgv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HjX-pC-wRk">
                         <barButtonItem key="leftBarButtonItem" image="cancel.png" width="10" id="LYP-cZ-LPk">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancel" destination="Eax-Ik-PoE" id="Vax-VT-9LW"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="done.png" id="L9x-y5-TfI">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="edit" destination="Eax-Ik-PoE" id="7b6-PT-iQ5"/>
                             </connections>
@@ -56,6 +68,7 @@
                     <connections>
                         <outlet property="editView" destination="jlX-xf-Qbq" id="aXU-Vp-XDD"/>
                         <outlet property="imageView" destination="8Ia-eq-BXL" id="3jg-xi-iGP"/>
+                        <outlet property="label" destination="UkS-Pm-O8l" id="W4t-TV-x6N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dk0-Lt-7r9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -101,7 +114,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="2696791733_c323a983df.jpg" width="320" height="480"/>
         <image name="cancel.png" width="40" height="40"/>
         <image name="done.png" width="40" height="40"/>
     </resources>
