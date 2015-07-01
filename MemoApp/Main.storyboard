@@ -23,16 +23,16 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Ia-eq-BXL">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.96470588235294119" green="1" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlX-xf-Qbq">
-                                <rect key="frame" x="0.0" y="64" width="600" height="257"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkS-Pm-O8l">
-                                <rect key="frame" x="238" y="176" width="125" height="29"/>
+                                <rect key="frame" x="238" y="286" width="125" height="29"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="23"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -45,12 +45,18 @@
                             <constraint firstAttribute="trailing" secondItem="8Ia-eq-BXL" secondAttribute="trailing" id="Hj0-gj-ISg"/>
                             <constraint firstItem="8Ia-eq-BXL" firstAttribute="leading" secondItem="3dh-Hg-tfg" secondAttribute="leading" id="LYp-nx-25r"/>
                             <constraint firstItem="jlX-xf-Qbq" firstAttribute="top" secondItem="1F9-mD-EgZ" secondAttribute="bottom" id="MYh-HT-Jv5"/>
+                            <constraint firstItem="mNz-MA-0a2" firstAttribute="top" secondItem="jlX-xf-Qbq" secondAttribute="bottom" id="Vtf-mf-NS4"/>
                             <constraint firstItem="jlX-xf-Qbq" firstAttribute="leading" secondItem="3dh-Hg-tfg" secondAttribute="leading" id="aCP-7w-Zya"/>
                             <constraint firstAttribute="centerX" secondItem="UkS-Pm-O8l" secondAttribute="centerX" id="jGs-sO-TFZ"/>
+                            <constraint firstAttribute="centerY" secondItem="UkS-Pm-O8l" secondAttribute="centerY" id="sgF-rs-fiE"/>
                             <constraint firstItem="8Ia-eq-BXL" firstAttribute="top" secondItem="3dh-Hg-tfg" secondAttribute="top" id="tdU-6d-V76"/>
                             <constraint firstItem="UkS-Pm-O8l" firstAttribute="top" secondItem="1F9-mD-EgZ" secondAttribute="bottom" constant="112" id="uz6-cM-hLd"/>
-                            <constraint firstItem="mNz-MA-0a2" firstAttribute="top" secondItem="jlX-xf-Qbq" secondAttribute="bottom" constant="279" id="xvO-4O-Tgv"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uz6-cM-hLd"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="HjX-pC-wRk">
                         <barButtonItem key="leftBarButtonItem" image="cancel.png" width="10" id="LYP-cZ-LPk">
@@ -66,6 +72,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="bottomLayoutConstraint" destination="Vtf-mf-NS4" id="BhF-lw-toc"/>
                         <outlet property="editView" destination="jlX-xf-Qbq" id="aXU-Vp-XDD"/>
                         <outlet property="imageView" destination="8Ia-eq-BXL" id="3jg-xi-iGP"/>
                         <outlet property="label" destination="UkS-Pm-O8l" id="W4t-TV-x6N"/>

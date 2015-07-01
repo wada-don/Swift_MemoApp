@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewController" customModule="MemoApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewController" customModule="WebMemo" customModuleProvider="target">
             <connections>
                 <outlet property="tool" destination="Zjz-5p-8Lz" id="Jzb-hy-AY2"/>
                 <outlet property="view" destination="iN0-l3-epB" id="VA4-dp-ttq"/>
@@ -50,6 +50,7 @@
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="9q4-Ov-FFJ"/>
                     </items>
+                    <color key="barTintColor" red="0.96470588239999999" green="1" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </toolbar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "751CEB1A1A7CC51900E63ED6"
-               BuildableName = "MemoApp.app"
+               BuildableName = "WebMemo.app"
                BlueprintName = "MemoApp"
                ReferencedContainer = "container:MemoApp.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "751CEB1A1A7CC51900E63ED6"
-            BuildableName = "MemoApp.app"
+            BuildableName = "WebMemo.app"
             BlueprintName = "MemoApp"
             ReferencedContainer = "container:MemoApp.xcodeproj">
          </BuildableReference>
@@ -72,11 +72,12 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "751CEB1A1A7CC51900E63ED6"
-            BuildableName = "MemoApp.app"
+            BuildableName = "WebMemo.app"
             BlueprintName = "MemoApp"
             ReferencedContainer = "container:MemoApp.xcodeproj">
          </BuildableReference>
@@ -90,11 +91,12 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "751CEB1A1A7CC51900E63ED6"
-            BuildableName = "MemoApp.app"
+            BuildableName = "WebMemo.app"
             BlueprintName = "MemoApp"
             ReferencedContainer = "container:MemoApp.xcodeproj">
          </BuildableReference>

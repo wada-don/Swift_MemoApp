@@ -22,8 +22,8 @@ class ViewController: UIViewController, CAPSPageMenuDelegate {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 30.0/255.0, green: 30.0/255.0, blue: 30.0/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 254/255, green:78/255 , blue: 30/255, alpha: 1.0)  //
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.Default
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 103/255, green:148/255 , blue: 154/255, alpha: 1.0)  //
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 143, green: 233, blue: 234, alpha: 1.0)]
         
         //        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<-", style: UIBarButtonItemStyle.Done, target: self, action: "didTapGoToLeft")
@@ -45,12 +45,12 @@ class ViewController: UIViewController, CAPSPageMenuDelegate {
         println(controllerArray.count)
         
         // Customize menu (Optional)
-        var parameters: [String: AnyObject] = ["scrollMenuBackgroundColor": UIColor(red: 30.0/255.0, green: 30.0/255.0, blue: 30.0/255.0, alpha: 1.0),
+        var parameters: [String: AnyObject] = ["scrollMenuBackgroundColor": UIColor(red: 241/255, green: 255/255, blue: 250/255, alpha: 1.0),  //NavigationBarColor
             "viewBackgroundColor": UIColor(red: 20.0/255.0, green: 20.0/255.0, blue: 20.0/255.0, alpha: 1.0),
-            "selectionIndicatorColor": UIColor(red: 204/255, green:255/255 , blue: 51/255, alpha: 1.0),  //
+            "selectionIndicatorColor": UIColor(red: 165/255, green:190/255 , blue: 0/255, alpha: 1.0),  //
             "bottomMenuHairlineColor": UIColor(red: 70.0/255.0, green: 70.0/255.0, blue: 80.0/255.0, alpha: 1.0),
             "menuItemFont": UIFont(name: "Montserrat-Bold", size: 18.0)!,
-            "menuHeight": 80.0,  //メニューの縦幅
+            "menuHeight": 80.0, 
             "menuItemWidth": 90.0,
             "centerMenuItems": true]
         

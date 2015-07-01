@@ -29,8 +29,8 @@ class WebViewController: UIViewController,UIWebViewDelegate{
         
          //webView.addObserver(self, forKeyPath: "loading", options: .New, context: nil)  //プロパティ監視
         
-        tool.barStyle=UIBarStyle.Black
-        tool.tintColor=UIColor(red: 237/255, green:28/255 , blue: 158/255, alpha: 1.0)  //toolBarの色変更
+        tool.translucent=false
+        tool.tintColor=UIColor(red: 103/255, green: 148/255, blue: 54/255, alpha: 1.0)//buttonの色変更
     }
     
     override func viewDidAppear(animated: Bool) {

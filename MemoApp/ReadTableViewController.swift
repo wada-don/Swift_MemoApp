@@ -20,7 +20,6 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet var label : UILabel!
     
     var visualEffectView:UIVisualEffectView!
-    
     var blur  = 0  //ブラーエフェクトがかかっているか判定
 
     override func viewDidLoad() {
@@ -28,21 +27,20 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         
         NSLog("ViewDidLoad")
         
-        
+/*---------tableviewの設定---------*/
         tableview.dataSource = self
         tableview.delegate = self
+        tableview.backgroundColor = nil;  //背景透過
+        tableview.separatorColor = UIColor(red: 165/255, green:190/255 , blue: 0/255, alpha: 1.0)
+/*----------------------------------*/
         
-        tableview.backgroundColor = nil;  //TableViewの背景透過
-        
-        /*-----cellの長押し処理用の云々-----*/
+/*----------cellの長押し処理用----------*/
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "rowButtonAction:")
         longPressRecognizer.allowableMovement = 15
         longPressRecognizer.minimumPressDuration = 0.6
         self.tableview .addGestureRecognizer(longPressRecognizer)
+/*---------------------------------------*/
         
-        tableview.separatorColor = UIColor(red: 237/255, green:28/255 , blue: 158/255, alpha: 1.0)
-        
-
         // Do any additional setup after loading the view.
     }
     
@@ -131,7 +129,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
         cell.textLabel?.text = memo[indexPath.row]  //cellのテキストを設定
-        cell.textLabel?.textColor = UIColor.whiteColor()  //cellのテキストカラーを設定
+        cell.textLabel?.textColor = UIColor.blackColor()  //cellのテキストカラーを設定
         
         cell.backgroundColor = nil;  //cellのバックグラウンドカラーを設定
         return cell

@@ -12,6 +12,7 @@ import UIKit
 class EditViewController: UIViewController , UITextViewDelegate{
     
     @IBOutlet var editView : UITextView!
+    @IBOutlet weak var bottomLayoutConstraint : NSLayoutConstraint!
     @IBOutlet var imageView : UIImageView!
     @IBOutlet var label : UILabel!
     
@@ -21,34 +22,38 @@ class EditViewController: UIViewController , UITextViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        editView.textColor = UIColor.whiteColor()
+        editView.textColor = UIColor.blackColor()
         editView.text=text   //内容をセット
         editView.backgroundColor = nil  //背景透過
         
-        //NavigationControllerの文字色の変更
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         // NavigationControllerのNavigationItemの色
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 204/255, green:255/255 , blue: 51/255, alpha: 1.0)
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 103/255, green:148/255 , blue: 54/255, alpha: 1.0)
         //NabigationBarの色
-        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-        
-        // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
-        let blurEffect = UIBlurEffect(style: .Light)
-        
-        // ブラーエフェクトからエフェクトビューを生成
-        var visualEffectView = UIVisualEffectView(effect: blurEffect)
-        
-        // エフェクトビューのサイズを指定（オリジナル画像と同じサイズにする）
-        visualEffectView.frame = self.view.frame
-        //visualEffectView.frame=self.imageView.bounds
-        
-        // 画像にエフェクトビューを貼り付ける
-        //imageView.addSubview(visualEffectView)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 241/255, green: 255/255, blue: 250/255, alpha: 1.0)
         
         self.editView.delegate = self  //delegate
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        /*---------キーボード監視用---------*/
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "keyboardWillChangeFrame:",
+            name: UIKeyboardWillChangeFrameNotification,
+            object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "keyboardWillHide:",
+            name: UIKeyboardWillHideNotification,
+            object: nil)
+        /*-------------------------------------*/
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent  //ステータスバー
@@ -99,5 +104,40 @@ class EditViewController: UIViewController , UITextViewDelegate{
         }
     }
     
+    
+/*---------キーボードとtextViewがかぶらないようにする処理---------*/
+    func keyboardWillChangeFrame(notification: NSNotification) {
+        
+        if let userInfo = notification.userInfo {
+            
+            let keyBoardValue : NSValue = userInfo[UIKeyboardFrameEndUserInfoKey]! as! NSValue
+            var keyBoardFrame : CGRect = keyBoardValue.CGRectValue()
+            let duration : NSTimeInterval = userInfo[UIKeyboardAnimationDurationUserInfoKey]! as! NSTimeInterval
+            
+            self.bottomLayoutConstraint.constant = keyBoardFrame.height
+            
+            UIView.animateWithDuration(duration, animations: { () -> Void in
+                self.view.layoutIfNeeded()
+            })
+            
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            
+            let duration : NSTimeInterval = userInfo[UIKeyboardAnimationDurationUserInfoKey]! as! NSTimeInterval
+            
+            self.bottomLayoutConstraint.constant = 0
+            
+            UIView.animateWithDuration(duration, animations: { () -> Void in
+                self.view.layoutIfNeeded()
+            })
+            
+        }
+    }
+    
+    
+/*---------------------------------------------------------------------------------*/
     
 }

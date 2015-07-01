@@ -19,54 +19,54 @@ var viewNum = 1
 
 class WriteViewController :UIViewController,UITextViewDelegate {
     
-    @IBOutlet var writeView : UITextView!
+    @IBOutlet  weak var writeView : UITextView!
+    @IBOutlet weak var bottomLayoutConstraint : NSLayoutConstraint!
     @IBOutlet var imageView : UIImageView!
      @IBOutlet var tool : UIToolbar!
     @IBOutlet var toolButton : UIBarButtonItem!
     @IBOutlet var label : UILabel!
     
     var aleart = UIAlertView()
-    var blur = 0  //ブラー判定用
     
-   var visualEffectView :UIVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         writeView.backgroundColor = nil  //背景透過
-        writeView.textColor = UIColor.whiteColor()
+        writeView.textColor = UIColor.blackColor()
         
         //toolbarの設定
-        tool.barStyle=UIBarStyle.BlackTranslucent
-        toolButton.tintColor=UIColor(red: 204/255, green:255/255 , blue: 51/255, alpha: 1.0)
+        tool.translucent=false
+        toolButton.tintColor=UIColor(red: 103/255, green:148/255 , blue: 54/255, alpha: 1.0)
         
         self.writeView.delegate = self  //textViewをデリゲートする
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-  //      if(blur == 0){  //ブラーがかかっていない時の処理
-     //       blur = 1;
-            
-            // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
-            let blurEffect = UIBlurEffect(style: .Light)
-            
-            // ブラーエフェクトからエフェクトビューを生成
-           visualEffectView = UIVisualEffectView(effect: blurEffect)
-            
-            // エフェクトビューのサイズを指定（オリジナル画像と同じサイズにする）
-            visualEffectView.frame = imageView.bounds
-            
-            // 画像にエフェクトビューを貼り付ける
-            //imageView.addSubview(visualEffectView)
-            
-        //}
+      }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+/*---------キーボード監視用---------*/
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "keyboardWillChangeFrame:",
+            name: UIKeyboardWillChangeFrameNotification,
+            object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "keyboardWillHide:",
+            name: UIKeyboardWillHideNotification,
+            object: nil)
+/*-------------------------------------*/
+        
     }
+    
+    
    override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        visualEffectView.removeFromSuperview()
-        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -112,6 +112,7 @@ class WriteViewController :UIViewController,UITextViewDelegate {
     //textviewがフォーカスされたら、Labelを非表示
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         label.hidden = true
+        
         return true
     }
     
@@ -121,6 +122,42 @@ class WriteViewController :UIViewController,UITextViewDelegate {
             label.hidden = false
         }
     }
+    
+    
+/*---------キーボードとtextViewがかぶらないようにする処理---------*/
+    func keyboardWillChangeFrame(notification: NSNotification) {
+        
+        if let userInfo = notification.userInfo {
+            
+            let keyBoardValue : NSValue = userInfo[UIKeyboardFrameEndUserInfoKey]! as! NSValue
+            var keyBoardFrame : CGRect = keyBoardValue.CGRectValue()
+            let duration : NSTimeInterval = userInfo[UIKeyboardAnimationDurationUserInfoKey]! as! NSTimeInterval
+            
+            self.bottomLayoutConstraint.constant = keyBoardFrame.height
+            
+            UIView.animateWithDuration(duration, animations: { () -> Void in
+                self.view.layoutIfNeeded()
+            })
+            
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            
+            let duration : NSTimeInterval = userInfo[UIKeyboardAnimationDurationUserInfoKey]! as! NSTimeInterval
+            
+            self.bottomLayoutConstraint.constant = 0
+            
+            UIView.animateWithDuration(duration, animations: { () -> Void in
+                self.view.layoutIfNeeded()
+            })
+            
+        }
+    }
+    
+    
+/*---------------------------------------------------------------------------------*/
 
 }
 
