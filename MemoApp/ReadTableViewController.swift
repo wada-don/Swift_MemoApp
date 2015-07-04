@@ -13,14 +13,20 @@ var cellNum : Int!
 var url : NSString = "https://www.google.co.jp"
 var nowUrl : String!
 
-class ReadTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+var tag:[String] = ["hogehoge"]   //配列生成
+var memo:[String]=["hoge"]
+
+class ReadTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate {
     
     @IBOutlet var tableview : UITableView!
     @IBOutlet var imageView : UIImageView!
     @IBOutlet var label : UILabel!
+    @IBOutlet var searchBar : UISearchBar!
     
-    var visualEffectView:UIVisualEffectView!
-    var blur  = 0  //ブラーエフェクトがかかっているか判定
+    var searchResults = [""]  //検索結果格納用
+    var searchString : String = "" //検索する言葉
+    
+     var scrollBeginingPoint: CGPoint!  //スクロール検知
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +46,14 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         longPressRecognizer.minimumPressDuration = 0.6
         self.tableview .addGestureRecognizer(longPressRecognizer)
 /*---------------------------------------*/
+        
+/*---------searchBarの設定---------*/
+        self.searchBar = UISearchBar()
+        self.searchBar.frame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.size.width, height: 40)
+        self.searchBar.delegate = self
+        self.searchBar.showsCancelButton = true
+        self.tableview.tableHeaderView = self.searchBar
+/*----------------------------------*/
         
         // Do any additional setup after loading the view.
     }
@@ -68,23 +82,6 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         tableview.tableFooterView = v
         tableview.tableHeaderView = v
         
-        if(blur == 0){  //ブラーがかかっていない時の処理
-            blur = 1;
-            
-            // ブラーエフェクトを生成（ここでエフェクトスタイルを指定する）
-            let blurEffect = UIBlurEffect(style: .Light)
-            
-            // ブラーエフェクトからエフェクトビューを生成
-           visualEffectView = UIVisualEffectView(effect: blurEffect)
-            
-            // エフェクトビューのサイズを指定（オリジナル画像と同じサイズにする）
-            visualEffectView.frame = imageView.bounds
-            
-            // 画像にエフェクトビューを貼り付ける
-            //imageView.addSubview(visualEffectView)
-            
-        }
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -94,8 +91,6 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        visualEffectView.removeFromSuperview()
-        blur = 0
     }
 
 
@@ -103,6 +98,8 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
     /*
@@ -122,15 +119,27 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("DataSource")
         //cellの数を決定
-        return memo.count
+        if(searchString == "") {
+            // 通常のTableView
+            return memo.count
+        } else {
+            // 検索結果TableView
+            return searchResults.count
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
         cell.textLabel?.text = memo[indexPath.row]  //cellのテキストを設定
+        if(searchString == "") {
+            // 通常のTableView
+            cell.textLabel?.text = memo[indexPath.row]
+        } else {
+            // 検索結果TableView
+            cell.textLabel?.text = searchResults[indexPath.row]
+        }
         cell.textLabel?.textColor = UIColor.blackColor()  //cellのテキストカラーを設定
-        
         cell.backgroundColor = nil;  //cellのバックグラウンドカラーを設定
         return cell
     }
@@ -151,6 +160,51 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         self.parentViewController?.view.window?.rootViewController?.presentViewController(hogeNavigationVC, animated: true, completion: nil)
         
     }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    
+/*---------検索処理---------*/
+    //サーチバー更新時(UISearchBarDelegateを関連づけておく必要がある）
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        searchString = searchBar.text
+        searchResults = memo.filter({ (text : String) -> Bool in
+            let stringMatch = text.rangeOfString(searchText)
+            return (stringMatch != nil)
+        })
+        var i = 0
+        for(i;i<searchResults.count;i++){
+          NSLog(self.searchResults[i], String())
+        }
+        tableview.reloadData()  //データ更新
+    }
+    
+    //キャンセルクリック時
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.view.endEditing(true)
+    }
+
+    //リターンキーでキーボード閉じる
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+    }
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        scrollBeginingPoint = scrollView.contentOffset;
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        var currentPoint = scrollView.contentOffset;
+        if(scrollBeginingPoint.y < currentPoint.y){
+            println("上へスクロール")
+            self.tableview.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+        }else{
+            println("下へスクロール")
+        }
+    }
+/*---------------------------*/
     
 /*-------長押しされた時の処理------*/
     func rowButtonAction(sender : UILongPressGestureRecognizer) {

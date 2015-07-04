@@ -10,8 +10,7 @@ import UIKit
 
 let UD = NSUserDefaults.standardUserDefaults()   //UserDefaultsインスタンス生成
 
-var tag:[String] = ["hogehoge"]   //配列生成
-var memo:[String]=["hoge"]
+
 
 var key:String = ""
 var viewNum = 1

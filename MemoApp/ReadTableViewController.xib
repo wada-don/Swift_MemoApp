@@ -26,39 +26,43 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" red="0.96470588235294119" green="1" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NGQ-wv-BuS">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No memo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5t-yM-JK2">
                     <rect key="frame" x="243" y="286" width="115" height="29"/>
                     <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="23"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="50" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NGQ-wv-BuS">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="gkj-Y8-Xv1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="10z-Cv-eCh"/>
                 <constraint firstAttribute="bottom" secondItem="gkj-Y8-Xv1" secondAttribute="bottom" id="3md-yy-UU4"/>
-                <constraint firstAttribute="centerX" secondItem="NGQ-wv-BuS" secondAttribute="centerX" id="5CE-Yf-sxk"/>
                 <constraint firstAttribute="bottom" secondItem="gkj-Y8-Xv1" secondAttribute="bottom" id="Bou-Q5-b2M"/>
-                <constraint firstAttribute="bottom" secondItem="NGQ-wv-BuS" secondAttribute="bottom" id="CMN-n1-2yb"/>
+                <constraint firstAttribute="bottom" secondItem="NGQ-wv-BuS" secondAttribute="bottom" constant="-20" id="CMN-n1-2yb"/>
                 <constraint firstItem="gkj-Y8-Xv1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EFN-Nc-coZ"/>
                 <constraint firstAttribute="trailing" secondItem="gkj-Y8-Xv1" secondAttribute="trailing" id="K3c-iK-Z0n"/>
                 <constraint firstAttribute="centerY" secondItem="X5t-yM-JK2" secondAttribute="centerY" id="MaG-SX-fBw"/>
                 <constraint firstAttribute="bottom" secondItem="gkj-Y8-Xv1" secondAttribute="bottom" id="ORf-fr-ksd"/>
                 <constraint firstAttribute="trailing" secondItem="NGQ-wv-BuS" secondAttribute="trailing" id="PyL-iF-Uf4"/>
                 <constraint firstAttribute="bottom" secondItem="gkj-Y8-Xv1" secondAttribute="bottom" id="SJO-qV-Vyk"/>
-                <constraint firstItem="NGQ-wv-BuS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XQG-eJ-BAq"/>
+                <constraint firstItem="NGQ-wv-BuS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Tbh-tQ-sPx"/>
+                <constraint firstItem="NGQ-wv-BuS" firstAttribute="top" secondItem="gkj-Y8-Xv1" secondAttribute="top" id="Uc6-qJ-T8h"/>
+                <constraint firstAttribute="centerX" secondItem="NGQ-wv-BuS" secondAttribute="centerX" id="VTo-zJ-3e1"/>
                 <constraint firstAttribute="trailing" secondItem="gkj-Y8-Xv1" secondAttribute="trailing" id="idq-f9-V3P"/>
                 <constraint firstItem="NGQ-wv-BuS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jf9-S2-H2Q"/>
                 <constraint firstAttribute="centerX" secondItem="X5t-yM-JK2" secondAttribute="centerX" id="k5V-Ds-BFP"/>
                 <constraint firstAttribute="bottom" secondItem="gkj-Y8-Xv1" secondAttribute="bottom" id="r8Z-f3-kRt"/>
-                <constraint firstAttribute="centerY" secondItem="NGQ-wv-BuS" secondAttribute="centerY" id="wOO-Cc-0XI"/>
+                <constraint firstAttribute="bottom" secondItem="NGQ-wv-BuS" secondAttribute="bottom" id="u7T-dQ-qLW"/>
+                <constraint firstAttribute="centerY" secondItem="NGQ-wv-BuS" secondAttribute="centerY" id="zIK-L5-BND"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="CMN-n1-2yb"/>
+                    <exclude reference="Uc6-qJ-T8h"/>
                     <exclude reference="Bou-Q5-b2M"/>
                     <exclude reference="ORf-fr-ksd"/>
                     <exclude reference="SJO-qV-Vyk"/>
@@ -66,7 +70,7 @@
                     <exclude reference="r8Z-f3-kRt"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="374" y="401"/>
+            <point key="canvasLocation" x="368" y="349"/>
         </view>
     </objects>
 </document>
