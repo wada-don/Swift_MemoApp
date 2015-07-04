@@ -31,6 +31,8 @@ class WebViewController: UIViewController,UIWebViewDelegate{
         
         tool.translucent=false
         tool.tintColor=UIColor(red: 103/255, green: 148/255, blue: 54/255, alpha: 1.0)//buttonの色変更
+        
+        self.webView.delegate = self  //webViewをdelegate
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -64,6 +66,8 @@ class WebViewController: UIViewController,UIWebViewDelegate{
         
         // UIACtivityIndicatorを表示.
         if !myIndiator.isAnimating() {
+            myIndiator.frame = CGRect(x: UIScreen.mainScreen().bounds.width/2, y: (UIScreen.mainScreen().bounds.height/2)-80, width: 30, height: 30)
+            myIndiator.color = UIColor(red: 103/255, green: 148/255, blue: 54/255, alpha: 1.0)
             myIndiator.startAnimating()
         }
         
