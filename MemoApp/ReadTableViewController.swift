@@ -52,9 +52,9 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         self.searchBar.frame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.size.width, height: 40)
         self.searchBar.delegate = self
         self.searchBar.showsCancelButton = true
-        self.tableview.tableHeaderView = self.searchBar
-/*----------------------------------*/
+        //self.tableview.tableHeaderView = self.searchBar
         
+
         // Do any additional setup after loading the view.
     }
     
@@ -119,6 +119,12 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("DataSource")
         //cellの数を決定
+        if(memo.count != 0){
+            if(!searchBar.isFirstResponder()){
+                searchBar.becomeFirstResponder()
+            }
+        }
+        
         if(searchString == "") {
             // 通常のTableView
             return memo.count
@@ -197,7 +203,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         var currentPoint = scrollView.contentOffset;
-        if(scrollBeginingPoint.y < currentPoint.y){
+        if(scrollBeginingPoint.y <= currentPoint.y){
             println("上へスクロール")
             self.tableview.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
         }else{
@@ -260,6 +266,10 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
 /*------------------------------------*/
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+                return  self.searchBar
+    }
     
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
