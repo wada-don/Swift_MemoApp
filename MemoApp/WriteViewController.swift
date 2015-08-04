@@ -8,7 +8,6 @@
 
 import UIKit
 
-let UD = NSUserDefaults.standardUserDefaults()   //UserDefaultsインスタンス生成
 
 
 
@@ -89,12 +88,17 @@ class WriteViewController :UIViewController,UITextViewDelegate {
     }
     
     @IBAction func save(){
+        var memoNum=memo.count
+        var i: Int
         
         println(memo)
         
-        memo.append(writeView.text)   //arrayにwriteViewの内容を追加
+        memo[memoNum]=writeView.text   //arrayにwriteViewの内容を追加
+        for(i=0;i<memo.count;i++){
+            memoArray[i]=(memo[i] as? String)!
+        }
         println(memo)
-        UD.setObject(memo, forKey: "array")   //メモ内容保存
+        UD.setObject(memoArray, forKey: "array")   //メモ内容保存
         println(memo)
         UD.synchronize()   //あったほうが良い?
         

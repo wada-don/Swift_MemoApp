@@ -74,7 +74,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         
         let result : AnyObject! = UD.objectForKey("array")
         if(result != nil){
-                memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as! [String] //UserDefaultsから読み込み
+                memo = NSUserDefaults.standardUserDefaults().dictionaryForKey("key")! //UserDefaultsから読み込み
         }
         
         tableview.reloadData()   //tableViewの更新
@@ -96,7 +96,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
        
-        cell.textLabel?.text = memo[indexPath.row]  //cellのテキストを設定
+        cell.textLabel?.text = memo[indexPath.row]  as? String  //cellのテキストを設定
         cell.textLabel?.textColor = UIColor.whiteColor()  //cellのテキストカラーを設定
         
         cell.backgroundColor = nil;  //cellのバックグラウンドカラーを設定
@@ -108,7 +108,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
         //cellがタップされた時の挙動
         cellNum = indexPath.row   //何番目のcellがタップされたか
         
-        text = memo[indexPath.row]   //タップされたcellの内容を取得
+        text = memo[indexPath.row]  as? String   //タップされたcellの内容を取得
         println(text)
         
         //Editモードの時は画面遷移しない
@@ -147,7 +147,7 @@ class ReadViewController: UIViewController , UITableViewDataSource, UITableViewD
             let del = UITableViewRowAction(style: .Default, title: "Delete") {
                 (action, indexPath) in
             
-                memo.removeAtIndex(indexPath.row)   //配列の要素を削除
+                memo[indexPath.row]=nil   //配列の要素を削除
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
                 UD.setObject(memo, forKey: "array")   //メモ内容保存

@@ -70,14 +70,18 @@ class EditViewController: UIViewController , UITextViewDelegate{
     }
     
     @IBAction func edit(){
+        var i: Int
         
         //メモ内容の変更を保存
         
         println(memo)
         
         memo[cellNum] = editView.text  //arrayにwriteViewの内容を追加
+        for(i=0;i<memo.count;i++){
+            memoArray[i]=(memo[i] as? String)!
+        }
         println(memo)
-        UD.setObject(memo, forKey: "array")   //メモ内容保存
+        UD.setObject(memoArray as NSArray, forKey: "array")   //メモ内容保存
         println(memo)
         UD.synchronize()   //あったほうが良い?
         

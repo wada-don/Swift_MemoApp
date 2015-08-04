@@ -8,25 +8,35 @@
 
 import UIKit
 
+let UD = NSUserDefaults.standardUserDefaults()   //UserDefaultsインスタンス生成
+
+
+
 var text : String!
 var cellNum : Int!
 var url : NSString = "https://www.google.co.jp"
 var nowUrl : String!
 
-var tag:[String] = ["hogehoge"]   //配列生成
-var memo:[String]=["hoge"]
+var memo :Dictionary<NSObject, AnyObject>=[0: "hoge"]  //dictionary
+var memoArray :NSMutableArray! = [""]
+var arr : NSArray!
 
 class ReadTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate {
+    @IBOutlet var tableview2 : UITableView!
     
     @IBOutlet var tableview : UITableView!
     @IBOutlet var imageView : UIImageView!
     @IBOutlet var label : UILabel!
-    @IBOutlet var searchBar : UISearchBar!
+     var searchBar : UISearchBar!
+    @IBOutlet var scroll : UIScrollView!
     
-    var searchResults = [""]  //検索結果格納用
+    var searchResults:Dictionary<NSObject, AnyObject> = [0: ""]  //検索結果格納用
     var searchString : String = "" //検索する言葉
     
-     var scrollBeginingPoint: CGPoint!  //スクロール検知
+    var scrollBeginingPoint: CGPoint!  //スクロール検知
+    
+    var i  = 0
+    var j = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,13 +70,21 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        var i : Int
         
         NSLog("ViewDidAppear")
         
         let result : AnyObject! = UD.objectForKey("array")
         if(result != nil){
             //UserDefaultsから読み込み
-            memo = NSUserDefaults.standardUserDefaults().objectForKey("array") as! [String]
+            if UD.objectForKey("array") != nil {
+                arr = UD.objectForKey("array")! as! NSMutableArray
+                memoArray = NSMutableArray(array: arr)
+                for(i=0;i<memoArray.count;i++){
+                    memo[i]=memoArray[i]
+                }
+                
+            }
             viewNum = 0
         }
         
@@ -86,6 +104,10 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        var i:Int
+        for(i=0;i<memo.count;i++){
+            memoArray[i]=(memo[i] as? String)!
+        }
         NSLog("ViewWillAppear")
     }
     
@@ -119,11 +141,11 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("DataSource")
         //cellの数を決定
-        if(memo.count != 0){
-            if(!searchBar.isFirstResponder()){
-                searchBar.becomeFirstResponder()
-            }
-        }
+//        if(memo.count != 0){
+//            if(!searchBar.isFirstResponder()){
+//               searchBar.becomeFirstResponder()
+//            }
+//        }
         
         if(searchString == "") {
             // 通常のTableView
@@ -137,13 +159,13 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
-        cell.textLabel?.text = memo[indexPath.row]  //cellのテキストを設定
+        cell.textLabel?.text = memo[indexPath.row] as? String  //cellのテキストを設定
         if(searchString == "") {
             // 通常のTableView
-            cell.textLabel?.text = memo[indexPath.row]
+            cell.textLabel?.text = memo[indexPath.row] as? String
         } else {
             // 検索結果TableView
-            cell.textLabel?.text = searchResults[indexPath.row]
+            cell.textLabel?.text = searchResults[indexPath.row] as? String
         }
         cell.textLabel?.textColor = UIColor.blackColor()  //cellのテキストカラーを設定
         cell.backgroundColor = nil;  //cellのバックグラウンドカラーを設定
@@ -155,7 +177,12 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         //cellがタップされた時の挙動
         cellNum = indexPath.row   //何番目のcellがタップされたか
         
-        text = memo[indexPath.row]   //タップされたcellの内容を取得
+        if(searchString==""){
+            text=memo[indexPath.row] as? String
+        }else{
+            text=searchResults[indexPath.row] as? String
+        }
+        
         println(text)
         
         //画面遷移←アニメーションをpushにしたい
@@ -175,16 +202,29 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
 /*---------検索処理---------*/
     //サーチバー更新時(UISearchBarDelegateを関連づけておく必要がある）
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        var i : Int
+        var j  = 0
+        
         searchString = searchBar.text
-        searchResults = memo.filter({ (text : String) -> Bool in
-            let stringMatch = text.rangeOfString(searchText)
-            return (stringMatch != nil)
-        })
-        var i = 0
-        for(i;i<searchResults.count;i++){
-          NSLog(self.searchResults[i], String())
+       
+        //検索処理
+        for(i=0;i<memo.count;i++){
+            if(memo[i] as? String == searchString){
+                searchResults[j]=memo[i]
+                ++j
+            }
+        }
+        
+        for(i=0;i<searchResults.count;i++){
+          NSLog((self.searchResults[i] as? String)!, String())
         }
         tableview.reloadData()  //データ更新
+        
+        if(memo.count != 0){
+            if(!searchBar.isFirstResponder()){
+                searchBar.becomeFirstResponder()
+            }
+        }
     }
     
     //キャンセルクリック時
@@ -196,6 +236,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.searchBar.resignFirstResponder()
     }
+    
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         scrollBeginingPoint = scrollView.contentOffset;
@@ -210,13 +251,21 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
             println("下へスクロール")
         }
     }
+
+
+
+
+    
 /*---------------------------*/
     
 /*-------長押しされた時の処理------*/
     func rowButtonAction(sender : UILongPressGestureRecognizer) {
         
+        
         let point: CGPoint = sender.locationInView(tableview)
         let indexPath = tableview.indexPathForRowAtPoint(point)
+        
+
         
         if let indexPath = indexPath {
             if sender.state == UIGestureRecognizerState.Began {
@@ -240,12 +289,27 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
                     handler:{
                         (action:UIAlertAction!) -> Void in
                         println("削除や変動的な処理")
-                        memo.removeAtIndex(indexPath.row)   //配列の要素を削除
+                        memo[indexPath.row]=nil   //配列の要素を削除
                         self.tableview.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                         
-                        UD.setObject(memo, forKey: "array")   //メモ内容保存
+                        for(self.i=0;self.i<memo.count;self.i++){
+                            if(memo[self.i] != nil){
+                                memoArray[self.j]=(memo[self.i] as? String)!
+                                self.j++
+                            }
+                        }
+                        
+                        memoArray.removeObjectAtIndex(self.i)
+                        
+//                        for(self.i=0;self.i<memo.count;self.i++){
+//                            memo[self.i]=memo[self.i]
+//                        }
+                        
+                        println(memo)
+                        UD.setObject(memoArray, forKey: "array")   //メモ内容保存
                         println(memo)
                         UD.synchronize()   //あったほうが良い?
+                        
                         
                         if(memo.count==0){
                             self.label.hidden=false
@@ -258,7 +322,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
                 aleart.addAction(cancelAction)
                 aleart.addAction(destructiveAction)
                 
-                 presentViewController(aleart, animated: true, completion: nil)
+                 self.view.window?.rootViewController!.presentViewController(aleart, animated: true, completion: nil)
             }
         }else{
             println("long press on table view")
@@ -267,12 +331,15 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     
 /*------------------------------------*/
     
+
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
                 return  self.searchBar
     }
-    
+
+
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-    
+
+
 }
