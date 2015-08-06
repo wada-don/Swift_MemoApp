@@ -17,7 +17,7 @@ var cellNum : Int!
 var url : NSString = "https://www.google.co.jp"
 var nowUrl : String!
 
-var memo :Dictionary<NSObject, AnyObject>=[0: "hoge"]  //dictionary
+var memo :Dictionary<NSObject, AnyObject>=[0: ""]  //dictionary
 var memoArray :NSMutableArray! = [""]
 var arr : NSArray!
 
@@ -30,7 +30,8 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
      var searchBar : UISearchBar!
     @IBOutlet var scroll : UIScrollView!
     
-    var searchResults:Dictionary<NSObject, AnyObject> = [0: ""]  //検索結果格納用
+//    var searchResults:Dictionary<NSObject, AnyObject> = [0: ""]  //検索結果格納用
+    var tmpDictionaryArray :[AnyObject] = []
     var searchString : String = "" //検索する言葉
     
     var scrollBeginingPoint: CGPoint!  //スクロール検知
@@ -80,9 +81,26 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
             if UD.objectForKey("array") != nil {
                 arr = UD.objectForKey("array")! as! NSMutableArray
                 memoArray = NSMutableArray(array: arr)
+                
+//                for(i=0;i<memoArray.count;i++){
+//                    memo[i]=memoArray[i]
+//                }
+                println(memoArray)
+                
                 for(i=0;i<memoArray.count;i++){
-                    memo[i]=memoArray[i]
+                    let dic = memoArray[i] as! NSDictionary
+                    //println("array[i] = \(dic)")
+                    let con:String = dic["contents"] as! String//(memoArray[i] as! String)
+                    let id:AnyObject = convertUnixTimeFromDate(NSDate())
+                    println("con = \(con)")
+                    println("id = \(id)")
+                    let memoDictionary = ["id":id,"contents":con]
+                    memo[i]=memoDictionary
+                    println("memo[i]=\(memo[i])")
                 }
+                println(i)
+                println(memo)
+                //println(memoArray)
                 
             }
             viewNum = 0
@@ -105,9 +123,25 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         var i:Int
+        
+        /*
         for(i=0;i<memo.count;i++){
-            memoArray[i]=(memo[i] as? String)!
+            let con:String = (memo[i] as? String)!
+            let memoDictionary = ["id":i,"contents":con]
+            memoArray[i]=memoDictionary
         }
+        */
+        
+        for(i=0;i<memo.count;i++){
+//            let dic = memoArray[i] as! NSDictionary
+//            println("array[i] = \(dic)")
+//            let con:String = dic["contents"] as! String//(memoArray[i] as! String)
+//            println("con = \(con)")
+//            let memoDictionary = ["id":i,"contents":con]
+//            memoArray[i]=memoDictionary
+        }
+        println(memo)
+        println(memoArray)
         NSLog("ViewWillAppear")
     }
     
@@ -149,23 +183,28 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         
         if(searchString == "") {
             // 通常のTableView
-            return memo.count
+            return memoArray.count
         } else {
             // 検索結果TableView
-            return searchResults.count
+//            return searchResults.count
+            return tmpDictionaryArray.count
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
-        cell.textLabel?.text = memo[indexPath.row] as? String  //cellのテキストを設定
+       // cell.textLabel?.text = memo[indexPath.row] as? String  //cellのテキストを設定
         if(searchString == "") {
             // 通常のTableView
-            cell.textLabel?.text = memo[indexPath.row] as? String
+            let txtDic = memoArray[indexPath.row] as! NSDictionary
+            let txt = txtDic["contents"] as! String
+            cell.textLabel?.text = txt
         } else {
             // 検索結果TableView
-            cell.textLabel?.text = searchResults[indexPath.row] as? String
+            let txtDic = tmpDictionaryArray[indexPath.row] as! NSDictionary//searchResults[indexPath.row] as! NSDictionary
+            let txt = txtDic["contents"] as! String
+            cell.textLabel?.text = txt
         }
         cell.textLabel?.textColor = UIColor.blackColor()  //cellのテキストカラーを設定
         cell.backgroundColor = nil;  //cellのバックグラウンドカラーを設定
@@ -180,7 +219,9 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         if(searchString==""){
             text=memo[indexPath.row] as? String
         }else{
-            text=searchResults[indexPath.row] as? String
+//            text=searchResults[indexPath.row] as? String
+            let dic = tmpDictionaryArray[indexPath.row] as! NSDictionary
+            text = dic["contents"] as! String
         }
         
         println(text)
@@ -203,21 +244,27 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     //サーチバー更新時(UISearchBarDelegateを関連づけておく必要がある）
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         var i : Int
-        var j  = 0
         
         searchString = searchBar.text
+        tmpDictionaryArray=[]
        
         //検索処理
+        println("search memo = \(memo)")
         for(i=0;i<memo.count;i++){
-            if(memo[i] as? String == searchString){
-                searchResults[j]=memo[i]
-                ++j
+            let dic = memo[i] as! NSDictionary
+            let content = dic["contents"] as! String
+            println("dic = \(dic),content = \(content) ,searchString = \(searchString)")
+            if(( content.rangeOfString(searchString)) != nil){
+                tmpDictionaryArray.append(memo[i]!)
+                
             }
         }
         
-        for(i=0;i<searchResults.count;i++){
-          NSLog((self.searchResults[i] as? String)!, String())
-        }
+        println("tmpDictionary = \(tmpDictionaryArray)")
+        
+//        for(i=0;i<searchResults.count;i++){
+//          NSLog((self.searchResults[i] as? String)!, String())
+//        }
         tableview.reloadData()  //データ更新
         
         if(memo.count != 0){
@@ -289,18 +336,20 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
                     handler:{
                         (action:UIAlertAction!) -> Void in
                         println("削除や変動的な処理")
-                        memo[indexPath.row]=nil   //配列の要素を削除
-                        self.tableview.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                         
-                        for(self.i=0;self.i<memo.count;self.i++){
-                            if(memo[self.i] != nil){
-                                memoArray[self.j]=(memo[self.i] as? String)!
-                                self.j++
-                            }
-                        }
+                       
+//                            for(var i=0;i<memo.count;i++){
+//                                if(memo[i] != nil){
+//                                    memoArray[self.j]=(memo[i] as? String)!
+//                                    self.j++
+//                                }
+//                            }
+                            memo[indexPath.row]=nil   //配列の要素を削除
+                            memoArray.removeObjectAtIndex(indexPath.row)
+                            self.tableview.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                         
-                        memoArray.removeObjectAtIndex(self.i)
                         
+                                            
 //                        for(self.i=0;self.i<memo.count;self.i++){
 //                            memo[self.i]=memo[self.i]
 //                        }
@@ -339,6 +388,13 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
 
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
+    }
+    
+   
+   //id用unixtime取得
+    func convertUnixTimeFromDate(date: NSDate) ->Double {
+        var unixtime: Double = date.timeIntervalSince1970
+        return unixtime
     }
 
 

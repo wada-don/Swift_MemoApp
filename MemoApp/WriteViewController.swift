@@ -88,16 +88,29 @@ class WriteViewController :UIViewController,UITextViewDelegate {
     }
     
     @IBAction func save(){
+        
+        /*----------------------------------------*/
         var memoNum=memo.count
-        var i: Int
+        var i: Int = 0
+//        var maxId = 0
         
         println(memo)
         
-        memo[memoNum]=writeView.text   //arrayにwriteViewの内容を追加
-        for(i=0;i<memo.count;i++){
-            memoArray[i]=(memo[i] as? String)!
-        }
+
+        let id:AnyObject = convertUnixTimeFromDate(NSDate())
+        let newDic = ["id":id,"contents":writeView.text]
+//        memo[maxId+1] = newDic
+        
+//        println("maxID=\(maxId)")
+        println("newDic=\(newDic)¥¥¥")
         println(memo)
+        println(memoArray)
+        
+        let memoDictionary = ["id":id,"contents":writeView.text]
+        memoArray.addObject(memoDictionary)
+        
+        /*--------------------------------------------------*/
+        
         UD.setObject(memoArray, forKey: "array")   //メモ内容保存
         println(memo)
         UD.synchronize()   //あったほうが良い?
@@ -158,7 +171,13 @@ class WriteViewController :UIViewController,UITextViewDelegate {
             
         }
     }
-    
+        
+    //id用unixtime取得
+    func convertUnixTimeFromDate(date: NSDate) ->Double {
+        var unixtime: Double = date.timeIntervalSince1970
+        return unixtime
+    }
+
     
 /*---------------------------------------------------------------------------------*/
 
