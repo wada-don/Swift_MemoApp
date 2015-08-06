@@ -18,7 +18,7 @@ var url : NSString = "https://www.google.co.jp"
 var nowUrl : String!
 
 var memo :Dictionary<NSObject, AnyObject>=[0: ""]  //dictionary
-var memoArray :NSMutableArray! = [""]
+var memoArray :NSMutableArray! = []
 var arr : NSArray!
 
 class ReadTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate {
