@@ -21,6 +21,8 @@ var memo :Dictionary<NSObject, AnyObject>=[0: ""]  //dictionary
 var memoArray :NSMutableArray! = []
 var arr : NSArray!
 
+var tmpDictionaryArray :[AnyObject] = []
+
 class ReadTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate {
     @IBOutlet var tableview2 : UITableView!
     
@@ -31,7 +33,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet var scroll : UIScrollView!
     
 //    var searchResults:Dictionary<NSObject, AnyObject> = [0: ""]  //検索結果格納用
-    var tmpDictionaryArray :[AnyObject] = []
+    
     var searchString : String = "" //検索する言葉
     
     var scrollBeginingPoint: CGPoint!  //スクロール検知
@@ -81,6 +83,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
             if UD.objectForKey("array") != nil {
                 arr = UD.objectForKey("array")! as! NSMutableArray
                 memoArray = NSMutableArray(array: arr)
+                memoArray.reverseObjectEnumerator()
                 
 //                for(i=0;i<memoArray.count;i++){
 //                    memo[i]=memoArray[i]
@@ -91,11 +94,12 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
                     let dic = memoArray[i] as! NSDictionary
                     //println("array[i] = \(dic)")
                     let con:String = dic["contents"] as! String//(memoArray[i] as! String)
-                    let id:AnyObject = convertUnixTimeFromDate(NSDate())
+                    let id:Double = dic["id"] as! Double //convertUnixTimsseFaromDate(NSDate())
                     println("con = \(con)")
                     println("id = \(id)")
                     let memoDictionary = ["id":id,"contents":con]
                     memo[i]=memoDictionary
+                    println("memoArray=\(memoArray)")
                     println("memo[i]=\(memo[i])")
                 }
                 println(i)
@@ -217,11 +221,14 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         cellNum = indexPath.row   //何番目のcellがタップされたか
         
         if(searchString==""){
-            text=memo[indexPath.row] as? String
+            let dic = memo[indexPath.row] as! NSDictionary
+            text=dic["contents"] as! String
+            println("text=\(text)")
         }else{
 //            text=searchResults[indexPath.row] as? String
             let dic = tmpDictionaryArray[indexPath.row] as! NSDictionary
             text = dic["contents"] as! String
+            println("text=\(text)")
         }
         
         println(text)
@@ -251,12 +258,14 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         //検索処理
         println("search memo = \(memo)")
         for(i=0;i<memo.count;i++){
-            let dic = memo[i] as! NSDictionary
-            let content = dic["contents"] as! String
-            println("dic = \(dic),content = \(content) ,searchString = \(searchString)")
-            if(( content.rangeOfString(searchString)) != nil){
-                tmpDictionaryArray.append(memo[i]!)
-                
+            if(memo[i] != nil){
+                let dic = memo[i] as! NSDictionary
+                let content = dic["contents"] as! String
+                println("dic = \(dic),content = \(content) ,searchString = \(searchString)")
+                if(( content.rangeOfString(searchString)) != nil){
+                    tmpDictionaryArray.append(memo[i]!)
+                    println("memo[i]=\(memo[i])")
+                }
             }
         }
         
@@ -286,17 +295,17 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        scrollBeginingPoint = scrollView.contentOffset;
+        //scrollBeginingPoint = scrollView.contentOffset;
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        var currentPoint = scrollView.contentOffset;
-        if(scrollBeginingPoint.y <= currentPoint.y){
-            println("上へスクロール")
-            self.tableview.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
-        }else{
-            println("下へスクロール")
-        }
+//        var currentPoint = scrollView.contentOffset;
+//        if(scrollBeginingPoint.y <= currentPoint.y){
+//            println("上へスクロール")
+//            self.tableview.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+//        }else{
+//            println("下へスクロール")
+//        }
     }
 
 
@@ -337,24 +346,59 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
                         (action:UIAlertAction!) -> Void in
                         println("削除や変動的な処理")
                         
-                       
-//                            for(var i=0;i<memo.count;i++){
-//                                if(memo[i] != nil){
-//                                    memoArray[self.j]=(memo[i] as? String)!
-//                                    self.j++
-//                                }
-//                            }
-                            memo[indexPath.row]=nil   //配列の要素を削除
-                            memoArray.removeObjectAtIndex(indexPath.row)
-                            self.tableview.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    if(self.searchString == ""){
+                        memo[indexPath.row]=nil   //配列の要素を削除
+                        memoArray.removeObjectAtIndex(indexPath.row)
+                        self.tableview.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                         
-                        
+                    }else{
+                            // 検索結果TableView
+                           // println(indexPath.row)
+                           // println(self.tmpDictionaryArray)
+                        let txtDic = tmpDictionaryArray[indexPath.row] as! NSDictionary
+                        tmpDictionaryArray.removeAtIndex(indexPath.row)
+                        self.tableview.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                            
+                        let tmpId: Double = txtDic["id"] as! Double
+                            
+                           // memo[tmpId]=nil
+                        for(self.i=0;self.i<memo.count;self.i++){
+                            let Tmp = memo[self.i] as! NSDictionary
+                            println("Tmp=\(Tmp)")
+                            let double : Double = Tmp["id"] as! Double
+                            println("tmpId=\(tmpId)")
+                            println("double=\(double)")
+                            if(double == tmpId){
+                                memo[self.i]=nil
+                                println("i=\(self.i)")
+                            }
+                        }
+                            
+                            //idが一致するArrayを検索して削除
+                            println("memoArray=\(memoArray)")
+                            println("memo=\(memo)")
+                            for(self.i=0;self.i<memoArray.count;self.i++){
+                                let tmpD  = memoArray[self.i] as! NSDictionary
+                                println("tmpD=\(tmpD)")
+                                let dou : Double = tmpD["id"] as! Double
+                                println("tmpId=\(tmpId)")
+                                println("dou=\(dou)")
+                                if( dou == tmpId){
+                                    memoArray.removeObjectAtIndex(self.i)
+                                    println("i=\(self.i)")
+                                }
+                                
+                                
+                            }
+                            
+                            //let txt = txtDic["contents"] as! String
+
+                    }
                                             
 //                        for(self.i=0;self.i<memo.count;self.i++){
 //                            memo[self.i]=memo[self.i]
 //                        }
                         
-                        println(memo)
                         UD.setObject(memoArray, forKey: "array")   //メモ内容保存
                         println(memo)
                         UD.synchronize()   //あったほうが良い?
