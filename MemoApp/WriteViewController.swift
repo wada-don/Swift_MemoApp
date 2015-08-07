@@ -99,6 +99,8 @@ class WriteViewController :UIViewController,UITextViewDelegate {
 
         let id:AnyObject = convertUnixTimeFromDate(NSDate())
         let newDic = ["id":id,"contents":writeView.text]
+        
+        
 //        memo[maxId+1] = newDic
         
 //        println("maxID=\(maxId)")

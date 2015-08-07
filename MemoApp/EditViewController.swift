@@ -76,10 +76,78 @@ class EditViewController: UIViewController , UITextViewDelegate{
         
         println(memo)
         
-        memo[cellNum] = editView.text  //arrayにwriteViewの内容を追加
-        for(i=0;i<memo.count;i++){
-            memoArray[i]=(memo[i] as? String)!
+
+        
+
+        //検索時に分岐する
+        
+        if(searchString == ""){
+            var dic  = memo[cellNum] as! Dictionary<NSObject, AnyObject>
+        
+            println("dic=\(dic)")
+            dic["contents"] = editView.text as String
+        
+            memo[cellNum]=dic
+            memoArray[cellNum]=memo[cellNum]!
+        }else{
+            var TD : Dictionary<NSObject,AnyObject> = [:]
+            var TDArray : NSMutableArray = []
+            let edtTxt = editView.text as String
+            var dic = tmpDictionaryArray[cellNum] as! Dictionary<NSObject,AnyObject>
+            dic["contents"] = edtTxt
+            
+            tmpDictionaryArray[cellNum]=dic
+            
+            let tmpId: Double = dic["id"] as! Double
+            
+            println("memo=\(memo)")
+            
+            
+            for(var k=0;k<memo.count;k++){
+                let Tmp = memo[k] as! NSDictionary
+                println("Tmp=\(Tmp)")
+                let double : Double = Tmp["id"] as! Double
+                println("tmpId=\(tmpId)")
+                println("double=\(double)")
+                if(double == tmpId){
+                    
+                    var dic = memo[cellNum] as! Dictionary<NSObject,AnyObject>
+                    dic["contents"] = edtTxt
+                    memo[k] = dic
+                    memoArray[k]=memo[k]!
+                    //memo[i]=Tmp
+                   // println("i=\(i)")
+                    println("Tmp=\(Tmp)")
+                    println("memo=\(memo)")
+                }
+            }
+            println("tmopDA=\(tmpDictionaryArray)")
+            
+//            //検索処理
+//            println("search memo = \(memo)")
+//            for(i=0;i<tmpDictionaryArray.count;i++){
+//                
+//                let Dic = tmpDictionaryArray[i] as! NSDictionary
+//                let content = Dic["contents"] as! String
+//                println("dic = \(Dic),content = \(content) ,searchString = \(searchString)")
+//                if(( content.rangeOfString(searchString)) != nil){
+//                    //tmpDictionaryArray.append(memo[i]!)
+//                    TD=Dic as Dictionary<NSObject, AnyObject>
+//                    TDArray.addObject(TD)
+//                }
+//            }
+//            for(i=0;i<TDArray.count;i++){
+//                tmpDictionaryArray[i]=TDArray[i]
+//            }
+//            let x = tmpDictionaryArray.count - TDArray.count
+//            for(i=x;i<tmpDictionaryArray.count;i++){
+//                tmpDictionaryArray.removeAtIndex(i)
+//            }
+            
         }
+
+        
+        
         println(memo)
         UD.setObject(memoArray as NSArray, forKey: "array")   //メモ内容保存
         println(memo)
