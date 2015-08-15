@@ -109,7 +109,26 @@ class WriteViewController :UIViewController,UITextViewDelegate {
         println(memoArray)
         
         let memoDictionary = ["id":id,"contents":writeView.text]
+        
+        //Array→NSMutableArrayに直接キャストできない？
+        var tempArr : Array = memoArray as Array
+        println("beforeReverse=\(tempArr)")
+        var tempArr2 = tempArr.reverse()
+        println("afterReverse=\(tempArr2)")
+        var tArray : NSArray = tempArr2 as NSArray
+        memoArray = tArray.mutableCopy() as! NSMutableArray
+
+        
         memoArray.addObject(memoDictionary)
+        
+        //Array→NSMutableArrayに直接キャストできない？
+        tempArr  = memoArray as Array
+        println("beforeReverse=\(tempArr)")
+         tempArr2 = tempArr.reverse()
+        println("afterReverse=\(tempArr2)")
+         tArray  = tempArr2 as NSArray
+        memoArray = tArray.mutableCopy() as! NSMutableArray
+
         
         /*--------------------------------------------------*/
         

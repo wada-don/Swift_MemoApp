@@ -85,9 +85,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
             if UD.objectForKey("array") != nil {
                 arr = UD.objectForKey("array")! as! NSMutableArray
                 memoArray = NSMutableArray(array: arr)
-                memoArray.reverseObjectEnumerator()
-
-                println(memoArray)
+                        
                 
                 for(i=0;i<memoArray.count;i++){
                     let dic : NSDictionary = memoArray[i] as! NSDictionary

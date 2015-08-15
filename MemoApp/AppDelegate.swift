@@ -13,9 +13,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
         
-        // Override point for customization after application launch.
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        var pageController:UIPageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
+        
+        var navigationController:SwipeBetweenViewControllers = SwipeBetweenViewControllers(rootViewController: pageController)
+        
         // Override point for customization after application launch.
+//        var demo:UIViewController = UIViewController()
+//        var demo2:UIViewController = UIViewController()
+//        var demo3:UIViewController = UIViewController()
+//        var demo4:UIViewController = UIViewController()
+//        var demo5:UIViewController = UIViewController()
+//        demo.view.backgroundColor = UIColor.redColor()
+//        demo2.view.backgroundColor = UIColor.whiteColor()
+//        demo3.view.backgroundColor = UIColor.grayColor()
+//        demo4.view.backgroundColor = UIColor.orangeColor()
+//        demo5.view.backgroundColor = UIColor.brownColor()
+        
+        var controller1 :  ReadTableViewController = ReadTableViewController(nibName: "ReadTableViewController", bundle: nil)
+         var controller2 :  WriteViewController = WriteViewController(nibName: "WriteViewController", bundle: nil)
+        var controller3 : WebViewController = WebViewController(nibName: "WebViewController", bundle : nil)
+        
+        navigationController.viewControllerArray = [controller1,controller2,controller3]
+        
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
         return true
     }
 
