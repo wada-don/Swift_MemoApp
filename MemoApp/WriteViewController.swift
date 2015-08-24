@@ -80,6 +80,7 @@ class WriteViewController :UIViewController,UITextViewDelegate {
                 alert.show()
             }
         }
+        
     }
     
     override func didReceiveMemoryWarning() {

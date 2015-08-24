@@ -59,12 +59,12 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="HjX-pC-wRk">
-                        <barButtonItem key="leftBarButtonItem" image="cancel.png" width="10" id="LYP-cZ-LPk">
+                        <barButtonItem key="leftBarButtonItem" image="cancel" width="10" id="LYP-cZ-LPk">
                             <connections>
                                 <action selector="cancel" destination="Eax-Ik-PoE" id="Vax-VT-9LW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="done.png" id="L9x-y5-TfI">
+                        <barButtonItem key="rightBarButtonItem" image="done" id="L9x-y5-TfI">
                             <connections>
                                 <action selector="edit" destination="Eax-Ik-PoE" id="7b6-PT-iQ5"/>
                             </connections>
@@ -80,26 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dk0-Lt-7r9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3367" y="-389"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Doc-at-nal">
-            <objects>
-                <viewController id="xvt-hM-EGt" customClass="ViewController" customModule="WebMemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="D3T-eD-aah"/>
-                        <viewControllerLayoutGuide type="bottom" id="hgo-qT-xDZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vXo-Xh-uCz">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="qrx-mM-LVn"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W6l-3m-Ie4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2416.875" y="-442.6056338028169"/>
+            <point key="canvasLocation" x="2535" y="-459"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fCY-Nf-woK">
@@ -117,29 +98,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHf-4w-rxJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1735" y="301"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="G6a-Ug-gsx">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j81-t9-biO" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dDD-sO-XpJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="xvt-hM-EGt" kind="relationship" relationship="rootViewController" id="tHj-Cw-lZZ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zvt-0E-hmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1419.375" y="-442.6056338028169"/>
+            <point key="canvasLocation" x="1747" y="-459"/>
         </scene>
     </scenes>
     <resources>
-        <image name="cancel.png" width="40" height="40"/>
-        <image name="done.png" width="40" height="40"/>
+        <image name="cancel" width="40" height="40"/>
+        <image name="done" width="40" height="40"/>
     </resources>
 </document>

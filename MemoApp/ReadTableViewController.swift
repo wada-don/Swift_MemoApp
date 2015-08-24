@@ -25,7 +25,8 @@ var arr : NSArray!
 
 var tmpDictionaryArray :[AnyObject] = []
 
-class ReadTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate {
+
+class ReadTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate,UINavigationControllerDelegate {
     @IBOutlet var tableview2 : UITableView!
     
     @IBOutlet var tableview : UITableView!
@@ -68,6 +69,9 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         self.searchBar.delegate = self
         self.searchBar.showsCancelButton = true
         //self.tableview.tableHeaderView = self.searchBar
+        
+        
+        navigationController?.delegate = self
         
 
         // Do any additional setup after loading the view.
@@ -134,6 +138,16 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         println(memo)
         println(memoArray)
         NSLog("ViewWillAppear")
+        
+        //var i : Int
+        
+        
+        searchString = searchBar.text
+        tmpDictionaryArray=[]
+        
+        
+        tableview.reloadData()
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -145,19 +159,6 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -213,10 +214,14 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         
         println(text)
         
+        //tableViewの選択解除
+         tableview.deselectRowAtIndexPath(indexPath, animated: true)
+        
         //画面遷移←アニメーションをpushにしたい
         let hoge =  UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Edit") as! EditViewController
         var hogeNavigationVC = UINavigationController(rootViewController: hoge)
         hogeNavigationVC.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+    
         //親のViewControllerから画面遷移を行わないとエラーが出る
         self.parentViewController?.view.window?.rootViewController?.presentViewController(hogeNavigationVC, animated: true, completion: nil)
         
@@ -225,6 +230,8 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
+    
+    
     
     
 /*---------検索処理---------*/
@@ -291,13 +298,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-//        var currentPoint = scrollView.contentOffset;
-//        if(scrollBeginingPoint.y <= currentPoint.y){
-//            println("上へスクロール")
-//            self.tableview.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
-//        }else{
-//            println("下へスクロール")
-//        }
+
     }
 
 
@@ -386,22 +387,19 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
                             //let txt = txtDic["contents"] as! String
 
                     }
-                                            
-//                        for(self.i=0;self.i<memo.count;self.i++){
-//                            memo[self.i]=memo[self.i]
-//                        }
-                        
-                        UD.setObject(memoArray, forKey: "array")   //メモ内容保存
-                        println(memo)
-                        UD.synchronize()   //あったほうが良い?
                         
                         
-                        println("memo.count=\(memo.count)")
-                        if(memo.count==0){
-                            self.label.hidden=false
-                        }else{
-                       self.label.hidden=true
-                        }
+                    UD.setObject(memoArray, forKey: "array")   //メモ内容保存
+                    println(memo)
+                    UD.synchronize()   //あったほうが良い?
+                        
+                        
+                    println("memo.count=\(memo.count)")
+                    if(memo.count==0){
+                        self.label.hidden=false
+                    }else{
+                    self.label.hidden=true
+                    }
                 })
                 
                 //定義したアクションを追加
@@ -433,6 +431,16 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         var unixtime: Double = date.timeIntervalSince1970
         return unixtime
     }
+    
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        viewController.viewWillAppear(animated)
+    }
+    
+    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
+        viewController.viewDidAppear(animated)
+    }
+    
+    
 
 
 }

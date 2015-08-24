@@ -12,22 +12,21 @@
 		751CEB2B1A7CC51900E63ED6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751CEB291A7CC51900E63ED6 /* LaunchScreen.xib */; };
 		751CEB371A7CC51900E63ED6 /* MemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CEB361A7CC51900E63ED6 /* MemoAppTests.swift */; };
 		752F94271A7DF4D5004C3F3F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752F94261A7DF4D5004C3F3F /* EditViewController.swift */; };
-		756705CE1B36B59900D7AE12 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 756705CA1B36B59900D7AE12 /* home.png */; };
-		756705D31B36B65800D7AE12 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 756705D21B36B65800D7AE12 /* right.png */; };
 		756705DB1B36C62900D7AE12 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 756705D91B36C51200D7AE12 /* Montserrat-Bold.ttf */; };
 		756EF1571B7F9079004E026B /* SwipeBetweenViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756EF1561B7F9079004E026B /* SwipeBetweenViewControllers.swift */; };
 		7572BEBE1B35587000913D35 /* IJReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7572BEBD1B35587000913D35 /* IJReachability.swift */; };
-		757724A71AFDEFDC005D15D2 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757724A61AFDEFDC005D15D2 /* CAPSPageMenu.swift */; };
-		757724A91AFDF05A005D15D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757724A81AFDF05A005D15D2 /* ViewController.swift */; };
 		757724B01AFE1811005D15D2 /* ReadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757724AE1AFE1811005D15D2 /* ReadTableViewController.swift */; };
 		757724B11AFE1811005D15D2 /* ReadTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 757724AF1AFE1811005D15D2 /* ReadTableViewController.xib */; };
 		757724B31AFE29A9005D15D2 /* WriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 757724B21AFE29A9005D15D2 /* WriteViewController.xib */; };
 		75795DAB1A7CE859004425FA /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75795DAA1A7CE859004425FA /* WriteViewController.swift */; };
-		75795DAD1A7CF09F004425FA /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75795DAC1A7CF09F004425FA /* ReadViewController.swift */; };
+		758641971B8ADF9600736BFA /* reload.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 758641961B8ADF9600736BFA /* reload.pdf */; };
+		758641991B8ADFEF00736BFA /* earth.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 758641981B8ADFEF00736BFA /* earth.pdf */; };
+		7586419B1B8AE6AC00736BFA /* left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7586419A1B8AE6AC00736BFA /* left.pdf */; };
+		7586419D1B8AE77A00736BFA /* right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7586419C1B8AE77A00736BFA /* right.pdf */; };
+		7586419F1B8AEAC000736BFA /* done.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7586419E1B8AEAC000736BFA /* done.pdf */; };
+		758641A11B8AEBFA00736BFA /* cancel.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 758641A01B8AEBFA00736BFA /* cancel.pdf */; };
 		75A9C5B11B10488A00353A9A /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A9C5B01B10488A00353A9A /* WebViewController.xib */; };
 		75D0ED3F1AF761E400583344 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D0ED3E1AF761E400583344 /* Main.storyboard */; };
-		75E5A5F61B396C0B0044016A /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E5A5F41B396C0B0044016A /* left.png */; };
-		75E5A5F71B396C0B0044016A /* re.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E5A5F51B396C0B0044016A /* re.png */; };
 		75E5A6071B39B5EC0044016A /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E5A6061B39B5EC0044016A /* cancel.png */; };
 		75E5A6091B39B6460044016A /* done.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E5A6081B39B6460044016A /* done.png */; };
 		75EB12F71AAAC99800907C11 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EB12F61AAAC99800907C11 /* WebViewController.swift */; };
@@ -55,22 +54,21 @@
 		751CEB351A7CC51900E63ED6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		751CEB361A7CC51900E63ED6 /* MemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoAppTests.swift; sourceTree = "<group>"; };
 		752F94261A7DF4D5004C3F3F /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		756705CA1B36B59900D7AE12 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
-		756705D21B36B65800D7AE12 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
 		756705D91B36C51200D7AE12 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		756EF1561B7F9079004E026B /* SwipeBetweenViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeBetweenViewControllers.swift; sourceTree = "<group>"; };
 		7572BEBD1B35587000913D35 /* IJReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJReachability.swift; sourceTree = "<group>"; };
-		757724A61AFDEFDC005D15D2 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
-		757724A81AFDF05A005D15D2 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		757724AE1AFE1811005D15D2 /* ReadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadTableViewController.swift; sourceTree = "<group>"; };
 		757724AF1AFE1811005D15D2 /* ReadTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadTableViewController.xib; sourceTree = "<group>"; };
 		757724B21AFE29A9005D15D2 /* WriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WriteViewController.xib; sourceTree = "<group>"; };
 		75795DAA1A7CE859004425FA /* WriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
-		75795DAC1A7CF09F004425FA /* ReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
+		758641961B8ADF9600736BFA /* reload.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = reload.pdf; sourceTree = "<group>"; };
+		758641981B8ADFEF00736BFA /* earth.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = earth.pdf; path = MemoApp/earth.pdf; sourceTree = "<group>"; };
+		7586419A1B8AE6AC00736BFA /* left.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = left.pdf; sourceTree = "<group>"; };
+		7586419C1B8AE77A00736BFA /* right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = right.pdf; sourceTree = "<group>"; };
+		7586419E1B8AEAC000736BFA /* done.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = done.pdf; sourceTree = "<group>"; };
+		758641A01B8AEBFA00736BFA /* cancel.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cancel.pdf; sourceTree = "<group>"; };
 		75A9C5B01B10488A00353A9A /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		75D0ED3E1AF761E400583344 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		75E5A5F41B396C0B0044016A /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
-		75E5A5F51B396C0B0044016A /* re.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = re.png; sourceTree = "<group>"; };
 		75E5A6061B39B5EC0044016A /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancel.png; path = MemoApp/cancel.png; sourceTree = "<group>"; };
 		75E5A6081B39B6460044016A /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = done.png; path = MemoApp/done.png; sourceTree = "<group>"; };
 		75EB12F61AAAC99800907C11 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -99,15 +97,17 @@
 		751CEB121A7CC51900E63ED6 = {
 			isa = PBXGroup;
 			children = (
-				75E5A5F41B396C0B0044016A /* left.png */,
-				75E5A5F51B396C0B0044016A /* re.png */,
+				7586419C1B8AE77A00736BFA /* right.pdf */,
+				7586419A1B8AE6AC00736BFA /* left.pdf */,
+				758641981B8ADFEF00736BFA /* earth.pdf */,
+				758641961B8ADF9600736BFA /* reload.pdf */,
+				7586419E1B8AEAC000736BFA /* done.pdf */,
+				758641A01B8AEBFA00736BFA /* cancel.pdf */,
 				756705D91B36C51200D7AE12 /* Montserrat-Bold.ttf */,
-				756705D21B36B65800D7AE12 /* right.png */,
-				756705CA1B36B59900D7AE12 /* home.png */,
 				75E5A6061B39B5EC0044016A /* cancel.png */,
+				75E5A6081B39B6460044016A /* done.png */,
 				75F5EA4A1B43E45C00CE8F9C /* icon.png */,
 				75F5EA4B1B43E45C00CE8F9C /* lscreen.png */,
-				75E5A6081B39B6460044016A /* done.png */,
 				751CEB1D1A7CC51900E63ED6 /* MemoApp */,
 				751CEB331A7CC51900E63ED6 /* MemoAppTests */,
 				751CEB1C1A7CC51900E63ED6 /* Products */,
@@ -128,18 +128,15 @@
 			children = (
 				751CEB201A7CC51900E63ED6 /* AppDelegate.swift */,
 				756EF1561B7F9079004E026B /* SwipeBetweenViewControllers.swift */,
+				7572BEBD1B35587000913D35 /* IJReachability.swift */,
 				75D0ED3E1AF761E400583344 /* Main.storyboard */,
 				757724AE1AFE1811005D15D2 /* ReadTableViewController.swift */,
 				757724AF1AFE1811005D15D2 /* ReadTableViewController.xib */,
 				75795DAA1A7CE859004425FA /* WriteViewController.swift */,
 				757724B21AFE29A9005D15D2 /* WriteViewController.xib */,
 				752F94261A7DF4D5004C3F3F /* EditViewController.swift */,
-				7572BEBD1B35587000913D35 /* IJReachability.swift */,
 				75EB12F61AAAC99800907C11 /* WebViewController.swift */,
 				75A9C5B01B10488A00353A9A /* WebViewController.xib */,
-				75795DAC1A7CF09F004425FA /* ReadViewController.swift */,
-				757724A81AFDF05A005D15D2 /* ViewController.swift */,
-				757724A61AFDEFDC005D15D2 /* CAPSPageMenu.swift */,
 				751CEB271A7CC51900E63ED6 /* Images.xcassets */,
 				751CEB291A7CC51900E63ED6 /* LaunchScreen.xib */,
 				751CEB1E1A7CC51900E63ED6 /* Supporting Files */,
@@ -253,16 +250,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75E5A5F61B396C0B0044016A /* left.png in Resources */,
 				756705DB1B36C62900D7AE12 /* Montserrat-Bold.ttf in Resources */,
 				751CEB2B1A7CC51900E63ED6 /* LaunchScreen.xib in Resources */,
+				7586419D1B8AE77A00736BFA /* right.pdf in Resources */,
 				75E5A6091B39B6460044016A /* done.png in Resources */,
+				758641A11B8AEBFA00736BFA /* cancel.pdf in Resources */,
 				75E5A6071B39B5EC0044016A /* cancel.png in Resources */,
-				756705D31B36B65800D7AE12 /* right.png in Resources */,
 				75A9C5B11B10488A00353A9A /* WebViewController.xib in Resources */,
+				7586419F1B8AEAC000736BFA /* done.pdf in Resources */,
 				75D0ED3F1AF761E400583344 /* Main.storyboard in Resources */,
-				756705CE1B36B59900D7AE12 /* home.png in Resources */,
-				75E5A5F71B396C0B0044016A /* re.png in Resources */,
+				7586419B1B8AE6AC00736BFA /* left.pdf in Resources */,
+				758641991B8ADFEF00736BFA /* earth.pdf in Resources */,
+				758641971B8ADF9600736BFA /* reload.pdf in Resources */,
 				75F5EA4C1B43E45C00CE8F9C /* icon.png in Resources */,
 				75F5EA4D1B43E45C00CE8F9C /* lscreen.png in Resources */,
 				751CEB281A7CC51900E63ED6 /* Images.xcassets in Resources */,
@@ -288,13 +287,10 @@
 				7572BEBE1B35587000913D35 /* IJReachability.swift in Sources */,
 				752F94271A7DF4D5004C3F3F /* EditViewController.swift in Sources */,
 				756EF1571B7F9079004E026B /* SwipeBetweenViewControllers.swift in Sources */,
-				757724A91AFDF05A005D15D2 /* ViewController.swift in Sources */,
 				75795DAB1A7CE859004425FA /* WriteViewController.swift in Sources */,
 				757724B01AFE1811005D15D2 /* ReadTableViewController.swift in Sources */,
 				75EB12F71AAAC99800907C11 /* WebViewController.swift in Sources */,
 				751CEB211A7CC51900E63ED6 /* AppDelegate.swift in Sources */,
-				757724A71AFDEFDC005D15D2 /* CAPSPageMenu.swift in Sources */,
-				75795DAD1A7CF09F004425FA /* ReadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

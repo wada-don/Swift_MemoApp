@@ -120,28 +120,8 @@ class WebViewController: UIViewController,UIWebViewDelegate{
             }
             net = 1  //接続状態更新
         } else {
-            /*
-            let alert = UIAlertView()
-            alert.title = "通信エラー"
-            alert.message = "通信状況がよくありません。電波環境を確認後、再度お試しください。"
-            alert.addButtonWithTitle("OK")
-            alert.show()
-            */
-            
             net = 0  //接続状態更新
         }
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
     
 }

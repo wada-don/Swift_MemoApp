@@ -21,16 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var navigationController:SwipeBetweenViewControllers = SwipeBetweenViewControllers(rootViewController: pageController)
         
         // Override point for customization after application launch.
-//        var demo:UIViewController = UIViewController()
-//        var demo2:UIViewController = UIViewController()
-//        var demo3:UIViewController = UIViewController()
-//        var demo4:UIViewController = UIViewController()
-//        var demo5:UIViewController = UIViewController()
-//        demo.view.backgroundColor = UIColor.redColor()
-//        demo2.view.backgroundColor = UIColor.whiteColor()
-//        demo3.view.backgroundColor = UIColor.grayColor()
-//        demo4.view.backgroundColor = UIColor.orangeColor()
-//        demo5.view.backgroundColor = UIColor.brownColor()
         
         var controller1 :  ReadTableViewController = ReadTableViewController(nibName: "ReadTableViewController", bundle: nil)
          var controller2 :  WriteViewController = WriteViewController(nibName: "WriteViewController", bundle: nil)

@@ -122,28 +122,7 @@ class EditViewController: UIViewController , UITextViewDelegate{
                 }
             }
             println("tmopDA=\(tmpDictionaryArray)")
-            
-//            //検索処理
-//            println("search memo = \(memo)")
-//            for(i=0;i<tmpDictionaryArray.count;i++){
-//                
-//                let Dic = tmpDictionaryArray[i] as! NSDictionary
-//                let content = Dic["contents"] as! String
-//                println("dic = \(Dic),content = \(content) ,searchString = \(searchString)")
-//                if(( content.rangeOfString(searchString)) != nil){
-//                    //tmpDictionaryArray.append(memo[i]!)
-//                    TD=Dic as Dictionary<NSObject, AnyObject>
-//                    TDArray.addObject(TD)
-//                }
-//            }
-//            for(i=0;i<TDArray.count;i++){
-//                tmpDictionaryArray[i]=TDArray[i]
-//            }
-//            let x = tmpDictionaryArray.count - TDArray.count
-//            for(i=x;i<tmpDictionaryArray.count;i++){
-//                tmpDictionaryArray.removeAtIndex(i)
-//            }
-            
+                        
         }
 
         
@@ -159,8 +138,8 @@ class EditViewController: UIViewController , UITextViewDelegate{
         aleart.addButtonWithTitle("OK")
         aleart.show()
         
-        dismissViewControllerAnimated(true, completion: nil)   //トップページに戻る
-        
+       self.dismissViewControllerAnimated(true, completion: nil)   //トップページに戻る
+       
     }
     
     //textviewがフォーカスされたら、Labelを非表示

@@ -34,7 +34,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="65a-xx-dGA"/>
-                        <barButtonItem image="done.png" id="jH9-vM-r5W">
+                        <barButtonItem image="done" id="jH9-vM-r5W">
                             <connections>
                                 <action selector="save" destination="-1" id="FJH-qV-F4e"/>
                             </connections>
@@ -104,6 +104,6 @@
         </view>
     </objects>
     <resources>
-        <image name="done.png" width="40" height="40"/>
+        <image name="done" width="40" height="40"/>
     </resources>
 </document>
