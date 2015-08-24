@@ -26,7 +26,7 @@ var arr : NSArray!
 var tmpDictionaryArray :[AnyObject] = []
 
 
-class ReadTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate,UINavigationControllerDelegate {
+class ReadTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate {
     @IBOutlet var tableview2 : UITableView!
     
     @IBOutlet var tableview : UITableView!
@@ -71,7 +71,6 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         //self.tableview.tableHeaderView = self.searchBar
         
         
-        navigationController?.delegate = self
         
 
         // Do any additional setup after loading the view.
@@ -217,7 +216,7 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         //tableViewの選択解除
          tableview.deselectRowAtIndexPath(indexPath, animated: true)
         
-        //画面遷移←アニメーションをpushにしたい
+        //画面遷移
         let hoge =  UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Edit") as! EditViewController
         var hogeNavigationVC = UINavigationController(rootViewController: hoge)
         hogeNavigationVC.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
@@ -431,16 +430,5 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         var unixtime: Double = date.timeIntervalSince1970
         return unixtime
     }
-    
-    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
-        viewController.viewWillAppear(animated)
-    }
-    
-    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
-        viewController.viewDidAppear(animated)
-    }
-    
-    
-
 
 }

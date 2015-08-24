@@ -37,6 +37,6 @@
         </view>
     </objects>
     <resources>
-        <image name="lscreen.png" width="300" height="300"/>
+        <image name="lscreen.png" width="350" height="350"/>
     </resources>
 </document>
