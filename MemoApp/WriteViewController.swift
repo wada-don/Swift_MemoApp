@@ -48,6 +48,7 @@ class WriteViewController :UIViewController,UITextViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        
 /*---------キーボード監視用---------*/
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: "keyboardWillChangeFrame:",
@@ -80,7 +81,6 @@ class WriteViewController :UIViewController,UITextViewDelegate {
                 alert.show()
             }
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -93,18 +93,12 @@ class WriteViewController :UIViewController,UITextViewDelegate {
         /*----------------------------------------*/
         var memoNum=memo.count
         var i: Int = 0
-//        var maxId = 0
         
         println(memo)
         
-
         let id:AnyObject = convertUnixTimeFromDate(NSDate())
         let newDic = ["id":id,"contents":writeView.text]
         
-        
-//        memo[maxId+1] = newDic
-        
-//        println("maxID=\(maxId)")
         println("newDic=\(newDic)¥¥¥")
         println(memo)
         println(memoArray)
@@ -119,10 +113,8 @@ class WriteViewController :UIViewController,UITextViewDelegate {
         var tArray : NSArray = tempArr2 as NSArray
         memoArray = tArray.mutableCopy() as! NSMutableArray
 
-        
         memoArray.addObject(memoDictionary)
         
-        //Array→NSMutableArrayに直接キャストできない？
         tempArr  = memoArray as Array
         println("beforeReverse=\(tempArr)")
          tempArr2 = tempArr.reverse()
@@ -139,6 +131,7 @@ class WriteViewController :UIViewController,UITextViewDelegate {
         
         writeView.text=""
         self.view.endEditing(true)   //キーボードを閉じる
+        writeView.resignFirstResponder()
         
         //アラートの表示
         aleart.title = "Save"
@@ -190,7 +183,6 @@ class WriteViewController :UIViewController,UITextViewDelegate {
             UIView.animateWithDuration(duration, animations: { () -> Void in
                 self.view.layoutIfNeeded()
             })
-            
         }
     }
         
@@ -199,7 +191,6 @@ class WriteViewController :UIViewController,UITextViewDelegate {
         var unixtime: Double = date.timeIntervalSince1970
         return unixtime
     }
-
     
 /*---------------------------------------------------------------------------------*/
 

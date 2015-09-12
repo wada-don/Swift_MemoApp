@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 DAWA. All rights reserved.
 //
 
+
 import UIKit
 import WebKit
 
@@ -25,12 +26,9 @@ class WebViewController: UIViewController,UIWebViewDelegate{
         myIndiator.center = self.view.center
         myIndiator.hidesWhenStopped = true
         myIndiator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-
-        
-         //webView.addObserver(self, forKeyPath: "loading", options: .New, context: nil)  //プロパティ監視
         
         tool.translucent=false
-        tool.tintColor=UIColor(red: 103/255, green: 148/255, blue: 54/255, alpha: 1.0)//buttonの色変更
+        tool.tintColor=UIColor(red: 103/255, green: 148/255, blue: 54/255, alpha: 1.0)  //buttonの色変更
         
         self.webView.delegate = self  //webViewをdelegate
     }
@@ -40,10 +38,6 @@ class WebViewController: UIViewController,UIWebViewDelegate{
         reachabilityCheck ()  //ネットワークチェック
         viewNum = 2
     }
-    
-//    deinit{
-//        webView.removeObserver(self, forKeyPath: "loading", context: nil)  //Observerの後片付け
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -101,15 +95,15 @@ class WebViewController: UIViewController,UIWebViewDelegate{
     }
     
     @IBAction func reroad(){
-        webView.reload()  //リロード
+        webView.reload()
     }
     
     @IBAction func back(){
-        self.webView.goBack()  //戻る
+        self.webView.goBack()
     }
     
     @IBAction func go(){
-        self.webView.goForward()  //進む
+        self.webView.goForward()
     }
     
     func reachabilityCheck () {

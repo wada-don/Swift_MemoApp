@@ -75,9 +75,6 @@ class EditViewController: UIViewController , UITextViewDelegate{
         //メモ内容の変更を保存
         
         println(memo)
-        
-
-        
 
         //検索時に分岐する
         
@@ -102,7 +99,6 @@ class EditViewController: UIViewController , UITextViewDelegate{
             
             println("memo=\(memo)")
             
-            
             for(var k=0;k<memo.count;k++){
                 let Tmp = memo[k] as! NSDictionary
                 println("Tmp=\(Tmp)")
@@ -115,8 +111,6 @@ class EditViewController: UIViewController , UITextViewDelegate{
                     dic["contents"] = edtTxt
                     memo[k] = dic
                     memoArray[k]=memo[k]!
-                    //memo[i]=Tmp
-                   // println("i=\(i)")
                     println("Tmp=\(Tmp)")
                     println("memo=\(memo)")
                 }
@@ -124,8 +118,6 @@ class EditViewController: UIViewController , UITextViewDelegate{
             println("tmopDA=\(tmpDictionaryArray)")
                         
         }
-
-        
         
         println(memo)
         UD.setObject(memoArray as NSArray, forKey: "array")   //メモ内容保存
@@ -139,7 +131,6 @@ class EditViewController: UIViewController , UITextViewDelegate{
         aleart.show()
         
        self.dismissViewControllerAnimated(true, completion: nil)   //トップページに戻る
-       
     }
     
     //textviewがフォーカスされたら、Labelを非表示
@@ -170,7 +161,6 @@ class EditViewController: UIViewController , UITextViewDelegate{
             UIView.animateWithDuration(duration, animations: { () -> Void in
                 self.view.layoutIfNeeded()
             })
-            
         }
     }
     
@@ -184,10 +174,8 @@ class EditViewController: UIViewController , UITextViewDelegate{
             UIView.animateWithDuration(duration, animations: { () -> Void in
                 self.view.layoutIfNeeded()
             })
-            
         }
     }
-    
     
 /*---------------------------------------------------------------------------------*/
     

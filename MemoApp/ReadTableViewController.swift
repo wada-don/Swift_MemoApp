@@ -133,9 +133,10 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         var i:Int
-        
+
         println(memo)
         println(memoArray)
+
         NSLog("ViewWillAppear")
         
         //var i : Int

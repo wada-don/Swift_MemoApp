@@ -1,10 +1,4 @@
-//
-//  SwipeBetweenViewControllers.swift
-//  beacon
-//
-//  Created by Richard Kim, and HAYAKAWA TOMOAKI on 2014/11/06.
-//  Copyright (c) 2014 Richard Kim, and HAYAKAWA TOMOAKI. All rights reserved.
-//
+
 
 import UIKit
 
