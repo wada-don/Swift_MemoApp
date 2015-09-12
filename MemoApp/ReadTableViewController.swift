@@ -37,7 +37,8 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
     
 //    var searchResults:Dictionary<NSObject, AnyObject> = [0: ""]  //検索結果格納用
     
-    
+    // NSNotificationCenter定義
+    let MyNotification = "MyNotification"
     
     var scrollBeginingPoint: CGPoint!  //スクロール検知
     
@@ -48,6 +49,9 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         
         NSLog("ViewDidLoad")
+        
+        // Register Notification（登録）
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "myFunc:", name: MyNotification, object: nil)
         
 /*---------tableviewの設定---------*/
         tableview.dataSource = self
@@ -69,8 +73,6 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         self.searchBar.delegate = self
         self.searchBar.showsCancelButton = true
         //self.tableview.tableHeaderView = self.searchBar
-        
-        
         
 
         // Do any additional setup after loading the view.
@@ -413,7 +415,13 @@ class ReadTableViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+
 /*------------------------------------*/
+    
+    // Notification Method（通知受信時のメソッド）
+    func myFunc(notification: NSNotification?) {
+        tableview.reloadData()
+    }
     
 
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

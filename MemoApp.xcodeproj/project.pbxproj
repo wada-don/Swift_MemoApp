@@ -13,6 +13,8 @@
 		751CEB371A7CC51900E63ED6 /* MemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CEB361A7CC51900E63ED6 /* MemoAppTests.swift */; };
 		752F94271A7DF4D5004C3F3F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752F94261A7DF4D5004C3F3F /* EditViewController.swift */; };
 		7530C6FF1B90107B00627D69 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7530C6FE1B90107B00627D69 /* icon.png */; };
+		75364B111BA41234007FD192 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 75364B101BA41234007FD192 /* 1.png */; };
+		75364B131BA412CA007FD192 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 75364B121BA412CA007FD192 /* 2.png */; };
 		756705DB1B36C62900D7AE12 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 756705D91B36C51200D7AE12 /* Montserrat-Bold.ttf */; };
 		756EF1571B7F9079004E026B /* SwipeBetweenViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756EF1561B7F9079004E026B /* SwipeBetweenViewControllers.swift */; };
 		7572BEBE1B35587000913D35 /* IJReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7572BEBD1B35587000913D35 /* IJReachability.swift */; };
@@ -29,6 +31,9 @@
 		758641BB1B8B574400736BFA /* lscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 758641BA1B8B574400736BFA /* lscreen.png */; };
 		75A9C5B11B10488A00353A9A /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A9C5B01B10488A00353A9A /* WebViewController.xib */; };
 		75D0ED3F1AF761E400583344 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D0ED3E1AF761E400583344 /* Main.storyboard */; };
+		75D4BFE21BA3FE1500C84475 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D4BFDF1BA3FE1500C84475 /* EAIntroPage.m */; };
+		75D4BFE31BA3FE1500C84475 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D4BFE11BA3FE1500C84475 /* EAIntroView.m */; };
+		75D4BFE71BA4005900C84475 /* EARestrictedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D4BFE61BA4005900C84475 /* EARestrictedScrollView.m */; };
 		75EB12F71AAAC99800907C11 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EB12F61AAAC99800907C11 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +58,8 @@
 		751CEB361A7CC51900E63ED6 /* MemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoAppTests.swift; sourceTree = "<group>"; };
 		752F94261A7DF4D5004C3F3F /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		7530C6FE1B90107B00627D69 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		75364B101BA41234007FD192 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		75364B121BA412CA007FD192 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		756705D91B36C51200D7AE12 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		756EF1561B7F9079004E026B /* SwipeBetweenViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeBetweenViewControllers.swift; sourceTree = "<group>"; };
 		7572BEBD1B35587000913D35 /* IJReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJReachability.swift; sourceTree = "<group>"; };
@@ -69,6 +76,13 @@
 		758641BA1B8B574400736BFA /* lscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lscreen.png; sourceTree = "<group>"; };
 		75A9C5B01B10488A00353A9A /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		75D0ED3E1AF761E400583344 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		75D4BFDE1BA3FE1500C84475 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
+		75D4BFDF1BA3FE1500C84475 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
+		75D4BFE01BA3FE1500C84475 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
+		75D4BFE11BA3FE1500C84475 /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
+		75D4BFE41BA3FE8F00C84475 /* Memo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Memo-Bridging-Header.h"; sourceTree = "<group>"; };
+		75D4BFE51BA4005900C84475 /* EARestrictedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EARestrictedScrollView.h; sourceTree = "<group>"; };
+		75D4BFE61BA4005900C84475 /* EARestrictedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EARestrictedScrollView.m; sourceTree = "<group>"; };
 		75EB12F61AAAC99800907C11 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +107,8 @@
 		751CEB121A7CC51900E63ED6 = {
 			isa = PBXGroup;
 			children = (
+				75364B101BA41234007FD192 /* 1.png */,
+				75364B121BA412CA007FD192 /* 2.png */,
 				758641BA1B8B574400736BFA /* lscreen.png */,
 				7530C6FE1B90107B00627D69 /* icon.png */,
 				7586419C1B8AE77A00736BFA /* right.pdf */,
@@ -131,6 +147,13 @@
 				752F94261A7DF4D5004C3F3F /* EditViewController.swift */,
 				75EB12F61AAAC99800907C11 /* WebViewController.swift */,
 				75A9C5B01B10488A00353A9A /* WebViewController.xib */,
+				75D4BFDE1BA3FE1500C84475 /* EAIntroPage.h */,
+				75D4BFDF1BA3FE1500C84475 /* EAIntroPage.m */,
+				75D4BFE01BA3FE1500C84475 /* EAIntroView.h */,
+				75D4BFE11BA3FE1500C84475 /* EAIntroView.m */,
+				75D4BFE51BA4005900C84475 /* EARestrictedScrollView.h */,
+				75D4BFE61BA4005900C84475 /* EARestrictedScrollView.m */,
+				75D4BFE41BA3FE8F00C84475 /* Memo-Bridging-Header.h */,
 				751CEB271A7CC51900E63ED6 /* Images.xcassets */,
 				751CEB291A7CC51900E63ED6 /* LaunchScreen.xib */,
 				751CEB1E1A7CC51900E63ED6 /* Supporting Files */,
@@ -244,7 +267,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75364B111BA41234007FD192 /* 1.png in Resources */,
 				756705DB1B36C62900D7AE12 /* Montserrat-Bold.ttf in Resources */,
+				75364B131BA412CA007FD192 /* 2.png in Resources */,
 				751CEB2B1A7CC51900E63ED6 /* LaunchScreen.xib in Resources */,
 				7586419D1B8AE77A00736BFA /* right.pdf in Resources */,
 				758641A11B8AEBFA00736BFA /* cancel.pdf in Resources */,
@@ -278,11 +303,14 @@
 			files = (
 				7572BEBE1B35587000913D35 /* IJReachability.swift in Sources */,
 				752F94271A7DF4D5004C3F3F /* EditViewController.swift in Sources */,
+				75D4BFE31BA3FE1500C84475 /* EAIntroView.m in Sources */,
 				756EF1571B7F9079004E026B /* SwipeBetweenViewControllers.swift in Sources */,
+				75D4BFE71BA4005900C84475 /* EARestrictedScrollView.m in Sources */,
 				75795DAB1A7CE859004425FA /* WriteViewController.swift in Sources */,
 				757724B01AFE1811005D15D2 /* ReadTableViewController.swift in Sources */,
 				75EB12F71AAAC99800907C11 /* WebViewController.swift in Sources */,
 				751CEB211A7CC51900E63ED6 /* AppDelegate.swift in Sources */,
+				75D4BFE21BA3FE1500C84475 /* EAIntroPage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +435,7 @@
 				PRODUCT_MODULE_NAME = WebMemo;
 				PRODUCT_NAME = WebMemo;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/Memo-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -423,6 +452,7 @@
 				PRODUCT_MODULE_NAME = WebMemo;
 				PRODUCT_NAME = WebMemo;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/Memo-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -17,7 +17,7 @@ let X_OFFSET:CGFloat = 8 //%%% for some reason there's a little bit of a glitchy
 protocol SwipeBetweenViewControllersDelegate {
 }
 
-class SwipeBetweenViewControllers: UINavigationController,UIPageViewControllerDelegate,UIPageViewControllerDataSource,UIScrollViewDelegate
+class SwipeBetweenViewControllers: UINavigationController,UIPageViewControllerDelegate,UIPageViewControllerDataSource,UIScrollViewDelegate, EAIntroDelegate
 {
     required override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         pageScrollView = UIScrollView()
@@ -59,6 +59,10 @@ class SwipeBetweenViewControllers: UINavigationController,UIPageViewControllerDe
         
         self.navigationBar.barTintColor = UIColor(red: 241/255, green: 255/255, blue: 250/255, alpha: 1.0) //%%% bartint
         self.navigationBar.translucent = false
+        
+        
+        /*--------おもてなしライブラリ---------*/
+        self.showIntroWithCrossDissolve()
     }
 
     //This stuff here is customizeable: buttons, views, etc
@@ -284,6 +288,27 @@ class SwipeBetweenViewControllers: UINavigationController,UIPageViewControllerDe
             }
         }
         return NSNotFound
+    }
+    
+    /*------------------------------------*/
+    
+    /*----おもてなしライブラリ----*/
+    
+    
+    func showIntroWithCrossDissolve(){
+        var page1 : EAIntroPage = EAIntroPage()
+        page1.title = "機能の切り替え"
+        page1.desc = "横スワイプで各機能を切り替える事ができます"
+        page1.bgImage = UIImage(named:"1.png")
+        
+        var page2 : EAIntroPage = EAIntroPage()
+        page2.title = "メモの削除"
+        page2.desc = "メモ一覧ページで削除したいメモを長押しするとメモの削除が行えます"
+        page2.bgImage = UIImage(named:"2.png")
+        
+        var intro : EAIntroView = EAIntroView(frame: self.view.bounds, andPages:[page1,page2])
+        intro.delegate = self
+        intro.showInView(self.view, animateDuration:0.0)
     }
 
 }

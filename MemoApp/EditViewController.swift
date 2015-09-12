@@ -18,6 +18,9 @@ class EditViewController: UIViewController , UITextViewDelegate{
     
     var aleart = UIAlertView()
     
+    //NSNotificationCenter定義
+    let MyNotification = "MyNotification"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +118,7 @@ class EditViewController: UIViewController , UITextViewDelegate{
                     println("memo=\(memo)")
                 }
             }
-            println("tmopDA=\(tmpDictionaryArray)")
+            println("tmpDA=\(tmpDictionaryArray)")
                         
         }
         
@@ -129,6 +132,10 @@ class EditViewController: UIViewController , UITextViewDelegate{
         aleart.title = "Save"
         aleart.addButtonWithTitle("OK")
         aleart.show()
+        
+        //Notification送信(リロード用)
+        let ns = NSNotificationCenter.defaultCenter()
+        ns.postNotificationName(MyNotification, object: nil)
         
        self.dismissViewControllerAnimated(true, completion: nil)   //トップページに戻る
     }
