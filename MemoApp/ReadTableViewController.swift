@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import Foundation
 
 var searchString : String = "" //検索する言葉
 
 let UD = NSUserDefaults.standardUserDefaults()   //UserDefaultsインスタンス生成
-
 
 
 var text : String!

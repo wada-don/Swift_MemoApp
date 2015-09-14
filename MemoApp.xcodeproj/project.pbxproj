@@ -13,6 +13,9 @@
 		751CEB371A7CC51900E63ED6 /* MemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CEB361A7CC51900E63ED6 /* MemoAppTests.swift */; };
 		752F94271A7DF4D5004C3F3F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752F94261A7DF4D5004C3F3F /* EditViewController.swift */; };
 		7530C6FF1B90107B00627D69 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7530C6FE1B90107B00627D69 /* icon.png */; };
+		75364B161BA43B77007FD192 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75364B141BA43B77007FD192 /* Realm.framework */; };
+		75364B171BA43B77007FD192 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75364B151BA43B77007FD192 /* RealmSwift.framework */; };
+		75364B1A1BA43F9B007FD192 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75364B191BA43F9B007FD192 /* Realm.swift */; };
 		756705DB1B36C62900D7AE12 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 756705D91B36C51200D7AE12 /* Montserrat-Bold.ttf */; };
 		756EF1571B7F9079004E026B /* SwipeBetweenViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756EF1561B7F9079004E026B /* SwipeBetweenViewControllers.swift */; };
 		7572BEBE1B35587000913D35 /* IJReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7572BEBD1B35587000913D35 /* IJReachability.swift */; };
@@ -53,6 +56,9 @@
 		751CEB361A7CC51900E63ED6 /* MemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoAppTests.swift; sourceTree = "<group>"; };
 		752F94261A7DF4D5004C3F3F /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		7530C6FE1B90107B00627D69 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		75364B141BA43B77007FD192 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../realm-swift-0.95.0/ios/swift-1.2/Realm.framework"; sourceTree = "<group>"; };
+		75364B151BA43B77007FD192 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../realm-swift-0.95.0/ios/swift-1.2/RealmSwift.framework"; sourceTree = "<group>"; };
+		75364B191BA43F9B007FD192 /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		756705D91B36C51200D7AE12 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		756EF1561B7F9079004E026B /* SwipeBetweenViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeBetweenViewControllers.swift; sourceTree = "<group>"; };
 		7572BEBD1B35587000913D35 /* IJReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJReachability.swift; sourceTree = "<group>"; };
@@ -77,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75364B161BA43B77007FD192 /* Realm.framework in Frameworks */,
+				75364B171BA43B77007FD192 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +101,8 @@
 		751CEB121A7CC51900E63ED6 = {
 			isa = PBXGroup;
 			children = (
+				75364B141BA43B77007FD192 /* Realm.framework */,
+				75364B151BA43B77007FD192 /* RealmSwift.framework */,
 				758641BA1B8B574400736BFA /* lscreen.png */,
 				7530C6FE1B90107B00627D69 /* icon.png */,
 				7586419C1B8AE77A00736BFA /* right.pdf */,
@@ -131,6 +141,7 @@
 				752F94261A7DF4D5004C3F3F /* EditViewController.swift */,
 				75EB12F61AAAC99800907C11 /* WebViewController.swift */,
 				75A9C5B01B10488A00353A9A /* WebViewController.xib */,
+				75364B191BA43F9B007FD192 /* Realm.swift */,
 				751CEB271A7CC51900E63ED6 /* Images.xcassets */,
 				751CEB291A7CC51900E63ED6 /* LaunchScreen.xib */,
 				751CEB1E1A7CC51900E63ED6 /* Supporting Files */,
@@ -173,6 +184,7 @@
 				751CEB171A7CC51900E63ED6 /* Sources */,
 				751CEB181A7CC51900E63ED6 /* Frameworks */,
 				751CEB191A7CC51900E63ED6 /* Resources */,
+				75364B181BA43CDB007FD192 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -271,6 +283,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		75364B181BA43CDB007FD192 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		751CEB171A7CC51900E63ED6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -283,6 +311,7 @@
 				757724B01AFE1811005D15D2 /* ReadTableViewController.swift in Sources */,
 				75EB12F71AAAC99800907C11 /* WebViewController.swift in Sources */,
 				751CEB211A7CC51900E63ED6 /* AppDelegate.swift in Sources */,
+				75364B1A1BA43F9B007FD192 /* Realm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +430,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/wadadon/Desktop/realm-swift-0.95.0/ios/swift-1.2",
+				);
 				INFOPLIST_FILE = MemoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -417,6 +450,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/wadadon/Desktop/realm-swift-0.95.0/ios/swift-1.2",
+				);
 				INFOPLIST_FILE = MemoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
