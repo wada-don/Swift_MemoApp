@@ -7,11 +7,7 @@
 //
 
 import UIKit
-import Realm
-import RealmSwift
 
-var realm = RLMRealm.defaultRealm()
-var realmArr : Array = [""]
 
 var key:String = ""
 var viewNum = 1
@@ -94,13 +90,7 @@ class WriteViewController :UIViewController,UITextViewDelegate {
         
         /*----------------------------------------*/
         
-        let memoRLM = memoR()
-        memoRLM.memoTxt = writeView.text
-        realm.beginWriteTransaction()
-        realm.addObject(memoRLM)
-        realm.commitWriteTransaction()
         
-                
         /*----------------------------------------*/
         var memoNum=memo.count
         var i: Int = 0
