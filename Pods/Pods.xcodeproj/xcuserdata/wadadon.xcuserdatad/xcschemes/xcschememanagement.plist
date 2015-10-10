@@ -14,7 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-MemoApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5CD7867A04827FBDEC6E623F6A9059FE</key>
+		<key>042BAA9EB67613B08BB23AA399DC5945</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D8129E3793C29AAEEF26CE316A9DDC0</key>
+		<key>0D2E907D29FE675CFD4D9F7F321C941D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A4C3A4E328249522F9F5CF4C845A3534</key>
+		<key>E3A1CD9074F81122E85000D25F3818F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
