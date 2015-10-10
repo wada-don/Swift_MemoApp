@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Parse
-import Bolts
 
 
 @UIApplicationMain
@@ -21,14 +19,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // [Optional] Power your app with Local Datastore. For more info, go to
         // https://parse.com/docs/ios_guide#localdatastore/iOS
+        
+        
+        /*--Parse--*/
+        
         Parse.enableLocalDatastore()
         
         // Initialize Parse.
         Parse.setApplicationId("oV5CwHnTLvRAAAXQ0L2ZK6SpfOj41rExIEB0PQRB",
             clientKey: "7TgWcxtEwcXsnre0SBgxXriRcxll1Ppyo6im4iJF")
         
+        
+        
+        
+        
         // [Optional] Track statistics around application opens.
-        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        //PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
         
         

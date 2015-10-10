@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 47;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C44D8DA20799086E9AD2EAA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9C76642CD3B2DBDD473351 /* libPods.a */; };
 		751CEB211A7CC51900E63ED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CEB201A7CC51900E63ED6 /* AppDelegate.swift */; };
 		751CEB281A7CC51900E63ED6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 751CEB271A7CC51900E63ED6 /* Images.xcassets */; };
 		751CEB371A7CC51900E63ED6 /* MemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CEB361A7CC51900E63ED6 /* MemoAppTests.swift */; };
@@ -49,6 +48,7 @@
 		75A9C5B11B10488A00353A9A /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A9C5B01B10488A00353A9A /* WebViewController.xib */; };
 		75D0ED3F1AF761E400583344 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D0ED3E1AF761E400583344 /* Main.storyboard */; };
 		75EB12F71AAAC99800907C11 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EB12F61AAAC99800907C11 /* WebViewController.swift */; };
+		9896342B8AE5FA7B478EBB86 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9C76642CD3B2DBDD473351 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +94,9 @@
 		751CEB361A7CC51900E63ED6 /* MemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoAppTests.swift; sourceTree = "<group>"; };
 		752F94261A7DF4D5004C3F3F /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		7530C6FE1B90107B00627D69 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		755289411BBC259B000C1713 /* libBolts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBolts.a; path = "Pods/../build/Debug-iphoneos/libBolts.a"; sourceTree = "<group>"; };
+		755289421BBC259B000C1713 /* libParse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libParse.a; path = "Pods/../build/Debug-iphoneos/libParse.a"; sourceTree = "<group>"; };
+		755289451BBC276C000C1713 /* MemoApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MemoApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		7556C3121BA7A99C00A117D2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7556C3141BA7A9A400A117D2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		7556C3161BA7A9AC00A117D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -118,6 +121,8 @@
 		7586419E1B8AEAC000736BFA /* done.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = done.pdf; sourceTree = "<group>"; };
 		758641A01B8AEBFA00736BFA /* cancel.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cancel.pdf; sourceTree = "<group>"; };
 		758641BA1B8B574400736BFA /* lscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lscreen.png; sourceTree = "<group>"; };
+		759BA5BD1BBC2B92006A5BD8 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		759BA5BF1BBC2B9A006A5BD8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		75A9C5B01B10488A00353A9A /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		75D0ED3E1AF761E400583344 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		75EB12F61AAAC99800907C11 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +145,7 @@
 				7556C3171BA7A9AC00A117D2 /* CoreGraphics.framework in Frameworks */,
 				7556C3151BA7A9A400A117D2 /* CFNetwork.framework in Frameworks */,
 				7556C3131BA7A99C00A117D2 /* AudioToolbox.framework in Frameworks */,
-				5C44D8DA20799086E9AD2EAA /* libPods.a in Frameworks */,
+				9896342B8AE5FA7B478EBB86 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +162,10 @@
 		648F682AB16394CEFB1318DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				759BA5BF1BBC2B9A006A5BD8 /* Social.framework */,
+				759BA5BD1BBC2B92006A5BD8 /* Accounts.framework */,
+				755289411BBC259B000C1713 /* libBolts.a */,
+				755289421BBC259B000C1713 /* libParse.a */,
 				FB9C76642CD3B2DBDD473351 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -226,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				751CEB1F1A7CC51900E63ED6 /* Info.plist */,
+				755289451BBC276C000C1713 /* MemoApp-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -270,6 +280,7 @@
 				75364B181BA43CDB007FD192 /* ShellScript */,
 				7556C30C1BA6AD6C00A117D2 /* Embed Frameworks */,
 				ED41BE81C3A32BDE802CC2E5 /* Copy Pods Resources */,
+				759BA5C11BBC2C1E006A5BD8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -304,7 +315,7 @@
 		751CEB131A7CC51900E63ED6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = DAWA;
 				TargetAttributes = {
 					751CEB1A1A7CC51900E63ED6 = {
@@ -318,7 +329,7 @@
 				};
 			};
 			buildConfigurationList = 751CEB161A7CC51900E63ED6 /* Build configuration list for PBXProject "MemoApp" */;
-			compatibilityVersion = "Xcode 6.3";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -385,6 +396,19 @@
 			showEnvVarsInLog = 0;
 		};
 		75364B181BA43CDB007FD192 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+		759BA5C11BBC2C1E006A5BD8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -497,6 +521,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -534,6 +559,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -551,9 +577,15 @@
 				INFOPLIST_FILE = MemoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = WebMemo;
 				PRODUCT_NAME = WebMemo;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "./$(PROJECT)/MemoApp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -569,9 +601,15 @@
 				INFOPLIST_FILE = MemoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = WebMemo;
 				PRODUCT_NAME = WebMemo;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "./$(PROJECT)/MemoApp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -591,7 +629,7 @@
 				INFOPLIST_FILE = MemoAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemoApp.app/MemoApp";
+				TEST_HOST = "";
 			};
 			name = Debug;
 		};
@@ -606,7 +644,7 @@
 				INFOPLIST_FILE = MemoAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemoApp.app/MemoApp";
+				TEST_HOST = "";
 			};
 			name = Release;
 		};

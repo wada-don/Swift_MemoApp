@@ -11,13 +11,13 @@
 
 #import <Parse/PFUser.h>
 
-#import "PFAuthenticationProvider.h"
+#import "PFMacros.h"
 
 extern NSString *const PFUserCurrentUserFileName;
 extern NSString *const PFUserCurrentUserPinName;
 extern NSString *const PFUserCurrentUserKeychainItemName;
 
-@class BFTask;
+@class BFTask PF_GENERIC(__covariant BFGenericType);
 @class PFCommandResult;
 @class PFUserController;
 
@@ -71,28 +71,9 @@ extern NSString *const PFUserCurrentUserKeychainItemName;
 - (BFTask *)_logOutAsync;
 
 ///--------------------------------------
-/// @name Authentication Providers
+/// @name Third-party Authentication (Private)
 ///--------------------------------------
 
-// TODO: (nlutsenko) Add Documentation
-+ (void)registerAuthenticationProvider:(id<PFAuthenticationProvider>)authenticationProvider;
-
-// TODO: (nlutsenko) Add Documentation
-+ (BFTask *)logInWithAuthTypeInBackground:(NSString *)authType authData:(NSDictionary *)authData;
-
-// TODO: (nlutsenko) Add Documentation
-- (BFTask *)linkWithAuthTypeInBackground:(NSString *)authType authData:(NSDictionary *)authData;
-
-// TODO: (nlutsenko) Add Documentation
-- (BFTask *)unlinkWithAuthTypeInBackground:(NSString *)authType;
-
-// TODO: (nlutsenko) Add Documentation
-- (BOOL)isLinkedWithAuthType:(NSString *)authType;
-
-///--------------------------------------
-/// @name Authentication Providers (Private)
-///--------------------------------------
-
-+ (void)_unregisterAuthenticationProvider:(id<PFAuthenticationProvider>)provider;
++ (void)_unregisterAuthenticationDelegateForAuthType:(NSString *)authType;
 
 @end
